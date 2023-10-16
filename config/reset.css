@@ -1,7 +1,3 @@
-* {
-  transition: 0.2s all ease-in-out;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,9 +15,6 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  font-size: 1.25rem;
-  letter-spacing: 0.08rem;
-  font-weight: 600;
 }
 
 /* make sure to set some focus styles for accessibility */
@@ -125,12 +118,14 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
+a, a:link, a:visited  {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
 
-a:focus {
-  outline: thin dotted;
+a:hover  {
+  text-decoration: none;
 }
 
 /**
@@ -197,6 +192,10 @@ legend {
  *    and Chrome.
  * 3. Improve appearance and consistency in all browsers.
  */
+
+input {
+  border: none;
+}
 
 button,
 input,
