@@ -1,0 +1,21 @@
+.grid {
+  padding: 0 235px;
+  width: calc(100vw - 470px);
+  display: grid;
+  grid-template-columns: 670px 1fr;
+  grid-template-rows: repeat(2, 230px);
+  grid-gap: 30px;
+  grid-template-areas:
+    "grid_1 grid_2"
+    "grid_1 grid_3";
+
+  &_1 {
+    grid-area: grid_1;
+  }
+  &_2 {
+    grid-area: grid_2;
+  }
+  &_3 {
+    grid-area: grid_3;
+  }
+}

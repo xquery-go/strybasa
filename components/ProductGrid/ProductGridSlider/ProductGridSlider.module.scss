@@ -1,0 +1,12 @@
+.container {
+  background: #0A0907 url("/img/GridBackground.jpg") center center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 10px;
+
+  &_content {
+    color: #FFFFFF;
+    font-size: 2.25rem;
+  }
+}

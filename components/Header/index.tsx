@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 import {snowStormKraft} from "@/config/fonts/fonts";
 import Link from "next/link";
 import {ShoppingCart} from "lucide-react";
-import {HeaderInfo} from "@/components/HeaderInfo";
+import {HeaderInfo} from "@/components/Header/HeaderInfo";
 
 export const Header = () => {
     const links = [

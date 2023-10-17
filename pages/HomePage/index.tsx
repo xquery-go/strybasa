@@ -1,14 +1,13 @@
 import React from 'react';
-import {snowStormKraft} from "@/config/fonts/fonts";
 import {Header} from "@/components/Header";
 import styles from './HomePage.module.scss'
+import {ProductGrid} from "@/components/ProductGrid";
 
 export const HomePage = () => {
     return (
-        <div className={styles.wrapper}>
+        <div>
             <Header />
-            Hello world
-            <p className={snowStormKraft.className}>Second font</p>
+            <ProductGrid />
         </div>
     );
 };
