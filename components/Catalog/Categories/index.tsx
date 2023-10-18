@@ -9,7 +9,7 @@ export const Categories = () => {
     const [activeCategory, setActiveCategory] = useState<ICategory>(categories[0])
     return (
         <select className={styles.select}>
-            <option value="" className={`${styles.option} ${styles.option_name}`}>Категирия</option>
+            <option value="" className={`${styles.option} ${styles.option_name}`}>Категории</option>
             { categories.map((item, ind) => {
                 return (
                     <option

@@ -11,6 +11,6 @@ export const TagsData: ITag[] = [
     },
     {
         name: 'Тэг 3',
-        slug: 'Tag2',
+        slug: 'Tag3',
     }
 ]

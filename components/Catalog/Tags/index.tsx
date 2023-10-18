@@ -11,7 +11,7 @@ export const Tags = () => {
     return (
         <div className={styles.tags}>
             { tags.map((item, ind) => {
-                const className = (item.slug == activeTag.slug ? `${styles.tag}` : `${styles.tag} ${styles.tag_active}`);
+                const className = (item.slug != activeTag.slug ? `${styles.tag}` : `${styles.tag} ${styles.tag_active}`);
                 return (
                     <p
                         key={ind}

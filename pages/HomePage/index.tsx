@@ -10,7 +10,7 @@ export const HomePage = () => {
         <div>
             <Header />
             <ProductGrid />
-            {/*TODO <Catalog />*/}
+            <Catalog />
             <SpecialProducts />
         </div>
     );

@@ -1,4 +1,22 @@
 .container {
   padding: 0 235px;
   width: calc(100% - 470px);
+  margin-bottom: 140px;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  &_name {
+    font-size: 2rem;
+  }
 }

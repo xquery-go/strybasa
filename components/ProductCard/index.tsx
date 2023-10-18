@@ -27,7 +27,7 @@ export const ProductCard = ({ product }: { product: IProduct }) => {
                     <div className={styles.meta_bottomPart}>
                         <p className={styles.meta_price}>{ product.price }₽</p>
                         <button className={styles.meta_btn}> {/*TODO*/}
-                            <ShoppingCart width={20} height={20} className={styles.shopCart_img} fill={'#000000'} />
+                            <ShoppingCart width={23} height={23} className={styles.shopCart_img} fill={'#000000'} />
                         </button>
                     </div>
                 </div>
