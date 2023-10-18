@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './ProductGrid.module.scss'
-import {ProductGridEl} from "@/components/ProductGrid/ProductGridEl";
-import {ProductGridSlider} from "@/components/ProductGrid/ProductGridSlider";
+import {GridEl} from "@/components/ProductGrid/GridEl";
+import {Products} from "@/data/Products";
+import {Slider} from "@/components/ProductGrid/Slider";
 
 export const ProductGrid = () => {
     return (
         <div className={styles.grid}>
             <div className={styles.grid_1}>
-                <ProductGridSlider />
+                <Slider products={Products} />
             </div>
             <div className={styles.grid_2}>
-                <ProductGridEl />
+                <GridEl product={Products[0]} />
             </div>
             <div className={styles.grid_3}>
-                <ProductGridEl />
+                <GridEl product={Products[0]} />
             </div>
         </div>
     )

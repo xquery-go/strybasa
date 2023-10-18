@@ -1,6 +1,6 @@
 .headerInfo {
   padding: 5px 235px;
-  width: calc(100vw - 470px);
+  width: calc(100% - 470px);
 
   background-color: #212121;
   display: flex;
@@ -9,7 +9,6 @@
   * {
     font-weight: 500;
   }
-
   margin-bottom: 10px;
 }
 

@@ -1,6 +1,7 @@
 .grid {
+  margin: 70px 0 150px 0;
   padding: 0 235px;
-  width: calc(100vw - 470px);
+  width: calc(100% - 470px);
   display: grid;
   grid-template-columns: 670px 1fr;
   grid-template-rows: repeat(2, 230px);
