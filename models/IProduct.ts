@@ -9,7 +9,7 @@ export interface IProduct {
     last_modified_date: string,
     price: number,
     count: number,
-    product_image?: string,
+    product_image: string,
     tags?: ITag[],
     category?: ICategory,
 }

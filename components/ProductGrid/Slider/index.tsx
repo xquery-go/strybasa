@@ -23,10 +23,10 @@ export const Slider = ({ products }: { products: IProduct[] }) => {
         <Swiper
             pagination={pagination}
             loop
-            // autoplay={{
-            //     delay: 5000,
-            //     disableOnInteraction: false,
-            // }}
+            autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+            }}
             modules={[Pagination, Autoplay]}
             className={styles.container}
         >
