@@ -1,0 +1,58 @@
+.container {
+  padding: 35px 235px;
+  width: calc(100% - 470px);
+  background: #0A0907 url("/img/FooterBackground.jpg") center center/cover no-repeat;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.column {
+  max-width: 330px;
+  &_name {
+    font-size: 1.3rem;
+    color: #EEB200;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  &_unique {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.link {
+  font-size: 1.1rem;
+  color: #ABABAB;
+  margin-bottom: 3px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.timetable {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+
+}
+.time {
+  color: #FFFFFF;
+}
+.contacts {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
