@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HeaderInfo.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
-import {UserCircle2} from "lucide-react";
+import {User, UserCircle, UserCircle2} from "lucide-react";
 
 export const HeaderInfo = () => {
     return (
@@ -11,16 +11,16 @@ export const HeaderInfo = () => {
                 <Link href={"#"}>
                     <Image
                         src={'/img/Vk.svg'}
-                        width={20}
-                        height={20}
+                        width={18}
+                        height={18}
                         alt={"Vk"}
                     />
                 </Link>
                 <Link href={"#"}>
                     <Image
                         src={'/img/Watsapp.svg'}
-                        width={20}
-                        height={20}
+                        width={18}
+                        height={18}
                         alt={"Watsapp"}
                     />
                 </Link>
@@ -28,7 +28,7 @@ export const HeaderInfo = () => {
                 <Link href={"#"}>mail@mail.ru</Link>
             </div>
             <Link href={"#"} className={styles.authorize}>
-                <UserCircle2 width={25} height={25} className={styles.authorize_img} />
+                <User width={24} height={24} fill={""} className={styles.authorize_img} />
                 <p className={styles.authorize_text}>My account</p>
             </Link>
         </div>

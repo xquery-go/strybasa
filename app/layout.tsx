@@ -1,7 +1,7 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import '@/config/reset.css'
-import {alumniSans} from "@/config/fonts/fonts";
+import {alumniSans} from "@/config/fonts/fonts"
+import './globals.css'
 import styles from './layout.module.scss'
 
 export const metadata: Metadata = {

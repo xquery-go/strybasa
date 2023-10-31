@@ -8,8 +8,6 @@ import 'swiper/css';
 import {Pagination, Autoplay} from "swiper/modules";
 import 'swiper/css/pagination';
 import './bulletStyle.scss';
-import {snowStormKraft} from "@/config/fonts/fonts";
-import Link from 'next/link';
 import {SliderEl} from "@/components/ProductGrid/Slider/SliderEl";
 
 export const Slider = ({ products }: { products: IProduct[] }) => {

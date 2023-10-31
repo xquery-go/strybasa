@@ -4,17 +4,17 @@
   gap: 25px;
   height: 100%;
   justify-content: center;
-  padding: 0 60px;
-  max-width: 65%;
+  padding: 0 50px;
+  max-width: 60%;
 
   &_p {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 22px;
     text-transform: uppercase;
   }
   &_name {
     color: #EEB200;
-    font-size: 2.25rem;
+    font-size: 28px;
     text-transform: uppercase;
   }
   &_dscr {
@@ -25,7 +25,7 @@
     font-weight: 700;
     text-transform: uppercase;
 
-    padding: 10px 25px;
+    padding: 8px 15px;
     background-color: #EEB200;
     color: #FFFFFF;
     width: fit-content;

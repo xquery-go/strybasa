@@ -1,10 +1,10 @@
 .grid {
-  margin: 70px 0 150px 0;
-  padding: 0 235px;
-  width: calc(100% - 470px);
+  margin: 70px 0 140px 0;
+  padding: 0 275px;
+  width: calc(100% - (275px * 2));
   display: grid;
-  grid-template-columns: 670px 1fr;
-  grid-template-rows: repeat(2, 230px);
+  grid-template-columns: 750px 1fr;
+  grid-template-rows: repeat(2, 235px);
   grid-gap: 30px;
   grid-template-areas:
     "grid_1 grid_2"
