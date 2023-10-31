@@ -1,0 +1,16 @@
+.head {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.name {
+  font-size: 28px;
+  color: #EEB200;
+}
+
+.dscr {
+  font-size: 20px;
+}

@@ -12,10 +12,12 @@ export const Header = () => {
         <>
             <HeaderInfo />
             <div className={styles.header}>
+                <Link href={'/'}>
                 <div className={styles.logo}>
                     <h1 className={`${styles.logo_1} ${roboto.className}`}>Стройбаза</h1>
                     <h1 className={`${styles.logo_2} ${roboto.className}`}>«Тиски»</h1>
                 </div>
+                </Link>
                 <nav className={styles.nav}>
                     { HeaderLinks.map((link, ind) => {
                         return <Link href={link.link} key={ind} className={styles.nav_link}>{link.text}</Link>

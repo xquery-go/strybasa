@@ -8,7 +8,7 @@ import {Footer} from "@/components/Footer";
 
 export const HomePage = () => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Header />
             <ProductGrid />
             <Catalog />
