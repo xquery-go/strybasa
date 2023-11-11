@@ -1,7 +1,6 @@
 .container {
-  padding: 0 275px;
-  width: calc(100% - (275px * 2));
-  margin-bottom: 140px;
+  width: 75%;
+  margin: 0 auto 140px auto;
 }
 
 .products {
@@ -11,12 +10,17 @@
 }
 
 .header {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   &_name {
-    font-size: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.75rem;
   }
 }

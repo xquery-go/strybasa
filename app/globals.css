@@ -1,6 +1,9 @@
 * {
   transition: 0.2s all ease-in-out;
 }
+svg {
+  transition: 0s;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -22,7 +25,6 @@ time, mark, audio, video {
   letter-spacing: 0.08rem;
   font-weight: 600;
 }
-
 /* make sure to set some focus styles for accessibility */
 :focus {
   outline: 0;

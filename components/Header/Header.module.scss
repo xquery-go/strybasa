@@ -1,14 +1,26 @@
+.headerBlock {
+  width: 100%;
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+}
+
+.wrapper {
+  background-color: #EEB200;
+  padding: 5px 0 5px 0;
+}
+
 .header {
-  padding: 0 275px;
-  width: calc(100% - (275px * 2));
+  width: 75%;
+  margin: 0 auto;
   color: #000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
-  text-shadow: 0 5px 4px rgba(0, 0, 0, 0.44);
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -16,11 +28,11 @@
   gap: 3px;
   &_1 {
     color: #FFFFFF;
-    font-size: calc(2.25rem * 0.8);
+    font-size: 1.5rem;
   }
   &_2 {
     color: #000000;
-    font-size: calc(2.25rem * 0.8);
+    font-size: 1.5rem;
   }
 }
 
@@ -28,9 +40,13 @@
   display: flex;
   gap: 28px;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   &_link {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 1.25rem;
   }
 }
 
@@ -39,7 +55,7 @@
   align-items: center;
   gap: 10px;
   &_value {
-    font-size: 1.5625rem;
+    font-size: 1.4rem;
     letter-spacing: normal;
     font-weight: 700;
   }

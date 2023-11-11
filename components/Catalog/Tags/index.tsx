@@ -3,11 +3,15 @@ import React, {useState} from 'react';
 import styles from './Tags.module.scss'
 import {ITag} from "@/models/ITag";
 import {TagsData} from "@/data/TagsData";
-import {act} from "react-dom/test-utils";
+import { queryTypes, useQueryStates } from 'next-usequerystate';
 
 export const Tags = () => {
     const tags = TagsData;
     const [activeTag, setActiveTag] = useState<ITag>(tags[0])
+    const [query, setQuery] = useQueryStates({
+        categoryFilter: queryTypes.string.withDefault(''),
+        tagFilter: queryTypes.string.withDefault('Tag1')
+    });
     return (
         <div className={styles.tags}>
             { tags.map((item, ind) => {
@@ -16,7 +20,10 @@ export const Tags = () => {
                     <p
                         key={ind}
                         className={className}
-                        onClick={() => setActiveTag(item)}
+                        onClick={() => {
+                            setQuery({tagFilter: item.slug})
+                            setActiveTag(item)
+                        }}
                     >
                         { item.name }
                     </p>

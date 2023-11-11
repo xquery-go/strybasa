@@ -15,7 +15,7 @@ export const ProductRow = ({ products }: { products: IProduct[] }) => {
         <Swiper
             navigation
             slidesPerView={4}
-            spaceBetween={30}
+            spaceBetween={40}
             modules={[Navigation]}
             className={styles.container}
         >
