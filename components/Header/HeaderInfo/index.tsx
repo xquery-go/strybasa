@@ -28,7 +28,7 @@ export const HeaderInfo = () => {
                     <Link href={"#"} className={styles.link}>+7(911)659-37-37</Link>
                     <Link href={"#"} className={styles.link}>mail@mail.ru</Link>
                 </div>
-                <Link href={"#"} className={`${styles.authorize} ${styles.link}`}>
+                <Link href={"/registration"} className={`${styles.authorize} ${styles.link}`}>
                     <User width={20} height={20} fill={""} className={styles.authorize_img} />
                     <p className={styles.authorize_text}>My account</p>
                 </Link>
