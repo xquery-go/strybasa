@@ -1,15 +1,18 @@
 import React from 'react';
-import styles from './LoginPage.module.scss'
+import styles from './ShopCart.module.scss'
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
-import {LoginForm} from "@/components/LoginForm";
+import {roboto} from "@/config/fonts/fonts";
 
-export const LoginPage = () => {
+export const ShopCart = () => {
     return (
         <div className={styles.wrapper}>
             <Header />
             <div className={styles.content}>
-                <LoginForm />
+                <h1 className={`${styles.name} ${roboto.className}`}>Корзина</h1>
+                <div className={styles.services}>
+
+                </div>
             </div>
             <Footer />
         </div>
