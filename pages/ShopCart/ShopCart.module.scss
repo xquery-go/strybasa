@@ -1,5 +1,5 @@
 .wrapper {
-  background: #0A0907 url("/img/ServicesBackground.jpg") center top/cover no-repeat;
+  background: #0A0907 url("/img/ServicesBackground.jpg") center top/contain no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,4 +13,26 @@
 
 .name {
   margin-bottom: 20px;
+}
+
+.shopCart {
+  width: calc(100% - 30px);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ordering {
+  width: calc(100% - 30px);
+  padding: 30px;
+  background: #0A0907 url("/img/OrderBackground.png") center top/cover no-repeat;
+  border-radius: 10px;
+  height: fit-content;
 }
