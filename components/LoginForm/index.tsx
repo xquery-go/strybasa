@@ -1,23 +1,19 @@
 'use client';
 import React, {useState} from 'react';
-import styles from './RegForm.module.scss'
+import styles from './LoginForm.module.scss'
 import {useFormik} from "formik";
 import {roboto} from "@/config/fonts/fonts"
-import PhoneInput from 'react-phone-number-input/input'
 import Link from "next/link";
 
 
 
-export const RegForm = () => {
-    const [number, setNumber] = useState<string>('')
+export const LoginForm = () => {
     const formik = useFormik({
         initialValues: {
             username: '',
-            phone_number: '',
             password: '',
         },
         onSubmit: values => {
-            values.phone_number = number;
             alert(JSON.stringify(values))
         }
     });
@@ -25,7 +21,7 @@ export const RegForm = () => {
     return (
         <div className={styles.wrapper}>
             <form className={styles.form} onSubmit={formik.handleSubmit}>
-                <h2 className={`${styles.title} ${roboto.className}`}>Регистрация</h2>
+                <h2 className={`${styles.title} ${roboto.className}`}>Войти</h2>
                 <div className={styles.field}>
                     <label htmlFor="username">Имя пользователя</label>
                     <input
@@ -35,17 +31,6 @@ export const RegForm = () => {
                         value={formik.values.username}
                         onChange={formik.handleChange}
                         placeholder={"Имя пользователя"}
-                    />
-                </div>
-                <div className={styles.field}>
-                    <label htmlFor="phone_number">Номер телефона</label>
-                    <PhoneInput
-                        className={styles.input}
-                        type="text"
-                        name="phone_number"
-                        value={number}
-                        onChange={()  => setNumber}
-                        placeholder={"Номер телефона"}
                     />
                 </div>
                 <div className={styles.field}>
@@ -60,8 +45,8 @@ export const RegForm = () => {
                     />
                 </div>
                 <div className={styles.bottomPart}>
-                    <button className={styles.btn} type="submit">Зарегистрироваться</button>
-                    <Link href={'/login'} className={styles.login_link}>Уже усть аккаунт? Войти</Link>
+                    <button className={styles.btn} type="submit">Войти</button>
+                    <Link href={'/registration'} className={styles.reg_link}>Нет аккаунта? Зарегестрироваиться</Link>
                 </div>
             </form>
         </div>
