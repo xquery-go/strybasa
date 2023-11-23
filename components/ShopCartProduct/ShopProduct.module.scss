@@ -1,0 +1,86 @@
+.content {
+  position: relative;
+  border-radius: 10px;
+  background: #0A0907 url("/img/OrderBackground.png") center top/cover no-repeat;
+  box-shadow: 0 9px 46px 0 rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: fit-content;
+  padding: 30px;
+}
+
+.close {
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 5px;
+}
+
+.leftPart {
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: #ADADAD;
+  }
+}
+.price {
+  font-size: 1.7rem;
+}
+
+.bottomPart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+
+.quanity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 6px 4px;
+  background: #717171;
+  width: fit-content;
+  border-radius: 5px;
+
+  &__btn {
+    font-weight: bold;
+    background: none;
+    margin: 0;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+
+  }
+  &__kol {
+    padding: 0 4px;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+}

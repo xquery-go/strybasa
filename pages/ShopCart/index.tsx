@@ -5,7 +5,7 @@ import {Footer} from "@/components/Footer";
 import {roboto, robotoMono} from "@/config/fonts/fonts";
 import {ProductsData} from "@/data/ProductsData";
 import {IProduct} from "@/models/IProduct";
-import {ShopProduct} from "@/components/ShopProduct";
+import {ShopProduct} from "@/components/ShopCartProduct";
 
 export const ShopCart = () => {
     let summ = 0;
@@ -17,14 +17,17 @@ export const ShopCart = () => {
                 <h1 className={`${styles.name} ${roboto.className}`}>Корзина</h1>
                 <div className={styles.shopCart}>
                     <div className={styles.products}>
-                       { ProductsData.map((item: IProduct) => { return <ShopProduct item={item} key={item.id} />}) }
+                       { ProductsData.map((item: IProduct) => { return <ShopProduct item={item} key={item.product_id} />}) }
                     </div>
                     <div className={styles.ordering}>
                         <button className={styles.btn}>Перейти к оформлению</button>
                         <div className={styles.line}></div>
-                        <div className={styles.cost}>
-                            <p className={styles.cost_name}>Товары ({ProductsData.length})</p>
-                            <p className={`${styles.cost} ${robotoMono.className}`}>{summ}₽</p>
+                        <div className={styles.wrap}>
+                            <p className={styles.shop_cart_name}>Ваша корзина:</p>
+                            <div className={styles.cost}>
+                                <p className={styles.cost_name}>Товары ({ProductsData.length})</p>
+                                <p className={styles.cost_cost}>{summ}₽</p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import {roboto} from "@/config/fonts/fonts";
 
 export const ProductCard = ({ product }: { product: IProduct }) => {
     return (
-        <Link href={`/product/${product.id}`} className={styles.containerLink}>
+        <Link href={`/product/${product.product_id}`} className={styles.containerLink}>
             <div className={styles.container}>
                 <div
                     className={styles.img}

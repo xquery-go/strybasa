@@ -1,5 +1,5 @@
 .wrapper {
-  background: #0A0907 url("/img/ServicesBackground.jpg") center top/contain no-repeat;
+  background: #0A0907 url("/img/ServicesBackground.jpg") center top/cover no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
 .shopCart {
   width: calc(100% - 30px);
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 1fr;
   gap: 30px;
 }
 
@@ -33,6 +33,53 @@
   width: calc(100% - 30px);
   padding: 30px;
   background: #0A0907 url("/img/OrderBackground.png") center top/cover no-repeat;
+  box-shadow: 0 9px 46px 0 rgba(0, 0, 0, 0.71);
   border-radius: 10px;
   height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  width: 100%;
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  padding: 8px 15px;
+  background-color: #F7B900;
+  color: #FFFFFF;
+  border-radius: 5px;
+
+  border: none;
+}
+
+.line {
+  height: 2px;
+  border-radius: 5px;
+  background: rgba(107, 107, 107, 0.57);
+}
+
+.wrap {
+  width: 100%;
+}
+
+.shop_cart_name {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.cost {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1.3rem;
+  font-weight: 400;
+  p:last-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 }
