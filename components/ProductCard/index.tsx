@@ -18,11 +18,11 @@ export const ProductCard = ({ product }: { product: IProduct }) => {
                     <div className={styles.meta_block_2}>
                         <div className={styles.meta_reviews}>
                             <div className={styles.meta_stars}>
-                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'}/>
-                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'}/>
-                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'}/>
-                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'}/>
-                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'}/>
+                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
+                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
+                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
+                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
+                                <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
                             </div>
                             <p className={`${styles.meta_reviewsQuantity}`}>777 отзывов</p>
                         </div>

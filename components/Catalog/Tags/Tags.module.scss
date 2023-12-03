@@ -17,3 +17,13 @@
     border-bottom: 4px solid #EEB200;
   }
 }
+
+@media (max-width: 1200px) {
+  .tag {
+    font-size: 1.05rem;
+    &_active {
+      font-size: 1.1rem;
+      border-bottom: 3px solid #EEB200;
+    }
+  }
+}

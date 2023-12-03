@@ -24,3 +24,17 @@
     font-size: 1.75rem;
   }
 }
+
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+    margin-bottom: 90px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+    &_name {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -35,3 +35,10 @@
   }
   color: #8C8C8C;
 }
+
+@media (max-width: 1200px) {
+  .headerInfo {
+    width: 95%;
+    font-size: .8rem;
+  }
+}

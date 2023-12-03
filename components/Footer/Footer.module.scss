@@ -62,3 +62,21 @@
   flex-direction: row;
   gap: 15px;
 }
+
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+  }
+  .column_unique {
+    width: 300px;
+  }
+  .column_name {
+    font-size: 1rem;
+  }
+  .link {
+    font-size: .8rem;
+  }
+  .time {
+    font-size: .6rem;
+  }
+}

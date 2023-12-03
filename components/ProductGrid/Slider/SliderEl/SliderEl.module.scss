@@ -32,3 +32,19 @@
     border-radius: 5px;
   }
 }
+
+@media (max-width: 1200px) {
+  .slider_el_p {
+    font-size: 1rem;
+  }
+  .slider_el_name {
+    font-size: 1.3rem;
+  }
+  .slider_el_dscr {
+    font-size: .8rem;
+  }
+  .slider_el_btn {
+    font-size: .8rem;
+    padding: 6px 12px;
+  }
+}

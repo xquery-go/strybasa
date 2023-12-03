@@ -8,3 +8,10 @@
 .swiper-pagination-bullet-active {
   background: #EEB200;
 }
+
+@media (max-width: 1200px) {
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+}

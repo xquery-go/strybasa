@@ -20,3 +20,11 @@
     grid-area: grid_3;
   }
 }
+
+@media (max-width: 1200px) {
+  .grid {
+    width: 95%;
+    grid-gap: 24px;
+    margin-bottom: 90px;
+  }
+}
