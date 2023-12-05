@@ -8,6 +8,7 @@ export const Service = ({ item }: { item: IService }) => {
         <div>
             <div className={styles.head}>
                 <Image
+                    className={styles.icon}
                     src={item.icon}
                     width={80}
                     height={80}

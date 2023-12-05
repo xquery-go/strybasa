@@ -1,5 +1,6 @@
 * {
   transition: 0.2s all ease-in-out;
+  scroll-behavior: smooth;
 }
 svg {
   transition: 0s;

@@ -12,6 +12,7 @@
 }
 
 .name {
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
@@ -81,5 +82,34 @@
   p:last-child {
     font-size: 1.5rem;
     font-weight: 600;
+  }
+}
+
+@media (max-width: 1200px) {
+  .name {
+    font-size: 1.6rem;
+  }
+  .content {
+    width: 95%;
+    margin-bottom: 90px;
+  }
+  .shopCart {
+    gap: 20px;
+  }
+  .ordering {
+    box-shadow: none;
+    padding: 20px;
+  }
+  .shop_cart_name {
+    font-size: 1.12rem;
+  }
+  .btn {
+    font-size: .84rem;
+  }
+  .cost {
+    font-size: 1rem;
+    p:last-child {
+      font-size: 1.2rem;
+    }
   }
 }

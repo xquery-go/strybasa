@@ -6,7 +6,7 @@ import {Minus, Plus, X} from "lucide-react";
 import Link from "next/link";
 
 export const ShopProduct = ({ item }: { item: IProduct }) => {
-    const quanity = 1;
+    const quantity = 1;
     return (
         <div className={styles.content}>
             <button className={styles.close}>
@@ -22,10 +22,10 @@ export const ShopProduct = ({ item }: { item: IProduct }) => {
             <div className={styles.leftPart}>
                 <Link href={`product/${item.product_id}`} className={styles.title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Link>
                 <div className={styles.bottomPart}>
-                    <div className={styles.quanity}>
-                        <button className={styles.quanity__btn}><Minus width={16} height={16} color={'#fff'} strokeWidth={'4'}/></button>
-                        <p className={styles.quanity__kol}>{quanity}</p>
-                        <button className={styles.quanity__btn}><Plus width={16} height={16} color={'#fff'} strokeWidth={'4'}/></button>
+                    <div className={styles.quantity}>
+                        <button className={styles.quantity__btn}><Minus width={16} height={16} color={'#fff'} strokeWidth={'4'} className={styles.func_icon}/></button>
+                        <p className={styles.quantity__kol}>{quantity}</p>
+                        <button className={styles.quantity__btn}><Plus width={16} height={16} color={'#fff'} strokeWidth={'4'} className={styles.func_icon}/></button>
                     </div>
                     <p className={styles.price}>{item.price}₽</p>
                 </div>
