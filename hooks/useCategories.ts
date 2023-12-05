@@ -9,10 +9,11 @@ export const useCategories = () => {
             const data = await axios.get(
                 'http://127.0.0.1/api/categories/?format=json'
             );
-            return data.data.results as ICategory[];
+            console.log(`BREAKPOINT FROM USE CATEGORIES`, data)
+
+            return data.data as ICategory[];
         },
     });
-    console.log(`BREAKPOINT FROM USE CATEGORIES`, data)
 
     return { data, isLoading, isSuccess, error };
 };

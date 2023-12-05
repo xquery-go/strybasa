@@ -11,6 +11,6 @@ export interface IProduct {
     metric: string,
     quantity: number,
     product_image: string,
-    tags?: ITag[],
-    category?: ICategory,
+    tags?: number[],
+    categories?: number[],
 }

@@ -9,21 +9,21 @@ export const Tags = () => {
 
     const {data: tags} = useTags()
     const [query, setQuery] = useQueryStates({
-        categoryFilter: queryTypes.string.withDefault(''),
-        tagFilter: queryTypes.string.withDefault('Tag1')
+        categoryFilter: queryTypes.integer,
+        tagFilter: queryTypes.integer
     });
-    const [activeTag, setActiveTag] = useState<string | null>(query.tagFilter)
+    const [activeTag, setActiveTag] = useState<number | null>(query.tagFilter)
     return (
         <div className={styles.tags}>
-            { tags ? tags.map((item, ind) => {
-                const className = (item.slug != activeTag ? `${styles.tag}` : `${styles.tag} ${styles.tag_active}`);
+            { tags ? tags.map((item) => {
+                const className = (item.id != activeTag ? `${styles.tag}` : `${styles.tag} ${styles.tag_active}`);
                 return (
                     <p
-                        key={ind}
+                        key={item.id}
                         className={className}
                         onClick={() => {
-                            setQuery({tagFilter: item.slug})
-                            setActiveTag(item.slug)
+                            setQuery({tagFilter: (query.tagFilter == item.id ? 0 : item.id)})
+                            setActiveTag(query.tagFilter == item.id ? 0 : item.id)
                         }}
                     >
                         { item.name }

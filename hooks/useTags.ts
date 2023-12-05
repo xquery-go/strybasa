@@ -9,7 +9,7 @@ export const useTags = () => {
             const data = await axios.get(
                 'http://127.0.0.1/api/tags/?format=json'
             );
-            return data.data.results as ITag[];
+            return data.data as ITag[];
         },
     });
     console.log(`BREAKPOINT FROM USE TAGS`, data)

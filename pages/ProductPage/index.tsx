@@ -9,8 +9,8 @@ import {useProduct} from "@/hooks/useProducts";
 import Image from 'next/image'
 import {ChevronDown, Minus, Plus, ShoppingCart} from "lucide-react";
 
-export const ProductPage = ({ params: { id } }: {params: { id: string }}) => {
-    const item: IProduct = useProduct(id);
+export const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
+    const {data: item} = useProduct(id);
     const quanity = 1;
 
     const targetBlockRef = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ export const ProductPage = ({ params: { id } }: {params: { id: string }}) => {
     return (
         <div className={styles.wrapper}>
             <Header />
-
+            {item ?
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>{item.name}</h1>
                 <div className={styles.poster}>
@@ -69,7 +69,8 @@ export const ProductPage = ({ params: { id } }: {params: { id: string }}) => {
                         {item.description}
                     </p>
                 </div>
-            </div>
+            </div> : <></>
+            }
             <Footer />
         </div>
     )

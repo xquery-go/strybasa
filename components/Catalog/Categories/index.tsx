@@ -9,22 +9,22 @@ export const Categories = () => {
     const {data: categories} = useCategories()
 
     const [query, setQuery] = useQueryStates({
-        categoryFilter: queryTypes.string.withDefault(''),
-        tagFilter: queryTypes.string.withDefault('Tag1')
+        categoryFilter: queryTypes.integer,
+        tagFilter: queryTypes.integer
     });
     const handleChange = (selectedOption: any) => {
-        setQuery({categoryFilter: selectedOption.value});
+        setQuery({categoryFilter: Number(selectedOption.value)});
     };
     return (
         <div>
             { categories ?
-                <select name="" id="" value={query.categoryFilter} onChange={(e) => setQuery({ categoryFilter: e.target.value })} className={styles.select}>
+                <select name="" id="" value={String(query.categoryFilter)} onChange={(e) => setQuery({ categoryFilter: Number(e.target.value) })} className={styles.select}>
                     <option value="" className={`${styles.option} ${styles.option_name}`}>Все категории</option>
                     { categories.map((item: ICategory, ind) => {
                         return (
                             <option
                                 key={ind}
-                                value={ item.slug }
+                                value={ item.id }
                                 className={styles.option}
                             >
                                 { item.name }

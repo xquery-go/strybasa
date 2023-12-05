@@ -25,6 +25,11 @@ time, mark, audio, video {
   vertical-align: baseline;
   letter-spacing: 0.08rem;
   font-weight: 600;
+
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 /* make sure to set some focus styles for accessibility */
 :focus {

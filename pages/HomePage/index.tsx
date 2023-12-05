@@ -1,4 +1,3 @@
-
 import React, {useEffect} from 'react';
 import {Header} from "@/components/Header";
 import styles from './HomePage.module.scss'
@@ -12,8 +11,8 @@ export const HomePage = () => {
         <div className={styles.wrapper}>
             <Header />
             <ProductGrid />
-            <Catalog />
             <SpecialProducts />
+            <Catalog />
             <Footer />
         </div>
     );
