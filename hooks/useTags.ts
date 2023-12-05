@@ -1,17 +1,17 @@
 import {useQuery} from "react-query";
 import axios from "axios";
+import {ITag} from "@/models/ITag";
 
-export const useShopCart = () => {
+export const useTags = () => {
     const { data, isLoading, isSuccess, error } = useQuery({
-        queryKey: ['shop_cart'],
+        queryKey: ['tags'],
         queryFn: async () => {
             const data = await axios.get(
-                'http://127.0.0.1/api/cart/?format=json'
+                'http://127.0.0.1/api/tags/?format=json'
             );
-            if(data.data.errors)
-            return data.data.results;
+            return data.data.results as ITag[];
         },
     });
-    console.log(`BREAKPOINT FROM USE CATEGORIES`, data)
+    console.log(`BREAKPOINT FROM USE TAGS`, data)
     return { data, isLoading, isSuccess, error };
 };

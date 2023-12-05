@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, {useEffect} from 'react';
 import {Header} from "@/components/Header";
 import styles from './HomePage.module.scss'
 import {ProductGrid} from "@/components/ProductGrid";
