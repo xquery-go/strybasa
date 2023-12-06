@@ -11,7 +11,7 @@ export const ProductCard = ({ product }: { product: IProduct }) => {
             <div className={styles.container}>
                 <div
                     className={styles.img}
-                    style={{ background: `#F9F9F9 url(${product.product_image}) center center/cover no-repeat` }}
+                    style={{ background: `#F9F9F9 url('/img/ProductImage.jpg') center center/cover no-repeat` }}
                 />
                 <div className={styles.meta}>
                     <p className={`${styles.meta_name} ${roboto.className}`}>{ product.name }</p>

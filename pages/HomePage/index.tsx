@@ -10,9 +10,9 @@ export const HomePage = () => {
     return (
         <div className={styles.wrapper}>
             <Header />
-            <ProductGrid />
-            <SpecialProducts />
-            <Catalog />
+            <section className={styles.section}><ProductGrid /></section>
+            <section className={styles.section}><SpecialProducts /></section>
+            <section className={styles.section}><Catalog /></section>
             <Footer />
         </div>
     );

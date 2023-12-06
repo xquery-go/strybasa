@@ -8,7 +8,7 @@ export const useShopCart = () => {
             const data = await axios.get(
                 'http://127.0.0.1/api/cart/?format=json'
             );
-            if(data.data.errors)
+            if("errors" in data.data) {}
             return data.data.results;
         },
     });

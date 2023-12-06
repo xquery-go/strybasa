@@ -29,8 +29,8 @@ export const useProducts = (categoryFilter: number | null, tagFilter: number | n
 };
 
 export const useProduct = (id: string | number) => {
-    let { data, isLoading, isSuccess, error } = useQuery({
-        queryKey: ['products'],
+    const { data, isLoading, isSuccess, error } = useQuery({
+        queryKey: [`product-${id}`],
         queryFn: async () => {
             const data = await axios.get(
                 `http://127.0.0.1/api/products/${String(id)}/?format=json`,
@@ -38,5 +38,6 @@ export const useProduct = (id: string | number) => {
             return data.data as IProduct;
         },
     });
+    console.log(`BREAKPOINT from product ${id}`, data)
     return { data, isLoading, isSuccess, error };
 };

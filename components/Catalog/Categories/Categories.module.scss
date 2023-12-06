@@ -1,8 +1,8 @@
 .select {
   border-radius: 5px;
-  padding: 8px 15px;
+  padding: 8px 10px;
   width: 235px;
-  font-size: 1rem;
+  font-size: .75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: -0.02rem;
@@ -12,7 +12,7 @@
 
 .option {
   text-transform: capitalize;
-  font-size: 1rem;
+  font-size: .85rem;
   font-weight: bold;
   background-color: #FFFFFF;
 }
@@ -20,9 +20,9 @@
 @media (max-width: 1200px) {
   .select {
     width: 188px;
-    font-size: .8rem;
+    font-size: .78rem;
   }
   .option {
-    font-size: .8rem;
+    font-size: .78rem;
   }
 }
