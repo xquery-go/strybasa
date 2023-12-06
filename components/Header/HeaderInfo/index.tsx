@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HeaderInfo.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
-import {User, UserCircle, UserCircle2} from "lucide-react";
+import {User} from "lucide-react";
 
 export const HeaderInfo = () => {
     return (
@@ -25,8 +25,8 @@ export const HeaderInfo = () => {
                             alt={"Watsapp"}
                         />
                     </Link>
-                    <Link href={"#"} className={styles.link}>+7(911)659-37-37</Link>
-                    <Link href={"#"} className={styles.link}>mail@mail.ru</Link>
+                    <Link href={"tel:+79116593737"} className={styles.link}>+7(911)659-37-37</Link>
+                    <Link href={`mailto:mail@mail.ru`} className={styles.link}>mail@mail.ru</Link>
                 </div>
                 <Link href={"/registration"} className={`${styles.authorize} ${styles.link}`}>
                     <User width={20} height={20} fill={""} className={styles.authorize_img} />

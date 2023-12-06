@@ -4,10 +4,9 @@ import styles from './ProductPage.module.scss'
 import {Header} from "@/components/Header";
 import {roboto} from "@/config/fonts/fonts";
 import {Footer} from "@/components/Footer";
-import {IProduct} from "@/models/IProduct";
 import {useProduct} from "@/hooks/useProducts";
 import Image from 'next/image'
-import {ChevronDown, Minus, Plus, ShoppingCart} from "lucide-react";
+import {ChevronDown, Minus, Plus, Share, Share2, ShoppingCart} from "lucide-react";
 
 export const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
     const { data: item } = useProduct(id);
@@ -16,17 +15,17 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
         console.log(`BREAKPOINT from productPage-${id}`, item)
     }, [item]);
 
-    // const targetBlockRef = useRef<HTMLDivElement>(null);
-    // const scrollToBlock = () => {
-    //     if (targetBlockRef.current) {
-    //         targetBlockRef.current.scrollIntoView({ behavior: "smooth" });
-    //     }
-    // };
+    const targetBlockRef = useRef<HTMLDivElement>(null);
+    const scrollToBlock = () => {
+        if (targetBlockRef.current) {
+            targetBlockRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
     return (
         <div className={styles.wrapper}>
             <Header />
             <div className={styles.content}>
-                {item ? <h1 className={`${styles.name} ${roboto.className}`}>{item.name}</h1> : <>Загрузка...</>}
+                <h1 className={`${styles.name} ${roboto.className}`}>{item ? item.name : <>Загрузка...</>}</h1>
                 <div className={styles.poster}>
                     <div className={styles.imgWrapper}>
                         <Image
@@ -39,8 +38,8 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                     </div>
                     <div className={styles.meta}>
                         <div className={styles.titleBlock}>
-                            {item ? <p className={styles.titleBlock_title}>{item.name}</p> : <>Загрузка...</>}
-                            <div className={styles.detailBlock} /*onClick={scrollToBlock}*/>
+                            <p className={styles.titleBlock_title}>{item ? item.name : <>Загрузка...</>}</p>
+                            <div className={styles.detailBlock} onClick={scrollToBlock}>
                                 <p>Подробнее</p>
                                 <ChevronDown color={'#EEB200'}/>
                             </div>
@@ -50,9 +49,10 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                             <p className={styles.priceBlock_dscr}>Цена на сайте</p>
                             {item ?
                                 <p className={styles.priceBlock_price}>
-                                    {item.price}₽/<span className={styles.priceBlock_metric}>{item.metric}</span>
+                                    {item.price}₽{item.metric && <span className={styles.priceBlock_metric}>{item.metric}</span>}
                                 </p>
-                                : <>Загрузка...</>
+                                :
+                                <p className={styles.priceBlock_price}>Загрузка...</p>
                             }
                         </div>
                         <div className={styles.btnBlock}>
@@ -66,16 +66,15 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                                 <p>В корзину</p>
                             </button>
                         </div>
+                        <div className={styles.share} onClick={() => navigator.clipboard.writeText(window.location.href)}>
+                            <Share2 width={15} height={15} color={'#fff'} fill={'#fff'} className={styles.share__icon}/>
+                            <p className={styles.share__text}>Поделиться</p>
+                        </div>
                     </div>
                 </div>
-                <div className={styles.description} /*ref={targetBlockRef}*/>
+                <div className={styles.description} ref={targetBlockRef}>
                     <p className={`${styles.description_title} ${roboto.className}`}>Описание</p>
-                    {item ?
-                        <p className={styles.description_text}>
-                            {item.description}
-                        </p>
-                        : <>Загрузка...</>
-                    }
+                    <p className={styles.description_text}> {item ? item.description : <>Загрузка...</>} </p>
                 </div>
             </div>
             <Footer />
