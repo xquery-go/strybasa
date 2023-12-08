@@ -1,15 +1,12 @@
 'use client';
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './RegForm.module.scss'
 import {useFormik} from "formik";
 import {roboto} from "@/config/fonts/fonts"
-import PhoneInput from 'react-phone-number-input/input'
 import Link from "next/link";
-
-
+import {ISignUpData, useUser} from "@/hooks/useUser";
 
 export const RegForm = () => {
-    const [number, setNumber] = useState<string>('')
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -17,11 +14,10 @@ export const RegForm = () => {
             password: '',
         },
         onSubmit: values => {
-            values.phone_number = number;
-            alert(JSON.stringify(values))
+            const {data} = useUser(values)
+            console.log(data)
         }
     });
-
     return (
         <div className={styles.wrapper}>
             <form className={styles.form} onSubmit={formik.handleSubmit}>
@@ -39,12 +35,11 @@ export const RegForm = () => {
                 </div>
                 <div className={styles.field}>
                     <label htmlFor="phone_number">Номер телефона</label>
-                    <PhoneInput
+                    <input
                         className={styles.input}
-                        type="text"
-                        name="phone_number"
-                        value={number}
-                        onChange={()  => setNumber}
+                        name={"phone_number"}
+                        value={formik.values.phone_number}
+                        onChange={formik.handleChange}
                         placeholder={"Номер телефона"}
                     />
                 </div>
