@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import {ISignUpData, useUser} from "@/hooks/useUser";
-import {devtools} from "zustand/middleware";
 import { mountStoreDevtool } from 'simple-zustand-devtools';
+import Cookies from "universal-cookie";
+import {cookies} from "next/headers";
 
 interface Authorize {
     authorize: boolean,
@@ -9,8 +10,10 @@ interface Authorize {
     curUser: IUser | null,
     signUpData: ISignUpData | undefined,
     token: string,
+    user_id: number,
     setSignUpData: (data: ISignUpData) => void,
-    setToken: (data: string) => void
+    setUser: (token: string, user_id: number) => void,
+    checkUser: () => void
 }
 export interface IUser {
     user_id: number,
@@ -23,6 +26,7 @@ export const useAuthorizeStore = create<Authorize>(
     (set) => ({
         authorize: false,
         token: '',
+        user_id: -1,
         authorizeError: '',
         curUser: null,
         signUpData: undefined,
@@ -33,10 +37,22 @@ export const useAuthorizeStore = create<Authorize>(
                 signUpData: data,
             }))
         },
-        setToken: (data: string) => {
+        setUser: (token: string, user_id: number) => {
             set((state) => ({
                 ...state,
-                token: data,
+                token: token,
+                user_id: user_id
+            }))
+            const cookies = new Cookies(null, { path: '/' })
+            cookies.set('token', token, { maxAge: 60 * 60 * 24 * 30 })
+            cookies.set('user_id', user_id, { maxAge: 60 * 60 * 24 * 30 })
+        },
+        checkUser: () => {
+            const cookies = new Cookies(null, { path: '/' })
+            set((state) => ({
+                ...state,
+                token: cookies.get('token'),
+                user_id: cookies.get('user_id')
             }))
         }
     })

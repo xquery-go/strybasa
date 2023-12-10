@@ -20,7 +20,6 @@ export const useProducts = (categoryFilter: number | null, tagFilter: number | n
             const data = await axios.get(
                 'http://127.0.0.1/api/products/?format=json'
             );
-            console.log(`BREAKPOINT FROM USE PRODUCTS categoryFilter: ${categoryFilter} and tagFilter: ${tagFilter}`, data.data.results)
             return data.data as IProduct[];
         },
     });
@@ -38,6 +37,5 @@ export const useProduct = (id: string | number) => {
             return data.data as IProduct;
         },
     });
-    console.log(`BREAKPOINT from product ${id}`, data)
     return { data, isLoading, isSuccess, error };
 };

@@ -12,6 +12,5 @@ export const useTags = () => {
             return data.data as ITag[];
         },
     });
-    console.log(`BREAKPOINT FROM USE TAGS`, data)
     return { data, isLoading, isSuccess, error };
 };

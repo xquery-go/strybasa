@@ -5,6 +5,8 @@ import {alumniSans} from "@/config/fonts/fonts"
 import './globals.css'
 import styles from './layout.module.scss'
 import {QueryClient, QueryClientProvider} from "react-query";
+import {useAuthorizeStore} from "@/app/userStore";
+import {useEffect} from "react";
 
 // export const metadata: Metadata = {
 //   title: 'Стройбаза «Тиски»',
@@ -21,6 +23,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+    const {checkUser} = useAuthorizeStore()
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            checkUser()
+        }, 1000);
+        return () => clearTimeout(timer);
+    })
   return (
     <html lang="en">
         <QueryClientProvider client={queryClient}>

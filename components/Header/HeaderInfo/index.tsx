@@ -1,10 +1,13 @@
+'use client';
 import React from 'react';
 import styles from './HeaderInfo.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
 import {User} from "lucide-react";
+import {useAuthorizeStore} from "@/app/userStore";
 
 export const HeaderInfo = () => {
+    const {user_id} = useAuthorizeStore()
     return (
         <div className={styles.wrapper}>
             <div className={styles.headerInfo}>
@@ -30,7 +33,7 @@ export const HeaderInfo = () => {
                 </div>
                 <Link href={"/registration"} className={`${styles.authorize} ${styles.link}`}>
                     <User width={20} height={20} fill={""} className={styles.authorize_img} />
-                    <p className={styles.authorize_text}>My account</p>
+                    <p className={styles.authorize_text}>{!user_id || user_id == -1 ? 'My account' : user_id}</p>
                 </Link>
             </div>
         </div>

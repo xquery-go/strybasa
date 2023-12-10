@@ -10,7 +10,7 @@ import {useAuthorizeStore} from "@/app/userStore";
 
 export const LoginForm = () => {
     const router = useRouter()
-    const {setToken} = useAuthorizeStore()
+    const {setUser} = useAuthorizeStore()
     const formik = useFormik({
         initialValues: {
             phone_number: '',
@@ -33,7 +33,7 @@ export const LoginForm = () => {
             })
             if(!error) {
                 let processedData = data.data;
-                setToken(processedData.auth_token as string)
+                setUser(processedData.auth_token as string, processedData.user_id as number)
                 router.push('/')
             }
         }
