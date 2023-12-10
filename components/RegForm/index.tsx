@@ -7,9 +7,10 @@ import Link from "next/link";
 import {ISignUpData, useUser} from "@/hooks/useUser";
 import {IUser, useAuthorizeStore} from "@/app/userStore";
 import axios from "axios";
-import {redirect} from "next/navigation";
+import {useRouter} from "next/navigation";
 
 export const RegForm = () => {
+    const router = useRouter()
     const { setSignUpData }  = useAuthorizeStore()
     const formik = useFormik({
         initialValues: {
@@ -17,7 +18,12 @@ export const RegForm = () => {
             phone_number: '',
             password: '',
         }, onSubmit: async (values) => {
-
+            for(let i of ["username", "phone_number", "password"]) {
+                let el = document.getElementById(i);
+                if(el) {
+                    el.style.display = 'none';
+                }
+            }
             let data = await axios({
                 method: 'post',
                 url: 'http://127.0.0.1/api/users/?format=json',
@@ -26,16 +32,9 @@ export const RegForm = () => {
                 return error.response
             });
             data = data.data;
-            let processedData = data as Object;
 
             if("errors" in data) {
                 const errors = data.errors;
-                for(let i in ["username", "phone_number", "password"]) {
-                    let el = document.getElementById(i);
-                    if(el) {
-                        el.style.display = 'none';
-                    }
-                }
                 for (let key in errors) {
                     if(errors.hasOwnProperty(key)){
                         let el = document.getElementById(key);
@@ -47,7 +46,7 @@ export const RegForm = () => {
                 }
             } else {
                 setSignUpData(data as ISignUpData)
-                redirect('/login')
+                await router.push('/registration/verification')
             }
         },
     });
