@@ -8,7 +8,9 @@ interface Authorize {
     authorizeError: string,
     curUser: IUser | null,
     signUpData: ISignUpData | undefined,
-    setSignUpData: (data: ISignUpData) => void
+    token: string,
+    setSignUpData: (data: ISignUpData) => void,
+    setToken: (data: string) => void
 }
 export interface IUser {
     user_id: number,
@@ -20,6 +22,7 @@ export interface IUser {
 export const useAuthorizeStore = create<Authorize>(
     (set) => ({
         authorize: false,
+        token: '',
         authorizeError: '',
         curUser: null,
         signUpData: undefined,
@@ -28,6 +31,12 @@ export const useAuthorizeStore = create<Authorize>(
             set((state) => ({
                 ...state,
                 signUpData: data,
+            }))
+        },
+        setToken: (data: string) => {
+            set((state) => ({
+                ...state,
+                token: data,
             }))
         }
     })

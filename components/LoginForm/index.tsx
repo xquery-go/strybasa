@@ -4,15 +4,38 @@ import styles from './LoginForm.module.scss'
 import {useFormik} from "formik";
 import {roboto} from "@/config/fonts/fonts"
 import Link from "next/link";
+import axios from "axios";
+import {useRouter} from "next/navigation";
+import {useAuthorizeStore} from "@/app/userStore";
 
 export const LoginForm = () => {
+    const router = useRouter()
+    const {setToken} = useAuthorizeStore()
     const formik = useFormik({
         initialValues: {
-            username: '',
+            phone_number: '',
             password: '',
         },
-        onSubmit: values => {
-            alert(JSON.stringify(values))
+        onSubmit: async (values) => {
+            let el = document.getElementById("error"), error = false;
+            if(el) el.style.display = 'none';
+            const data = await axios({
+                method: 'post',
+                url: 'http://127.0.0.1/api/auth/token/login/',
+                data: {
+                    "phone_number": values.phone_number,
+                    "password": values.password
+                },
+            }).catch(() => {
+                if(el) el.style.display = 'block';
+                error = true
+                return {data: {data: {auth_token: ''}}};
+            })
+            if(!error) {
+                let processedData = data.data;
+                setToken(processedData.auth_token as string)
+                router.push('/')
+            }
         }
     });
 
@@ -21,14 +44,15 @@ export const LoginForm = () => {
             <form className={styles.form} onSubmit={formik.handleSubmit}>
                 <h2 className={`${styles.title} ${roboto.className}`}>Войти</h2>
                 <div className={styles.field}>
-                    <label htmlFor="username">Имя пользователя</label>
+                    <p className={styles.error} id='error'>Попробуйте ещё раз</p>
+                    <label htmlFor="phone_number">Номер телефона</label>
                     <input
                         className={styles.input}
                         type="text"
-                        name="username"
-                        value={formik.values.username}
+                        name="phone_number"
+                        value={formik.values.phone_number}
                         onChange={formik.handleChange}
-                        placeholder={"Имя пользователя"}
+                        placeholder={"Номер телефона"}
                     />
                 </div>
                 <div className={styles.field}>

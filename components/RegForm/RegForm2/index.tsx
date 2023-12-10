@@ -31,6 +31,10 @@ export const RegForm2 = () => {
             }
             return response.response.data
         })
+        let el1 = document.getElementById('right_code');
+        if(el1) {
+            el1.style.display = 'block';
+        }
         await router.push('/login')
     }
 
@@ -49,6 +53,7 @@ export const RegForm2 = () => {
                         placeholder={"Код верификации"}
                     />
                     <p className={styles.error} id='code'></p>
+                    <p className={`${styles.error} ${styles.error_right}`} id={'right_code'}>Успешно!</p>
                 </div>
                 <div className={styles.bottomPart}>
                     <p className={styles.btn} onClick={handleSubmit} >Зарегестрироваться</p>

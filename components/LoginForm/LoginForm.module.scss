@@ -25,6 +25,7 @@
 }
 
 .field {
+  position: relative;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -79,4 +80,14 @@
   &:hover {
     color: #BABABA;
   }
+}
+
+.error {
+  display: none;
+  font-size: 1.2rem;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #FF7272;
 }

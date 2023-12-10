@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './Catalog.module.scss'
 import {Categories} from "@/components/Catalog/Categories";
 import {Tags} from "@/components/Catalog/Tags";
@@ -9,6 +9,7 @@ import {ProductRow} from "@/components/ProductRow";
 import {queryTypes, useQueryStates} from "next-usequerystate";
 import {useProducts} from "@/hooks/useProducts";
 import {IProduct} from "@/models/IProduct";
+import {useAuthorizeStore} from "@/app/userStore";
 
 function Products(products: IProduct[]) {
     const groups: IProduct[][] = [];
@@ -30,6 +31,8 @@ export const Catalog = () => {
         tagFilter: queryTypes.integer
     });
     const { data: products } = useProducts(query.categoryFilter, query.tagFilter)
+    const {token} = useAuthorizeStore()
+    useEffect(() => {console.log(`Token: ${token}`)}, [])
     return (
         <div className={styles.container}>
             <div className={styles.header}>
