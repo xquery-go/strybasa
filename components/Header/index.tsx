@@ -7,9 +7,11 @@ import {HeaderInfo} from "@/components/Header/HeaderInfo";
 import {HeaderLinks} from "@/components/Header/HeaderLinks";
 import {roboto} from "@/config/fonts/fonts";
 import {useShopCart} from "@/hooks/useShopCart";
+import {useAuthorizeStore} from "@/app/userStore";
+import {HeaderShopCartValue} from "@/components/Header/HeaderShopCartValue";
 
 export const Header = () => {
-    const [totalCost, setTotalCost] = useState<string>('0.00')
+    const {token} = useAuthorizeStore()
     return (
         <div className={styles.headerBlock}>
             <HeaderInfo />
@@ -26,9 +28,12 @@ export const Header = () => {
                             return <Link href={link.link} key={ind} className={styles.nav_link}>{link.text}</Link>
                         })}
                     </nav>
+
                     <Link href={"/shop_cart"} className={styles.shopCart}>
                         <ShoppingCart width={35} height={35} className={styles.shopCart_img} />
-                        <p className={styles.shopCart_value}>{String(totalCost)}₽</p>
+                        <p className={styles.shopCart_value}>
+                            <HeaderShopCartValue token={token}/>₽
+                        </p>
                     </Link>
                 </div>
             </div>

@@ -33,7 +33,7 @@ export const HeaderInfo = () => {
                 </div>
                 <Link href={"/registration"} className={`${styles.authorize} ${styles.link}`}>
                     <User width={20} height={20} fill={""} className={styles.authorize_img} />
-                    <p className={styles.authorize_text}>{!curUser ? 'My account' : curUser.username}</p>
+                    <p className={styles.authorize_text}>{curUser && curUser.username ? curUser.username : 'Мой акккаунт'}</p>
                 </Link>
             </div>
         </div>

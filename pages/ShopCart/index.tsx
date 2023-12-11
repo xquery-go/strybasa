@@ -11,7 +11,6 @@ import axios from "axios";
 import {IShopCartProduct} from "@/models/IShopCart";
 
 export const ShopCart = ({ token }: { token: string }) => {
-    const router = useRouter()
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
     useEffect(() => { console.log('Token', token) }, [token])
     useEffect(() => {
@@ -28,9 +27,7 @@ export const ShopCart = ({ token }: { token: string }) => {
             })
         }, 2000);
         return () => clearTimeout(timer);
-
     })
-    let summ = 0;
     return (
         <div className={styles.wrapper}>
             <Header />
