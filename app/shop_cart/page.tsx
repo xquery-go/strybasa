@@ -1,3 +1,12 @@
+'use client';
 import {ShopCart} from "@/pages/ShopCart";
+import {useAuthorizeStore} from "@/app/userStore";
 
-export default ShopCart;
+const ShopCartPage = () => {
+    const {token} = useAuthorizeStore();
+    return (
+        <ShopCart token={token as string}/>
+    )
+}
+
+export default ShopCartPage
