@@ -1,20 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './ProductCard.module.scss'
 import {IProduct} from "@/models/IProduct";
 import {ShoppingCart, Star} from "lucide-react";
 import Link from "next/link";
 import {roboto} from "@/config/fonts/fonts";
+import axios from "axios";
 
-export const ProductCard = ({ product }: { product: IProduct }) => {
-    const [fill, setFill] = useState<string>('#ffffff')
+export const ProductCard = ({ product, token }: { product: IProduct, token: string }) => {
+    const [inCart, setInCart] = useState<boolean>(0)
+
     const addToCart = () => {
-        console.log(`Add to cart product with id ${product.product_id}`)
-        let el = document.getElementById('shopCartIcon');
-        if(el) {
-            setFill((fill == '#ffffff' ? '#000000' : '#ffffff'))
-        }
-    }
+        const data = axios({
+            method: 'post',
+            url: 'http://127.0.0.1/api/cart/',
+            data: {
+                "product": product.product_id,
+                "amount": 1,
+            }
+        })
 
+
+        console.log(`Add to cart product with id ${product.product_id}`)
+        // let el = document.getElementById('shopCartIcon');
+        // if(el) {
+        //     setFill((fill == '#ffffff' ? '#000000' : '#ffffff'))
+        // }
+    }
+    useEffect(() => {
+        const data =
+    })
     return (
         <div className={styles.linkWrapper}>
             <Link href={`/product/${product.product_id}`} className={styles.containerLink}>
@@ -44,7 +58,13 @@ export const ProductCard = ({ product }: { product: IProduct }) => {
                 </div>
             </Link>
             <button className={styles.meta_btn} onClick={() => addToCart()}>
-                <ShoppingCart width={25} height={25} className={styles.shopCart_img} id={'shopCartIcon'} color={'#000000'} fill={fill} />
+                <ShoppingCart
+                    width={25}
+                    height={25}
+                    className={styles.shopCart_img}
+                    id={'shopCartIcon'}
+                    color={'#000000'}
+                    fill={inCart ? '#000000' : '#ffffff'} />
             </button>
         </div>
     )

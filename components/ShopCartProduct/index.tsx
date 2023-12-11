@@ -30,7 +30,7 @@ export const ShopProduct = ({ cartProduct }: { cartProduct: IShopCartProduct }) 
                 />
             }
             <div className={styles.leftPart}>
-                <Link href={`product/${item.product_id}`} className={styles.title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Link>
+                <Link href={`product/${item.product_id}`} className={styles.title}>{item.name}</Link>
                 <div className={styles.bottomPart}>
                     <div className={styles.quantity}>
                         <button className={styles.quantity__btn}><Minus width={16} height={16} color={'#fff'} strokeWidth={'4'} className={styles.func_icon}/></button>

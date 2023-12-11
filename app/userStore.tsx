@@ -3,6 +3,7 @@ import {ISignUpData} from "@/hooks/useUser";
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import Cookies from "universal-cookie";
 import axios from "axios";
+import {IUser} from "@/models/IUser";
 
 interface Authorize {
     authorize: boolean,
@@ -15,11 +16,7 @@ interface Authorize {
     setUser: (token: string, user_id: number) => void,
     checkUser: () => void
 }
-export interface IUser {
-    user_id: number,
-    username: string,
-    date_joined: string,
-}
+
 
 export const useAuthorizeStore = create<Authorize>(
     (set) => ({

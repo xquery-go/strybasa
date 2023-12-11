@@ -9,8 +9,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import {IProduct} from "@/models/IProduct";
 import {ProductCard} from "@/components/ProductCard";
+import {useAuthorizeStore} from "@/app/userStore";
 
 export const ProductRow = ({ products }: { products: IProduct[] }) => {
+    const { token } = useAuthorizeStore()
     return (
         <Swiper
             navigation
@@ -22,7 +24,7 @@ export const ProductRow = ({ products }: { products: IProduct[] }) => {
             { products.map((item, ind) => {
                 return (
                     <SwiperSlide key={ind}>
-                        <ProductCard product={item} />
+                        <ProductCard product={item} token={token} />
                     </SwiperSlide>
                 )
             }) }
