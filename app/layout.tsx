@@ -27,7 +27,7 @@ export default function RootLayout({
     useEffect(() => {
         const timer = setTimeout(() => {
             checkUser()
-        }, 1000);
+        }, 2000);
         return () => clearTimeout(timer);
     })
   return (

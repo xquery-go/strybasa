@@ -5,7 +5,11 @@
   border-radius: 5px 5px 0 0;
 }
 
+.wrapperLink {
+  position: relative;
+}
 .containerLink {
+  cursor: default;
 }
 
 .container {
@@ -34,6 +38,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
     &Quantity {
       color: #8C8C8C;
       font-size: 1rem;
@@ -48,15 +53,18 @@
   }
 
   &_price {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     font-weight: 700;
   }
 
   &_btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
     background: none;
     border: none;
     outline: none;
-    color: #000000;
   }
 }
 
@@ -68,14 +76,17 @@
     padding: 4px;
     &_name {
       font-size: .88rem;
-
     }
     &_reviewsQuantity {
       font-size: .8rem;
     }
     &_price {
-      font-size: 1rem;
+      font-size: 1.3rem;
       font-weight: 700;
+    }
+    &_btn {
+      right: 0;
+      bottom: 0;
     }
   }
   .star {
@@ -83,7 +94,7 @@
     height: 16px;
   }
   .shopCart_img {
-    width: 20px;
+    width: 23px;
     aspect-ratio: 1 / 1;
   }
 }

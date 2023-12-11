@@ -4,7 +4,7 @@ import styles from './RegForm.module.scss'
 import {useFormik} from "formik";
 import {roboto} from "@/config/fonts/fonts"
 import Link from "next/link";
-import {ISignUpData, useUser} from "@/hooks/useUser";
+import {ISignUpData} from "@/hooks/useUser";
 import {IUser, useAuthorizeStore} from "@/app/userStore";
 import axios from "axios";
 import {useRouter} from "next/navigation";

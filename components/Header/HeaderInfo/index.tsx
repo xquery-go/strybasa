@@ -7,7 +7,7 @@ import {User} from "lucide-react";
 import {useAuthorizeStore} from "@/app/userStore";
 
 export const HeaderInfo = () => {
-    const {user_id} = useAuthorizeStore()
+    const {curUser} = useAuthorizeStore()
     return (
         <div className={styles.wrapper}>
             <div className={styles.headerInfo}>
@@ -33,7 +33,7 @@ export const HeaderInfo = () => {
                 </div>
                 <Link href={"/registration"} className={`${styles.authorize} ${styles.link}`}>
                     <User width={20} height={20} fill={""} className={styles.authorize_img} />
-                    <p className={styles.authorize_text}>{!user_id || user_id == -1 ? 'My account' : user_id}</p>
+                    <p className={styles.authorize_text}>{!curUser ? 'My account' : curUser.username}</p>
                 </Link>
             </div>
         </div>

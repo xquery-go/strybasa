@@ -8,14 +8,8 @@ export interface ISignUpData {
     password: string,
 }
 
-export interface IAuthorizeErrors {
-    username?: string[],
-    phone_number?: string[],
-    password?: string[],
-}
 
-
-export const useUser = (values: ISignUpData) => {
+export const postUser = (values: ISignUpData) => {
     values.phone_number.replace(' ', '');
     let { data, isLoading, isSuccess, error } = useQuery({
         queryKey: ['tags'],
