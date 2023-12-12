@@ -4,34 +4,15 @@ import {IProduct} from "@/models/IProduct";
 import {ShoppingCart, Star} from "lucide-react";
 import Link from "next/link";
 import {roboto} from "@/config/fonts/fonts";
-import axios from "axios";
+import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
 
 export const ProductCard = ({ product, token }: { product: IProduct, token: string }) => {
     const [inCart, setInCart] = useState<boolean>(false)
-
+    const {addShopCartProduct} = useShopCartStore()
     const addToCart = () => {
-        const data = axios({
-            method: 'post',
-            url: 'http://127.0.0.1/api/cart/',
-            data: {
-                "product": product.product_id,
-                "amount": 1,
-            },
-            headers: {
-                Authorization: `Token ${token}`
-            }
-        })
-
-
+        addShopCartProduct(token, product)
         console.log(`Add to cart product with id ${product.product_id}`)
-        // let el = document.getElementById('shopCartIcon'); TODO
-        // if(el) {
-        //     setFill((fill == '#ffffff' ? '#000000' : '#ffffff'))
-        // }
     }
-    // useEffect(() => {
-    //     const data =
-    // })
     return (
         <div className={styles.linkWrapper}>
             <Link href={`/product/${product.product_id}`} className={styles.containerLink}>

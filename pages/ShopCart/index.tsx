@@ -6,7 +6,7 @@ import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
 import {ShopProduct} from "@/components/ShopCartProduct";
 import {IShopCartProduct} from "@/models/IShopCart";
-import {useShopCartStore} from "@/components/ShopCartProduct/shopCartStore";
+import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
 
 export const ShopCart = ({ token }: { token: string }) => {
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
