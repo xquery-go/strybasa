@@ -1,5 +1,5 @@
 'use client';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './ProductPage.module.scss'
 import {Header} from "@/components/Header";
 import {roboto} from "@/config/fonts/fonts";
@@ -11,11 +11,23 @@ import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
 import {useUserStore} from "@/app/userStore";
 
 export const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
+    const [quantity, setQuantity] = useState<number>(0)
+    const { getShopCartProductQuantity } = useShopCartStore()
+    useEffect(() => {
+        const fetchData = async () => {
+            if(token && item && item.product_id) {
+                const data = await  getShopCartProductQuantity(token, item.product_id)
+                setQuantity(data);
+            }
+        };
+        fetchData()
+    })
     const { data: item } = useProduct(id);
     const { addShopCartProduct } = useShopCartStore()
     const { token } = useUserStore()
-    const quantity = 1;
+    const {changeQuantityShopCartProduct} = useShopCartStore();
     const targetBlockRef = useRef<HTMLDivElement>(null);
+
     const scrollToBlock = () => {
         if (targetBlockRef.current) {
             targetBlockRef.current.scrollIntoView({ behavior: "smooth" });
@@ -56,16 +68,31 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                             }
                         </div>
                         <div className={styles.btnBlock}>
-                            <div className={styles.quantity}>
-                                <button className={styles.quantity__btn}><Minus width={16} height={16} color={'#fff'} strokeWidth={'4'}/></button>
-                                <p className={styles.quantity__kol}>{quantity}</p>
-                                <button className={styles.quantity__btn}><Plus width={16} height={16} color={'#fff'} strokeWidth={'4'}/></button>
-                            </div>
-                            {item ?
-                            <button className={styles.btn} onClick={() => addShopCartProduct(token, item)}>
-                                <ShoppingCart width={20} height={20} strokeWidth={3} className={styles.shopCart_img} color={'#ffffff'} />
-                                <p>В корзину</p>
-                            </button> : <></>}
+                            { item && (quantity || quantity == 0) ?
+                                <div className={styles.quantity}>
+                                    <button
+                                        className={styles.quantity__btn}
+                                        onClick={() => {
+                                            setQuantity((prev) => (prev - 1))
+                                            changeQuantityShopCartProduct(token, item, -1)
+                                        }}
+                                        disabled={quantity == 0}
+                                    >
+                                        <Minus width={16} height={16} color={'#000'} strokeWidth={'4'}/>
+                                    </button>
+                                    <p className={styles.quantity__kol}>{quantity}</p>
+                                    <button
+                                        className={styles.quantity__btn}
+                                        onClick={() => {
+                                            setQuantity((prev) => (prev + 1))
+                                            changeQuantityShopCartProduct(token, item, 1)
+                                        }}
+                                    >
+                                        <Plus width={16} height={16} color={'#000'} strokeWidth={'4'}/>
+                                    </button>
+                                </div> :
+                                <p className={styles.quantity__kol}>Загрузка...</p>
+                            }
                         </div>
                         <div className={styles.share} onClick={() => navigator.clipboard.writeText(window.location.href)}>
                             <Share2 width={15} height={15} color={'#fff'} fill={'#fff'} className={styles.share__icon}/>

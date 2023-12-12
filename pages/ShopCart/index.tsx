@@ -5,18 +5,21 @@ import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
 import {ShopProduct} from "@/components/ShopCartProduct";
-import {IShopCartProduct} from "@/models/IShopCart";
+import {IShopCartProduct} from "@/models/IShopCartProduct";
 import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import Link from "next/link";
 
 export const ShopCart = ({ token }: { token: string }) => {
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
     const {getShopCart} = useShopCartStore()
+
+    const fetchData = async () => {
+        const data = await getShopCart(token)
+        setProductsData(data);
+    };
     useEffect(() => {
-        const fetchData = async () => {
-            setProductsData(await getShopCart(token));
-        };
         fetchData();
-    }, [getShopCart, token]);
+    }, [getShopCart, token, ProductsData]);
     return (
         <div className={styles.wrapper}>
             <Header />
@@ -30,7 +33,7 @@ export const ShopCart = ({ token }: { token: string }) => {
                        }
                     </div>
                     <div className={styles.ordering}>
-                        <button className={styles.btn}>Перейти к оформлению</button>
+                        <Link href={'/order'} className={styles.btn}>Перейти к оформлению</Link>
                         <div className={styles.line}></div>
                         <div className={styles.wrap}>
                             <p className={styles.shop_cart_name}>Ваша корзина:</p>

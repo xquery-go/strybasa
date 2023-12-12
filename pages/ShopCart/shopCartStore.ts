@@ -1,5 +1,5 @@
 import {create} from "zustand";
-import {IShopCartProduct} from "@/models/IShopCart";
+import {IShopCartProduct} from "@/models/IShopCartProduct";
 import axios from "axios";
 import {mountStoreDevtool} from "simple-zustand-devtools";
 import {IProduct} from "@/models/IProduct";
@@ -8,6 +8,8 @@ interface ShopCartStore {
     getShopCart: (token: string) => Promise<IShopCartProduct[] | null>,
     getShopCartAmount: (token: string) => Promise<number | null>,
     addShopCartProduct: (token: string, product: IProduct) => Promise<void>,
+    changeQuantityShopCartProduct: (token: string, product: IProduct, quantity: number) => Promise<void>,
+    getShopCartProductQuantity: (token: string, product_id: string | number) => Promise<number>
 }
 
 export const useShopCartStore = create<ShopCartStore>((set) => ({
@@ -60,6 +62,45 @@ export const useShopCartStore = create<ShopCartStore>((set) => ({
             })
         } catch (error) {
             console.error(`Ошибка при добавлении продукта - ${product.product_id}`, error);
+        }
+    },
+    changeQuantityShopCartProduct: async (token: string, product: IProduct, quantity: number) => {
+        try {
+            const data = axios({
+                method: 'post',
+                url: 'http://127.0.0.1/api/cart/',
+                data: {
+                    "product": product.product_id,
+                    "amount": quantity,
+                },
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            })
+        } catch (error) {
+            console.error(`Ошибка при изменении кол-ва товара - ${product.product_id}`, error);
+        }
+    },
+    getShopCartProductQuantity: async (token: string, product_id: number | string) => {
+        try {
+            const response = await axios({
+                method: 'get',
+                url: `http://127.0.0.1/api/cart/${product_id}/`,
+                headers: {
+                    Authorization: `Token ${token}`
+                },
+            }).catch(() => {
+                return 0;
+            })
+            const data = response.data;
+            if(data && data.amount) return data.amount;
+            else {
+                console.error(`Ошибка при получении товара из ккорзины - ${product_id}`);
+                return 0;
+            }
+        } catch (error) {
+            console.error(`Ошибка при получении товара из ккорзины - ${product_id}`, error);
+            return 0;
         }
     }
 }));
