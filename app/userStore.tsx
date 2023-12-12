@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import {ISignUpData} from "@/hooks/useUser";
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import Cookies from "universal-cookie";
 import axios from "axios";
 import {IUser} from "@/models/IUser";
+import {ISignUpData} from "@/models/ISignUpData";
 
 interface Authorize {
     authorize: boolean,
@@ -16,7 +16,6 @@ interface Authorize {
     setUser: (token: string, user_id: number) => void,
     checkUser: () => void
 }
-
 
 export const useAuthorizeStore = create<Authorize>(
     (set) => ({
@@ -68,4 +67,4 @@ export const useAuthorizeStore = create<Authorize>(
         }
     })
 );
-mountStoreDevtool('Store', useAuthorizeStore);
+mountStoreDevtool('AuthorizeStore', useAuthorizeStore);

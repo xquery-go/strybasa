@@ -4,30 +4,20 @@ import styles from './ShopCart.module.scss'
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
-import {IProduct} from "@/models/IProduct";
 import {ShopProduct} from "@/components/ShopCartProduct";
-import {useRouter} from "next/navigation";
-import axios from "axios";
 import {IShopCartProduct} from "@/models/IShopCart";
+import {useShopCartStore} from "@/components/ShopCartProduct/shopCartStore";
 
 export const ShopCart = ({ token }: { token: string }) => {
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
-    useEffect(() => { console.log('Token', token) }, [token])
+    const {getShopCart} = useShopCartStore()
     useEffect(() => {
-        const timer = setTimeout(() => {
-            const data = axios({
-                method: 'get',
-                url: 'http://127.0.0.1/api/cart/',
-                headers: {
-                    Authorization: `Token ${token}`
-                }
-            }).then(data => {
-                console.log(`BREAKPOINT FROM SHOPCART`, data.data)
-                setProductsData(data.data as IShopCartProduct[])
-            })
-        }, 2000);
-        return () => clearTimeout(timer);
-    })
+        const fetchData = async () => {
+            const data = await getShopCart(token);
+            setProductsData(data);
+        };
+        fetchData();
+    }, [getShopCart, token]);
     return (
         <div className={styles.wrapper}>
             <Header />

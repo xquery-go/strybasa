@@ -13,7 +13,7 @@ export const ShopProduct = ({ cartProduct }: { cartProduct: IShopCartProduct }) 
             <button className={styles.close}>
                 <X width={25} height={25} color={'#fff'} strokeWidth={'2'}/>
             </button>
-            {item && item.product_image ?
+            { item && item.product_image ?
                 <Image
                     className={styles.image}
                     src={item.product_image}

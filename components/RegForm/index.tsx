@@ -4,10 +4,10 @@ import styles from './RegForm.module.scss'
 import {useFormik} from "formik";
 import {roboto} from "@/config/fonts/fonts"
 import Link from "next/link";
-import {ISignUpData} from "@/hooks/useUser";
-import {IUser, useAuthorizeStore} from "@/app/userStore";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import {useAuthorizeStore} from "@/app/userStore";
+import {ISignUpData} from "@/models/ISignUpData";
 
 export const RegForm = () => {
     const router = useRouter()

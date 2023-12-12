@@ -7,7 +7,7 @@ import {roboto} from "@/config/fonts/fonts";
 import axios from "axios";
 
 export const ProductCard = ({ product, token }: { product: IProduct, token: string }) => {
-    const [inCart, setInCart] = useState<boolean>(0)
+    const [inCart, setInCart] = useState<boolean>(false)
 
     const addToCart = () => {
         const data = axios({
@@ -16,19 +16,22 @@ export const ProductCard = ({ product, token }: { product: IProduct, token: stri
             data: {
                 "product": product.product_id,
                 "amount": 1,
+            },
+            headers: {
+                Authorization: `Token ${token}`
             }
         })
 
 
         console.log(`Add to cart product with id ${product.product_id}`)
-        // let el = document.getElementById('shopCartIcon');
+        // let el = document.getElementById('shopCartIcon'); TODO
         // if(el) {
         //     setFill((fill == '#ffffff' ? '#000000' : '#ffffff'))
         // }
     }
-    useEffect(() => {
-        const data =
-    })
+    // useEffect(() => {
+    //     const data =
+    // })
     return (
         <div className={styles.linkWrapper}>
             <Link href={`/product/${product.product_id}`} className={styles.containerLink}>

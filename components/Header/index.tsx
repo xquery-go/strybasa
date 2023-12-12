@@ -6,7 +6,6 @@ import {ShoppingCart} from "lucide-react";
 import {HeaderInfo} from "@/components/Header/HeaderInfo";
 import {HeaderLinks} from "@/components/Header/HeaderLinks";
 import {roboto} from "@/config/fonts/fonts";
-import {useShopCart} from "@/hooks/useShopCart";
 import {useAuthorizeStore} from "@/app/userStore";
 import {HeaderShopCartValue} from "@/components/Header/HeaderShopCartValue";
 
