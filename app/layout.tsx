@@ -5,7 +5,7 @@ import {alumniSans} from "@/config/fonts/fonts"
 import './globals.css'
 import styles from './layout.module.scss'
 import {QueryClient, QueryClientProvider} from "react-query";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useUserStore} from "@/app/userStore";
 import {useEffect} from "react";
 
 // export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-    const {checkUser} = useAuthorizeStore()
+    const {checkUser} = useUserStore()
     useEffect(() => {
         const timer = setTimeout(() => {
             checkUser()

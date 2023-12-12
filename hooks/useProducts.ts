@@ -1,4 +1,3 @@
-import {ProductsData} from "@/data/ProductsData";
 import {IProduct} from "@/models/IProduct";
 import {useQuery} from "react-query";
 import axios from "axios";

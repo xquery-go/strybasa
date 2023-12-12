@@ -1,16 +1,16 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Header.module.scss'
 import Link from "next/link";
 import {ShoppingCart} from "lucide-react";
 import {HeaderInfo} from "@/components/Header/HeaderInfo";
 import {HeaderLinks} from "@/components/Header/HeaderLinks";
 import {roboto} from "@/config/fonts/fonts";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useUserStore} from "@/app/userStore";
 import {HeaderShopCartValue} from "@/components/Header/HeaderShopCartValue";
 
 export const Header = () => {
-    const {token} = useAuthorizeStore()
+    const {token} = useUserStore()
     return (
         <div className={styles.headerBlock}>
             <HeaderInfo />

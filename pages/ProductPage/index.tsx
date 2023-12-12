@@ -1,20 +1,20 @@
 'use client';
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import styles from './ProductPage.module.scss'
 import {Header} from "@/components/Header";
 import {roboto} from "@/config/fonts/fonts";
 import {Footer} from "@/components/Footer";
 import {useProduct} from "@/hooks/useProducts";
 import Image from 'next/image'
-import {ChevronDown, Minus, Plus, Share, Share2, ShoppingCart} from "lucide-react";
+import {ChevronDown, Minus, Plus, Share2, ShoppingCart} from "lucide-react";
+import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import {useUserStore} from "@/app/userStore";
 
 export const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
     const { data: item } = useProduct(id);
+    const { addShopCartProduct } = useShopCartStore()
+    const { token } = useUserStore()
     const quantity = 1;
-    useEffect(() =>{
-        console.log(`BREAKPOINT from productPage-${id}`, item)
-    }, [item]);
-
     const targetBlockRef = useRef<HTMLDivElement>(null);
     const scrollToBlock = () => {
         if (targetBlockRef.current) {
@@ -61,10 +61,11 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                                 <p className={styles.quantity__kol}>{quantity}</p>
                                 <button className={styles.quantity__btn}><Plus width={16} height={16} color={'#fff'} strokeWidth={'4'}/></button>
                             </div>
-                            <button className={styles.btn}>
+                            {item ?
+                            <button className={styles.btn} onClick={() => addShopCartProduct(token, item)}>
                                 <ShoppingCart width={20} height={20} strokeWidth={3} className={styles.shopCart_img} color={'#ffffff'} />
                                 <p>В корзину</p>
-                            </button>
+                            </button> : <></>}
                         </div>
                         <div className={styles.share} onClick={() => navigator.clipboard.writeText(window.location.href)}>
                             <Share2 width={15} height={15} color={'#fff'} fill={'#fff'} className={styles.share__icon}/>

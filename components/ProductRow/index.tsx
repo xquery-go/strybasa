@@ -9,10 +9,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import {IProduct} from "@/models/IProduct";
 import {ProductCard} from "@/components/ProductCard";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useUserStore} from "@/app/userStore";
 
 export const ProductRow = ({ products }: { products: IProduct[] }) => {
-    const { token } = useAuthorizeStore()
+    const { token } = useUserStore()
     return (
         <Swiper
             navigation

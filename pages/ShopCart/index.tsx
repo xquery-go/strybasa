@@ -13,8 +13,7 @@ export const ShopCart = ({ token }: { token: string }) => {
     const {getShopCart} = useShopCartStore()
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getShopCart(token);
-            setProductsData(data);
+            setProductsData(await getShopCart(token));
         };
         fetchData();
     }, [getShopCart, token]);

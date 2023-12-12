@@ -6,7 +6,7 @@ import {roboto} from "@/config/fonts/fonts"
 import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/navigation";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useAuthorizeStore} from "@/app/authorizeStore";
 import {ISignUpData} from "@/models/ISignUpData";
 
 export const RegForm = () => {

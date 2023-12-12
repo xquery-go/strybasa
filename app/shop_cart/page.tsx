@@ -1,9 +1,9 @@
 'use client';
 import {ShopCart} from "@/pages/ShopCart";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useUserStore} from "@/app/userStore";
 
 const ShopCartPage = () => {
-    const {token} = useAuthorizeStore();
+    const {token} = useUserStore();
     return (
         <ShopCart token={token as string}/>
     )

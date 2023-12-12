@@ -4,10 +4,10 @@ import styles from './HeaderInfo.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
 import {User} from "lucide-react";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useUserStore} from "@/app/userStore";
 
 export const HeaderInfo = () => {
-    const {curUser} = useAuthorizeStore()
+    const {curUser} = useUserStore()
     return (
         <div className={styles.wrapper}>
             <div className={styles.headerInfo}>

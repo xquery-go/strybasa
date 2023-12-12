@@ -11,7 +11,6 @@ export const ServicesPage = () => {
     return (
         <div className={styles.wrapper}>
             <Header />
-
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>Наши услуги</h1>
                 <div className={styles.services}>

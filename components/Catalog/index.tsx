@@ -11,9 +11,7 @@ import {IProduct} from "@/models/IProduct";
 
 function Products(products: IProduct[]) {
     const groups: IProduct[][] = [];
-    for (let i = 0; i < products.length; i += 6) {
-        groups.push(products.slice(i, i + 6));
-    }
+    for (let i = 0; i < products.length; i += 6) groups.push(products.slice(i, i + 6));
     return (
         <div className={styles.products}>
             {groups.map((group, index) => (

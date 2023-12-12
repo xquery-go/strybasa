@@ -6,11 +6,11 @@ import {roboto} from "@/config/fonts/fonts"
 import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/navigation";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useUserStore} from "@/app/userStore";
 
 export const LoginForm = () => {
     const router = useRouter()
-    const {setUser} = useAuthorizeStore()
+    const {setUser} = useUserStore()
     const formik = useFormik({
         initialValues: {
             phone_number: '',

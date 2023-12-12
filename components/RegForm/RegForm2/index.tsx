@@ -1,9 +1,9 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './RegForm2.module.scss'
 import {roboto} from "@/config/fonts/fonts"
 import Link from "next/link";
-import {useAuthorizeStore} from "@/app/userStore";
+import {useAuthorizeStore} from "@/app/authorizeStore";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 
