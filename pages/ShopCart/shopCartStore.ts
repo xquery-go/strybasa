@@ -90,7 +90,7 @@ export const useShopCartStore = create<ShopCartStore>((set) => ({
                     Authorization: `Token ${token}`
                 },
             }).catch(() => {
-                return 0;
+                return {data: 0};
             })
             const data = response.data;
             if(data && data.amount) return data.amount;
