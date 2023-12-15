@@ -8,7 +8,8 @@ interface UserStore {
     user_id: number,
     curUser: IUser | null,
     setUser: (token: string, user_id: number) => void,
-    checkUser: () => void
+    checkUser: () => void,
+    quitAccount: () => void
 }
 
 export const useUserStore = create<UserStore>(
@@ -46,7 +47,22 @@ export const useUserStore = create<UserStore>(
                     ...state,
                     curUser: data.data as IUser
                 }))
+            } else if(user_id == -1 || token == '') {
+                set((state) => ({
+                    ...state,
+                    curUser: null
+                }))
             }
+        },
+        quitAccount: () => {
+            const cookies = new Cookies(null, { path: '/' })
+            set((state) => ({
+                ...state,
+                token: '',
+                user_id: -1
+            }))
+            cookies.remove('token', { path: '/' })
+            cookies.remove('user_id', { path: '/' })
         }
     })
 )
