@@ -8,7 +8,7 @@ export const OrderPage = ({ token }: { token: string }) => {
         <div className={styles.wrapper}>
             <Header />
             <div className={styles.content}>
-
+                Оформление заказа
             </div>
             <Footer />
         </div>

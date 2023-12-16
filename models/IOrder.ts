@@ -10,7 +10,7 @@ export interface IOrder {
     order_time: string,
     items: IShopCartProduct[],
     to_pay: string,
-    "signer_firstname": string,
-    "signer_lastname": string,
-    "signer_address": string
+    signer_firstname: string,
+    signer_lastname: string,
+    signer_address: string
 }

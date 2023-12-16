@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styles from './ProfilePage.module.scss'
+import styles from './Layout.module.scss'
 import {Header} from "@/components/Header";
 import Link from "next/link";
 import {Footer} from "@/components/Footer";

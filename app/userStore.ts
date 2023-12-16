@@ -2,6 +2,8 @@ import {create} from "zustand";
 import {IUser} from "@/models/IUser";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import {mountStoreDevtool} from "simple-zustand-devtools";
+import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
 
 interface UserStore {
     token: string,
@@ -35,7 +37,8 @@ export const useUserStore = create<UserStore>(
                 token: token,
                 user_id: user_id,
             }))
-            if(cookies.get('user_id') != -1) {
+            if(user_id != -1 && token != '' && token && user_id) {
+                console.log(`BREAKPOINT check user token: ${token}, user_id: ${user_id}`)
                 let data = await axios({
                     method: 'get',
                     url: 'http://127.0.0.1/api/users/profile/',
@@ -66,3 +69,4 @@ export const useUserStore = create<UserStore>(
         }
     })
 )
+mountStoreDevtool('UserStore', useShopCartStore);

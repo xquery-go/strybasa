@@ -29,21 +29,25 @@ export const useShopCartStore = create<ShopCartStore>((set) => ({
     },
     getShopCartAmount: async (token: string) => {
         try {
-            const response = await axios.get<any>("http://127.0.0.1/api/cart/", {
-                timeout: 2000,
-                headers: {
-                    Authorization: `Token ${token}`,
-                },
-            });
-            const data = response.data
-            if(data && data.length && data[0].user_total_price)
-                return data[0].user_total_price as number;
-            else {
-                console.error("Ошибка при получении стоимости корзины 1", data);
+            if(token) {
+                const response = await axios.get<any>("http://127.0.0.1/api/cart/", {
+                    timeout: 2000,
+                    headers: {
+                        Authorization: `Token ${token}`,
+                    },
+                });
+                const data = response.data
+                if(data && data.length && data[0].user_total_price)
+                    return data[0].user_total_price as number;
+                else {
+                    // console.error("Ошибка при получении стоимости корзины 1", data);
+                    return 0;
+                }
+            } else {
                 return 0;
             }
         } catch (error) {
-            console.error("Ошибка при получении стоимости корзины 2", error);
+            // console.error("Ошибка при получении стоимости корзины 2", error);
             return 0;
         }
     },

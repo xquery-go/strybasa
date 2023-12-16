@@ -7,7 +7,6 @@ import {useCategories} from "@/hooks/useCategories";
 
 export const Categories = () => {
     const {data: categories} = useCategories()
-
     const [query, setQuery] = useQueryStates({
         categoryFilter: queryTypes.integer,
         tagFilter: queryTypes.integer
