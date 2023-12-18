@@ -1,0 +1,57 @@
+.wrapper {
+  background: #0A0907 url("/img/ServicesBackground.jpg") center top/cover no-repeat;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  width: 75%;
+  min-height: calc(90vh - 110px * 2);
+  margin: 70px auto 110px auto;
+}
+
+.name {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.field {
+  position: relative;
+  width: calc(100% - 10px * 2);
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.input {
+  font-family: '__Alumni_Sans_908fda', '__Alumni_Sans_Fallback_908fda' !important;
+  font-size: 1.25rem;
+  font-style: normal;
+  letter-spacing: 0.08rem;
+  padding: 8px 15px;
+
+  color: #ffffff;
+  background: #232323;
+  border: 1px solid #2F2F2F;
+  border-radius: 5px;
+
+  &::placeholder {
+    color: #797979;
+    font-size: 1.25rem;
+    letter-spacing: 0.06rem;
+  }
+  &:focus {
+    border: 1px solid #5C5C5C;
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
