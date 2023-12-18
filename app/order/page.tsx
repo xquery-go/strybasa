@@ -1,12 +1,12 @@
 'use client';
 import {useUserStore} from "@/app/userStore";
-import {OrderPage} from "@/pages/OrderPage";
+import {OrderingPage} from "@/pages/OrderingPage";
 
 const OrderPageWrapper = () => {
     const {token} = useUserStore();
     return (
-        <OrderPage token={token}/>
+        <OrderingPage token={token}/>
     )
 }
 
-export default OrderPage
+export default OrderingPage

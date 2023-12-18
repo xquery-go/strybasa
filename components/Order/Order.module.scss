@@ -1,0 +1,58 @@
+.content {
+  background: #0A0907 url("/img/OrderBackground.png") center top/cover no-repeat;
+  box-shadow: 0 9px 46px 0 rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 15px 15px;
+}
+
+.topPart {
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topLeftPart {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.date {
+  font-size: 1.7rem;
+}
+
+.status {
+  height: 100%;
+  padding: 5px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #353535;
+  color: #D29D00;
+  border-radius: 5px;
+}
+
+.price {
+  font-size: 1.8rem;
+  letter-spacing: 0;
+}
+
+.items {
+  padding: 0 5px;
+}
+
+.item {
+  width: fit-content !important;
+  &_image {
+    border-radius: 5px;
+    width: 160px;
+    height: 170px;
+    margin-bottom: 3px;
+  }
+  &_name {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}

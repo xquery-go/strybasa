@@ -1,0 +1,26 @@
+.name {
+  margin-bottom: 15px;
+}
+
+.select {
+  background: none;
+  color: #ffffff;
+  border: 1px solid #EEB200;
+  padding: 3px 5px;
+  width: 270px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.option {
+  background: none;
+  color: black;
+  font-weight: 500;
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

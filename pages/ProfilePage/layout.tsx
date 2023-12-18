@@ -9,19 +9,22 @@ import {useProfileStore} from "@/pages/ProfilePage/ProfileStore";
 import {LogOut} from "lucide-react";
 import {useUserStore} from "@/app/userStore";
 import {useRouter} from "next/navigation";
+import {formatName} from "@/utils/formatName";
 
 export default function ProfileLayout({ children }: { children: React.ReactNode }) {
     const {curTab} = useProfileStore()
     const router = useRouter()
-    const {quitAccount} = useUserStore()
+    const {quitAccount, curUser} = useUserStore()
     return (
         <div className={styles.wrapper}>
             <Header />
             <div className={styles.content}>
                 <div className={styles.left_part}>
                     <div className={styles.avatar}>
-                        <p className={`${styles.avatar_img} ${roboto.className}`}>ВВ</p>
-                        <p className={styles.avatar_name}>Василий<br/>Васильев</p>
+                        <p className={`${styles.avatar_img} ${roboto.className}`}>
+                            {curUser?.username ? formatName(curUser.username) : ''}
+                        </p>
+                        <p className={styles.avatar_name}>{curUser?.username}</p>
                         <button
                             className={styles.link_quit}
                             onClick={() => {
@@ -30,7 +33,7 @@ export default function ProfileLayout({ children }: { children: React.ReactNode 
                             }}
                         >
                             <>Выйти</>
-                            <LogOut color={'#FF7272'} width={20} height={20}/>
+                            <LogOut color={'#FF5050'} width={20} height={20}/>
                         </button>
                     </div>
                     <div className={styles.links}>

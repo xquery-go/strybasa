@@ -38,7 +38,7 @@ export const useUserStore = create<UserStore>(
                 user_id: user_id,
             }))
             if(user_id != -1 && token != '' && token && user_id) {
-                console.log(`BREAKPOINT check user token: ${token}, user_id: ${user_id}`)
+                // console.log(`BREAKPOINT check user token: ${token}, user_id: ${user_id}`)
                 let data = await axios({
                     method: 'get',
                     url: 'http://127.0.0.1/api/users/profile/',

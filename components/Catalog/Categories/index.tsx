@@ -11,9 +11,6 @@ export const Categories = () => {
         categoryFilter: queryTypes.integer,
         tagFilter: queryTypes.integer
     });
-    const handleChange = (selectedOption: any) => {
-        setQuery({categoryFilter: Number(selectedOption.value)});
-    };
     return (
         <div>
             { categories ?
