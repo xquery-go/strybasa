@@ -3,6 +3,7 @@
   box-shadow: 0 9px 46px 0 rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   padding: 15px 15px;
+  //max-width: 300px;
 }
 
 .topPart {
@@ -39,8 +40,9 @@
   letter-spacing: 0;
 }
 
-.items {
-  padding: 0 5px;
+.swiperWrapper {
+  max-width: 860px;
+  width: 100rem;
 }
 
 .item {

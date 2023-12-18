@@ -29,7 +29,7 @@ export const ProfilePage = () => {
         return () => clearInterval(interval);
     })
     return (
-        <div>
+        <div className={styles.content}>
             <h1 className={`${styles.name} ${roboto.className}`}>Заказы</h1>
             <select
                 className={`${styles.select} ${alumniSans.className}`}

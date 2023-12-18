@@ -9,4 +9,4 @@ const OrderPageWrapper = () => {
     )
 }
 
-export default OrderingPage
+export default OrderPageWrapper

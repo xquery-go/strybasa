@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './OrderingPage.module.scss'
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
 import {useFormik} from "formik";
+import axios from "axios";
+import {useRouter} from "next/navigation";
 
-{/*    order_comment signer_firstname signer_lastname signer_address */}
 export const OrderingPage = ({ token }: { token: string }) => {
+    const router = useRouter()
     const formik = useFormik({
         initialValues: {
             signer_firstname: '',
@@ -14,8 +16,16 @@ export const OrderingPage = ({ token }: { token: string }) => {
             order_comment: '',
             signer_address: '',
         },
-        onSubmit: (values) => {
-            console.log("Submit", values)
+        onSubmit: async (values) => {
+            const data = await axios({
+                method: 'post',
+                url: 'http://127.0.0.1/api/orders/',
+                data: values,
+                headers: {
+                    Authorization: `Token ${token}`
+                },
+            })
+            router.push("/profile")
         }
     })
     return (
