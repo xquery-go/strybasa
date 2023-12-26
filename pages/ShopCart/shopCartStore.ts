@@ -15,7 +15,7 @@ interface ShopCartStore {
 export const useShopCartStore = create<ShopCartStore>((set) => ({
     getShopCart: async (token: string) => {
         try {
-            const response = await axios.get<any>("http://127.0.0.1/api/cart/", {
+            const response = await axios.get<any>(`http://127.0.0.1/api/cart/`, {
                 timeout: 2000,
                 headers: {
                     Authorization: `Token ${token}`,
