@@ -7,6 +7,7 @@ import styles from './layout.module.scss'
 import {QueryClient, QueryClientProvider} from "react-query";
 import {useUserStore} from "@/app/userStore";
 import {useEffect} from "react";
+import {Toaster} from "react-hot-toast";
 
 // export const metadata: Metadata = {
 //   title: 'Стройбаза «Тиски»',
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="en">
         <QueryClientProvider client={queryClient}>
           <body className={`${alumniSans.className} ${styles.layout}`}>
+            <Toaster/>
             {children}
           </body>
         </QueryClientProvider>

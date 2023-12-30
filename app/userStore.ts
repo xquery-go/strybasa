@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import {mountStoreDevtool} from "simple-zustand-devtools";
 import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import toast from "react-hot-toast";
 
 interface UserStore {
     token: string,
@@ -66,6 +67,7 @@ export const useUserStore = create<UserStore>(
             }))
             cookies.remove('token', { path: '/' })
             cookies.remove('user_id', { path: '/' })
+            toast("Вы успешно вышли!", {position: 'bottom-right'})
         }
     })
 )

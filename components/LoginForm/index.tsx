@@ -7,6 +7,7 @@ import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 import {useUserStore} from "@/app/userStore";
+import toast from "react-hot-toast";
 
 export const LoginForm = () => {
     const router = useRouter()
@@ -34,6 +35,7 @@ export const LoginForm = () => {
             if(!error) {
                 let processedData = data.data;
                 setUser(processedData.auth_token as string, processedData.user_id as number)
+                toast.success("Вы успешно вошли!", { position: 'bottom-right' })
                 router.push('/')
             }
         }

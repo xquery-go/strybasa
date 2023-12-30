@@ -2,15 +2,24 @@
 import React from 'react';
 import styles from './Header.module.scss'
 import Link from "next/link";
-import {ShoppingCart} from "lucide-react";
+import {AlertTriangle, ShoppingCart} from "lucide-react";
 import {HeaderInfo} from "@/components/Header/HeaderInfo";
 import {HeaderLinks} from "@/components/Header/HeaderLinks";
 import {roboto} from "@/config/fonts/fonts";
 import {useUserStore} from "@/app/userStore";
 import {HeaderShopCartValue} from "@/components/Header/HeaderShopCartValue";
+import toast from "react-hot-toast";
 
 export const Header = () => {
     const {token} = useUserStore()
+    const handleClick = () => {
+        if(!token)
+            toast(
+                "В начале войдите в аккаунт", {
+                    position: "bottom-right",
+                    icon: <AlertTriangle color={"#000"} width={15} height={15} />
+                })
+    }
     return (
         <div className={styles.headerBlock}>
             <HeaderInfo />
@@ -28,7 +37,10 @@ export const Header = () => {
                         })}
                     </nav>
 
-                    <Link href={"/shop_cart"} className={styles.shopCart}>
+                    <Link
+                        href={token ? "/shop_cart" : "/login"}
+                        onClick={() => { handleClick() }}
+                        className={styles.shopCart}>
                         <ShoppingCart width={35} height={35} className={styles.shopCart_img} />
                         <p className={styles.shopCart_value}>
                             <HeaderShopCartValue token={token}/>₽

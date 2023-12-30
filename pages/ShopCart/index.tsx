@@ -7,9 +7,11 @@ import {roboto} from "@/config/fonts/fonts";
 import {ShopProduct} from "@/components/ShopCartProduct";
 import {IShopCartProduct} from "@/models/IShopCartProduct";
 import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
-import Link from "next/link";
+import {useRouter} from "next/navigation";
+import toast from "react-hot-toast";
 
 export const ShopCart = ({ token }: { token: string }) => {
+    const router = useRouter()
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
     const {getShopCart} = useShopCartStore()
 
@@ -20,6 +22,13 @@ export const ShopCart = ({ token }: { token: string }) => {
     useEffect(() => {
         fetchData();
     }, [getShopCart, token, ProductsData]);
+
+    const handleClick = () => {
+        if(ProductsData?.length) router.push('/order')
+        else {
+            toast.error("Ваша корзина пуста", { position: 'bottom-right' })
+        }
+    }
     return (
         <div className={styles.wrapper}>
             <Header />
@@ -33,7 +42,7 @@ export const ShopCart = ({ token }: { token: string }) => {
                        }
                     </div>
                     <div className={styles.ordering}>
-                        <Link href={'/order'} className={styles.btn}>Перейти к оформлению</Link>
+                        <button className={styles.btn} onClick={() => handleClick()}>Перейти к оформлению</button>
                         <div className={styles.line}></div>
                         <div className={styles.wrap}>
                             <p className={styles.shop_cart_name}>Ваша корзина:</p>

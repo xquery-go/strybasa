@@ -6,9 +6,11 @@ import {roboto} from "@/config/fonts/fonts";
 import {Footer} from "@/components/Footer";
 import {useProduct} from "@/hooks/useProducts";
 import Image from 'next/image'
-import {ChevronDown, Minus, Plus, Share2, ShoppingCart} from "lucide-react";
+import {AlertTriangle, ChevronDown, ClipboardCheck, Minus, Plus, Share2, ShoppingCart} from "lucide-react";
 import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
 import {useUserStore} from "@/app/userStore";
+import {IProduct} from "@/models/IProduct";
+import toast from "react-hot-toast";
 
 export const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
     const [quantity, setQuantity] = useState<number>(0)
@@ -23,7 +25,6 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
         fetchData()
     })
     const { data: item } = useProduct(id);
-    const { addShopCartProduct } = useShopCartStore()
     const { token } = useUserStore()
     const {changeQuantityShopCartProduct} = useShopCartStore();
     const targetBlockRef = useRef<HTMLDivElement>(null);
@@ -33,6 +34,31 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
             targetBlockRef.current.scrollIntoView({ behavior: "smooth" });
         }
     };
+    const handleMinus = (item : IProduct) => {
+        if(token) {
+            setQuantity((prev) => (prev - 1))
+            changeQuantityShopCartProduct(token, item, -1)
+        }
+        else {
+            toast(
+                "В начале войдите в аккаунт", {
+                    position: "bottom-right",
+                    icon: <AlertTriangle color={"#000"} width={15} height={15} />
+                })
+        }
+    }
+    const handlePlus = (item: IProduct) => {
+        if(token) {
+            setQuantity((prev) => (prev + 1))
+            changeQuantityShopCartProduct(token, item, 1)
+        } else {
+            toast(
+                "В начале войдите в аккаунт", {
+                    position: "bottom-right",
+                    icon: <AlertTriangle color={"#000"} width={15} height={15} />
+                })
+        }
+    }
     return (
         <div className={styles.wrapper}>
             <Header />
@@ -72,10 +98,7 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                                 <div className={styles.quantity}>
                                     <button
                                         className={styles.quantity__btn}
-                                        onClick={() => {
-                                            setQuantity((prev) => (prev - 1))
-                                            changeQuantityShopCartProduct(token, item, -1)
-                                        }}
+                                        onClick={() => handleMinus(item)}
                                         disabled={quantity == 0}
                                     >
                                         <Minus width={16} height={16} color={'#000'} strokeWidth={'4'}/>
@@ -83,10 +106,7 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                                     <p className={styles.quantity__kol}>{quantity}</p>
                                     <button
                                         className={styles.quantity__btn}
-                                        onClick={() => {
-                                            setQuantity((prev) => (prev + 1))
-                                            changeQuantityShopCartProduct(token, item, 1)
-                                        }}
+                                        onClick={() => handlePlus(item)}
                                     >
                                         <Plus width={16} height={16} color={'#000'} strokeWidth={'4'}/>
                                     </button>
@@ -94,7 +114,15 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
                                 <p className={styles.quantity__kol}>Загрузка...</p>
                             }
                         </div>
-                        <div className={styles.share} onClick={() => navigator.clipboard.writeText(window.location.href)}>
+                        <div className={styles.share} onClick={() => {
+                            navigator.clipboard.writeText(window.location.href)
+
+                            toast(
+                                "Успешно скопировано", {
+                                    position: "bottom-right",
+                                    icon: <ClipboardCheck color={"#2eb025"} width={15} height={15} />
+                                })
+                        }}>
                             <Share2 width={15} height={15} color={'#fff'} fill={'#fff'} className={styles.share__icon}/>
                             <p className={styles.share__text}>Поделиться</p>
                         </div>

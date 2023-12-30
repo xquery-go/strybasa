@@ -1,17 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import styles from './ProductCard.module.scss'
 import {IProduct} from "@/models/IProduct";
-import {ShoppingCart, Star} from "lucide-react";
+import {AlertTriangle, ShoppingCart, Star} from "lucide-react";
 import Link from "next/link";
 import {roboto} from "@/config/fonts/fonts";
 import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import toast from "react-hot-toast";
 
 export const ProductCard = ({ product, token }: { product: IProduct, token: string }) => {
     const [inCart, setInCart] = useState<boolean>(false)
     const {addShopCartProduct} = useShopCartStore()
     const addToCart = () => {
-        addShopCartProduct(token, product)
-        console.log(`Add to cart product with id ${product.product_id}`)
+        if(token) {
+            addShopCartProduct(token, product)
+            console.log(`Add to cart product with id ${product.product_id}`)
+        }
+        else {
+            toast(
+                "В начале войдите в аккаунт", {
+                    position: "bottom-right",
+                    icon: <AlertTriangle color={"#000"} width={15} height={15} />
+                })
+        }
     }
     return (
         <div className={styles.linkWrapper}>
