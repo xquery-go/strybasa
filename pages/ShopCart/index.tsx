@@ -37,7 +37,10 @@ export const ShopCart = ({ token }: { token: string }) => {
                 <div className={styles.shopCart}>
                     <div className={styles.products}>
                        { ProductsData ?
-                           ProductsData.map((item: IShopCartProduct) => { return <ShopProduct cartProduct={item} key={item.product.product_id} />}) :
+                           ( ProductsData.length ?
+                               ProductsData.map((item: IShopCartProduct) => { return <ShopProduct cartProduct={item} key={item.product.product_id} />}) :
+                                   <p>Ваша корзина пуста</p>
+                           ) :
                            <p>Загрузка...</p>
                        }
                     </div>

@@ -6,6 +6,7 @@ import Image from 'next/image'
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
+import './swiper.scss'
 import { FreeMode, Pagination } from 'swiper/modules';
 import Link from "next/link";
 
@@ -19,17 +20,17 @@ export const Order = ({ order }: { order: IOrder }) => {
                 </div>
                 <p className={styles.price}>{order.to_pay}₽</p>
             </div>
-            { order.items ?
+            { order.items && order.items.length ?
                 <div className={styles.swiperWrapper}>
                     <Swiper
                         slidesPerView={'auto'}
-                        spaceBetween={30}
+                        spaceBetween={20}
                         pagination={{
                             clickable: true,
                         }}
                         className={styles.items}
                     >
-                        {order.items.map((item: IShopCartProduct) => {
+                        { order.items.map((item: IShopCartProduct) => {
                             return (
                                 <SwiperSlide className={styles.item} key={item.product.product_id}>
                                     <Link href={`/product/${item.product.product_id}`}>
@@ -56,7 +57,7 @@ export const Order = ({ order }: { order: IOrder }) => {
                         })}
                     </Swiper>
                 </div> :
-                <p>Нет товаров</p>
+                <h3>Нет товаров</h3>
             }
         </div>
     )
