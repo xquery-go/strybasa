@@ -1,12 +1,11 @@
 'use client';
-import type { Metadata } from 'next'
 import '@/config/reset.css'
 import {alumniSans} from "@/config/fonts/fonts"
 import './globals.css'
 import styles from './layout.module.scss'
 import {QueryClient, QueryClientProvider} from "react-query";
 import {useUserStore} from "@/app/userStore";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {Toaster} from "react-hot-toast";
 
 // export const metadata: Metadata = {
@@ -18,7 +17,7 @@ import {Toaster} from "react-hot-toast";
 // }
 
 const queryClient = new QueryClient()
-
+//ABOBA
 export default function RootLayout({
   children,
 }: {
