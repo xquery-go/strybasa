@@ -75,6 +75,7 @@
 }
 
 .info {
+  height: fit-content;
   background: #232323;
   border: 1px solid #2F2F2F;
   padding: 20px 20px 20px 30px;
@@ -94,4 +95,10 @@
       margin-bottom: 20px;
     }
   }
+}
+
+.error {
+  display: none;
+  font-size: 1rem;
+  color: #FF7272;
 }

@@ -6,6 +6,7 @@ import {roboto} from "@/config/fonts/fonts";
 import {useFormik} from "formik";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import toast from "react-hot-toast";
 
 export const OrderingPage = ({ token }: { token: string }) => {
     const router = useRouter()
@@ -17,15 +18,23 @@ export const OrderingPage = ({ token }: { token: string }) => {
             signer_address: '',
         },
         onSubmit: async (values) => {
-            const data = await axios({
-                method: 'post',
-                url: 'http://127.0.0.1/api/orders/',
-                data: values,
-                headers: {
-                    Authorization: `Token ${token}`
-                },
-            })
-            router.push("/profile")
+            let el = document.getElementById('error');
+            if(el) el.style.display = 'none';
+            try {
+                const data = await axios({
+                    method: 'post',
+                    url: 'http://127.0.0.1/api/orders/',
+                    data: values,
+                    headers: {
+                        Authorization: `Token ${token}`
+                    },
+                })
+                toast.success("Заказ успешно создан!", { position: 'bottom-right' })
+                router.push("/profile")
+            }
+            catch (err) {
+                if(el) el.style.display = 'block';
+            }
         }
     })
     return (
@@ -36,7 +45,7 @@ export const OrderingPage = ({ token }: { token: string }) => {
                 <div className={styles.grid}>
                     <form className={styles.form} onSubmit={formik.handleSubmit}>
                         <div className={styles.field}>
-                            <label htmlFor="signer_lastname" className={styles.label}>Фамилия</label>
+                            <label htmlFor="signer_lastname" className={styles.label}>* Фамилия</label>
                             <input
                                 name="signer_lastname"
                                 className={styles.input}
@@ -47,7 +56,7 @@ export const OrderingPage = ({ token }: { token: string }) => {
                             />
                         </div>
                         <div className={styles.field}>
-                            <label htmlFor="signer_firstname" className={styles.label}>Имя</label>
+                            <label htmlFor="signer_firstname" className={styles.label}>* Имя</label>
                             <input
                                 name="signer_firstname"
                                 className={styles.input}
@@ -58,7 +67,7 @@ export const OrderingPage = ({ token }: { token: string }) => {
                             />
                         </div>
                         <div className={styles.field}>
-                            <label htmlFor="signer_address" className={styles.label}>Адрес</label>
+                            <label htmlFor="signer_address" className={styles.label}>* Адрес</label>
                             <input
                                 name="signer_address"
                                 className={styles.input}
@@ -79,6 +88,7 @@ export const OrderingPage = ({ token }: { token: string }) => {
                                 value={formik.values.order_comment}
                             />
                         </div>
+                        <p className={styles.error} id='error'>Ошибка. Проверьте правильность полей</p>
                         <button type={'submit'} className={styles.btn}>Оформить</button>
                     </form>
                     <div className={styles.info}>
