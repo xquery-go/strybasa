@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18-alpine as builder
 
 WORKDIR /code
 
@@ -7,8 +7,6 @@ COPY package.json .
 COPY yarn.lock .
 
 RUN npm install
-
-COPY --from=builder /app/next.config.js ./
 
 COPY . .
 
