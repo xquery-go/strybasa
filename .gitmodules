@@ -1,0 +1,3 @@
+[submodule "srtybasa_tiski-adminpanel"]
+	path = admin
+	url = https://github.com/Vadimcha/srtybasa_tiski-adminpanel.git

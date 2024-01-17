@@ -8,6 +8,8 @@ COPY yarn.lock .
 
 RUN npm install
 
+COPY --from=builder /app/next.config.js ./
+
 COPY . .
 
 EXPOSE 3000
