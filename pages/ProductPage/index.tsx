@@ -61,6 +61,9 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
     }
     return (
         <div className={styles.wrapper}>
+            <head>
+                <title>Товар | Стройбаза Тиски</title>
+            </head>
             <Header />
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>{item ? item.name : <>Загрузка...</>}</h1>

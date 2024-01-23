@@ -11,6 +11,9 @@ export const SettingsPage = () => {
     }, [])
     return (
         <div>
+            <head>
+                <title>Настройки | Стройбаза Тиски</title>
+            </head>
             <h1 className={`${styles.name} ${roboto.className}`}>Настройки аккаунта</h1>
         </div>
     )

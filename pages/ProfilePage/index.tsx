@@ -30,6 +30,9 @@ export const ProfilePage = () => {
     })
     return (
         <div className={styles.content}>
+            <head>
+                <title>Профиль | Стройбаза Тиски</title>
+            </head>
             <h1 className={`${styles.name} ${roboto.className}`}>Заказы</h1>
             <select
                 className={`${styles.select} ${alumniSans.className}`}

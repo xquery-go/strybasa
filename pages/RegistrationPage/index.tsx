@@ -7,6 +7,9 @@ import {RegForm} from "@/components/RegForm";
 export const RegistrationPage = () => {
     return (
         <div>
+            <head>
+                <title>Регистрация | Стройбаза Тиски</title>
+            </head>
             <div className={styles.wrapper}>
                 <Header />
                 <div className={styles.content}>

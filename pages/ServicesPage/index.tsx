@@ -10,6 +10,9 @@ import {roboto} from "@/config/fonts/fonts";
 export const ServicesPage = () => {
     return (
         <div className={styles.wrapper}>
+            <head>
+                <title>Наши услуги | Стройбаза Тиски</title>
+            </head>
             <Header />
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>Наши услуги</h1>

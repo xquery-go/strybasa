@@ -39,6 +39,9 @@ export const OrderingPage = ({ token }: { token: string }) => {
     })
     return (
         <div className={styles.wrapper}>
+            <head>
+                <title>Оформление | Стройбаза Тиски</title>
+            </head>
             <Header />
             <div className={styles.content}>
                 <h2 className={`${styles.name} ${roboto.className}`}>Оформление заказа</h2>

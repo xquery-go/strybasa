@@ -7,6 +7,9 @@ import {LoginForm} from "@/components/LoginForm";
 export const LoginPage = () => {
     return (
         <div className={styles.wrapper}>
+            <head>
+                <title>Вход | Стройбаза Тиски</title>
+            </head>
             <Header />
             <div className={styles.content}>
                 <LoginForm />

@@ -9,6 +9,9 @@ import {Footer} from "@/components/Footer";
 export const HomePage = () => {
     return (
         <div className={styles.wrapper}>
+            <head>
+                <title>Главная | Стройбаза Тиски</title>
+            </head>
             <Header />
             <section className={styles.section}><ProductGrid /></section>
             <section className={styles.section}><SpecialProducts /></section>

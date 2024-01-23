@@ -32,6 +32,9 @@ export default function RootLayout({
     })
   return (
     <html lang="en">
+        <head>
+            <link rel="icon" type="image/x-icon" href="/img/favicon.png"/>
+        </head>
         <QueryClientProvider client={queryClient}>
           <body className={`${alumniSans.className} ${styles.layout}`}>
             <Toaster/>
