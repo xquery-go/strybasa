@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export const Service = ({ item }: { item: IService }) => {
     return (
-        <div>
+        <div className={styles.content} id={item.id}>
             <div className={styles.head}>
                 <Image
                     className={styles.icon}

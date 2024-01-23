@@ -12,7 +12,7 @@ export const HeaderInfo = () => {
         <div className={styles.wrapper}>
             <div className={styles.headerInfo}>
                 <div className={styles.contacts}>
-                    <Link href={"#"} className={styles.link}>
+                    <Link href={"https://vk.com/tiskikotlas"} className={styles.link}>
                         <Image
                             src={'/img/Vk.svg'}
                             width={16}
@@ -20,16 +20,8 @@ export const HeaderInfo = () => {
                             alt={"Vk"}
                         />
                     </Link>
-                    <Link href={"#"} >
-                        <Image
-                            src={'/img/Watsapp.svg'}
-                            width={16}
-                            height={16}
-                            alt={"Watsapp"}
-                        />
-                    </Link>
                     <Link href={"tel:+79116593737"} className={styles.link}>+7(911)659-37-37</Link>
-                    <Link href={`mailto:mail@mail.ru`} className={styles.link}>mail@mail.ru</Link>
+                    <Link href={`mailto:Torg2023@yandex.ru`} className={styles.link}>Torg2023@yandex.ru</Link>
                 </div>
                 <Link href={token ? "/profile" : "/registration"} className={`${styles.authorize} ${styles.link}`}>
                     <User width={20} height={20} fill={""} className={styles.authorize_img} />

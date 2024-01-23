@@ -11,8 +11,8 @@ export const HeaderLinks = [
         text: "Акции",
         link: "/stock",
     },
-    {
-        text: "Контакты",
-        link: "/contacts",
-    },
+    // {
+    //     text: "Контакты",
+    //     link: "/contacts",
+    // },
 ]

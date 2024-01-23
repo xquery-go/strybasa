@@ -10,13 +10,13 @@ export const Footer = () => {
                 <div className={styles.links}>
                     <div className={styles.column}>
                         <p className={styles.column_name}>Услуги</p>
-                        <Link href={'/services'}><p className={styles.link}>Доставка</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Разгрузка и подъём на этаж</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Распил</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Расчёт</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Сборка и установка</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Хранение стройматериалов</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Экспресс-доставка</p></Link>
+                        <Link href={'/services#Delivery'}><p className={styles.link}>Доставка</p></Link>
+                        <Link href={'/services#Unloading'}><p className={styles.link}>Разгрузка и подъём на этаж</p></Link>
+                        <Link href={'/services#Sawing'}><p className={styles.link}>Распил</p></Link>
+                        <Link href={'/services#Calculation'}><p className={styles.link}>Расчёт</p></Link>
+                        <Link href={'/services#Assembly'}><p className={styles.link}>Сборка и установка</p></Link>
+                        <Link href={'/services#Storage'}><p className={styles.link}>Хранение стройматериалов</p></Link>
+                        <Link href={'/services#ExpressDelivery'}><p className={styles.link}>Экспресс-доставка</p></Link>
                     </div>
                     <div className={styles.column}>
                         <p className={styles.column_name}>Покупателям</p>
@@ -45,10 +45,13 @@ export const Footer = () => {
                         <p className={`${styles.link} ${styles.time}`}>Сб-Вс с 09:00 до 15:00</p>
                     </div>
                     <div className={styles.contacts}>
-                        <Link href={'#'}><Image src={'/img/WatsappYellow.svg'} width={26} height={26} alt={'Watsapp'}/></Link>
-                        <Link href={'#'}><Image src={'/img/VkYellow.svg'} width={26} height={26} alt={'Vk'}/></Link>
-                        <Link href={'#'}><Image src={'/img/PhoneYellow.svg'} width={26} height={26} alt={'Call Us'}/></Link>
-                    </div>
+                        <Link href={'https://vk.com/tiskikotlas'}>
+                            <Image src={'/img/VkYellow.svg'} width={26} height={26} alt={'Vk'}/>
+                        </Link>
+                        <Link href={'tel:+79116593737'}>
+                            <Image src={'/img/PhoneYellow.svg'} width={26} height={26} alt={'Call Us'}/>
+                        </Link>
+                        </div>
                 </div>
             </div>
         </div>
