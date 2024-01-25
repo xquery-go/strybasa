@@ -12,7 +12,7 @@ interface ShopCartStore {
     getShopCartProductQuantity: (token: string, product_id: string | number) => Promise<number>
 }
 
-export const useShopCartStore = create<ShopCartStore>((set) => ({
+const useShopCartStore = create<ShopCartStore>((set) => ({
     getShopCart: async (token: string) => {
         try {
             const response = await axios.get<any>(`http://127.0.0.1/api/cart/`, {
@@ -109,3 +109,4 @@ export const useShopCartStore = create<ShopCartStore>((set) => ({
     }
 }));
 mountStoreDevtool('ShopCartStore', useShopCartStore);
+export default useShopCartStore;

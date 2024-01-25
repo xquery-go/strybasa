@@ -4,12 +4,10 @@ import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {RegForm} from "@/components/RegForm";
 
-export const RegistrationPage = () => {
+const RegistrationPage = () => {
     return (
         <div>
-            <head>
-                <title>Регистрация | Стройбаза Тиски</title>
-            </head>
+            <title>Регистрация | Стройбаза Тиски</title>
             <div className={styles.wrapper}>
                 <Header />
                 <div className={styles.content}>
@@ -20,3 +18,5 @@ export const RegistrationPage = () => {
         </div>
     )
 }
+
+export default RegistrationPage;

@@ -1,6 +1,6 @@
 import {IService} from "@/models/IService";
 
-export const ServicesData: IService[] = [
+const ServicesData: IService[] = [
     {
         id: 'ExpressDelivery',
         icon: '/img/services/ExpressDeliveryIcon.png',
@@ -44,3 +44,4 @@ export const ServicesData: IService[] = [
         dscr: 'Осуществляем бесплатный распил приобретённых у нас материалов для удобства транспортировки.',
     },
 ]
+export default ServicesData;

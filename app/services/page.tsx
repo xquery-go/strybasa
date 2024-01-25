@@ -1,3 +1,3 @@
-import {ServicesPage} from "@/pages/ServicesPage";
+import ServicesPage from "@/pages/ServicesPage";
 
 export default ServicesPage;

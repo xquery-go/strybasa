@@ -3,11 +3,18 @@ import React, {useEffect, useState} from 'react';
 import styles from './Tags.module.scss'
 import {ITag} from "@/models/ITag";
 import { queryTypes, useQueryStates } from 'next-usequerystate';
-import {useTags} from "@/hooks/useTags";
 
 export const Tags = () => {
+    const [tags, setTags] = useState<null | ITag[]>(null);
+    useEffect(() => {
+        fetch('http://127.0.0.1/api/tags/?format=json')
+            .then((res) => res.json())
+            .then((data) => {
+                setTags(data as ITag[])
+                // console.log(`BREAKPOINT FROM Tags`, data)
+            })
+    }, [])
 
-    const {data: tags} = useTags()
     const [query, setQuery] = useQueryStates({
         categoryFilter: queryTypes.integer,
         tagFilter: queryTypes.integer

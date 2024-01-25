@@ -4,12 +4,10 @@ import {Footer} from "@/components/Footer";
 import {Header} from "@/components/Header";
 import {roboto} from "@/config/fonts/fonts";
 
-export const AboutPage = () => {
+const AboutPage = () => {
     return (
         <div className={styles.wrapper}>
-            <head>
-                <title>О нас | Стройбаза Тиски</title>
-            </head>
+            <title>О нас | Стройбаза Тиски</title>
             <Header />
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>О компании</h1>
@@ -23,3 +21,4 @@ export const AboutPage = () => {
         </div>
     )
 }
+export default AboutPage;

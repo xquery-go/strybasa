@@ -1,12 +1,19 @@
 'use client';
-import React  from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Categories.module.scss'
 import {ICategory} from "@/models/ICategory";
 import { queryTypes, useQueryStates } from 'next-usequerystate';
-import {useCategories} from "@/hooks/useCategories";
 
 export const Categories = () => {
-    const {data: categories} = useCategories()
+    const [categories, setCategories] = useState<null | ICategory[]>(null);
+    useEffect(() => {
+        fetch('http://127.0.0.1/api/categories/?format=json')
+            .then((res) => res.json())
+            .then((data) => {
+                setCategories(data as ICategory[])
+                // console.log(`BREAKPOINT FROM CATEGORIES`, data)
+            })
+    }, [])
     const [query, setQuery] = useQueryStates({
         categoryFilter: queryTypes.integer,
         tagFilter: queryTypes.integer

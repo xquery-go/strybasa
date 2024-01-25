@@ -4,12 +4,10 @@ import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {LoginForm} from "@/components/LoginForm";
 
-export const LoginPage = () => {
+const LoginPage = () => {
     return (
         <div className={styles.wrapper}>
-            <head>
-                <title>Вход | Стройбаза Тиски</title>
-            </head>
+            <title>Вход | Стройбаза Тиски</title>
             <Header />
             <div className={styles.content}>
                 <LoginForm />
@@ -18,3 +16,5 @@ export const LoginPage = () => {
         </div>
     )
 }
+
+export default LoginPage;

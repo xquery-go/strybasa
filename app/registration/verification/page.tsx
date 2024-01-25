@@ -1,4 +1,4 @@
 'use client';
-import {VerificationPage} from "@/pages/VerificationPage";
+import VerificationPage from "@/pages/VerificationPage";
 
 export default VerificationPage;

@@ -1,5 +1,5 @@
 'use client';
 
-import {AboutPage} from "@/pages/AboutPage";
+import AboutPage from "@/pages/AboutPage";
 
 export default AboutPage;

@@ -8,7 +8,7 @@ import axios from "axios";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
 
-export const OrderingPage = ({ token }: { token: string }) => {
+const OrderingPage = ({ token }: { token: string }) => {
     const router = useRouter()
     const formik = useFormik({
         initialValues: {
@@ -39,9 +39,7 @@ export const OrderingPage = ({ token }: { token: string }) => {
     })
     return (
         <div className={styles.wrapper}>
-            <head>
-                <title>Оформление | Стройбаза Тиски</title>
-            </head>
+            <title>Оформление | Стройбаза Тиски</title>
             <Header />
             <div className={styles.content}>
                 <h2 className={`${styles.name} ${roboto.className}`}>Оформление заказа</h2>
@@ -117,3 +115,5 @@ export const OrderingPage = ({ token }: { token: string }) => {
         </div>
     )
 }
+
+export default OrderingPage;

@@ -11,7 +11,7 @@ interface ProfileStore {
     getStatuses: (token: string) => void
 }
 
-export const useProfileStore = create<ProfileStore>(
+const useProfileStore = create<ProfileStore>(
     (set) => ({
         statuses: ['Все'],
         orders: [],
@@ -59,3 +59,5 @@ export const useProfileStore = create<ProfileStore>(
         }
     })
 )
+
+export default useProfileStore;

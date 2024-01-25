@@ -1,13 +1,13 @@
 'use client';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Catalog.module.scss'
 import {Categories} from "@/components/Catalog/Categories";
 import {Tags} from "@/components/Catalog/Tags";
 import {roboto} from "@/config/fonts/fonts";
 import {ProductRow} from "@/components/ProductRow";
 import {queryTypes, useQueryStates} from "next-usequerystate";
-import {useProducts} from "@/hooks/useProducts";
 import {IProduct} from "@/models/IProduct";
+import {Filter} from "@/utils/filterProducts";
 
 function Products(products: IProduct[]) {
     const groups: IProduct[][] = [];
@@ -22,11 +22,20 @@ function Products(products: IProduct[]) {
 }
 
 export const Catalog = () => {
-    const [query, setQuery] = useQueryStates({
+    const [query] = useQueryStates({
         categoryFilter: queryTypes.integer,
         tagFilter: queryTypes.integer
     });
-    const { data: products } = useProducts(query.categoryFilter, query.tagFilter)
+    const [products, setProducts] = useState<null | IProduct[]>(null);
+    useEffect(() => {
+        fetch('http://127.0.0.1/api/products/?format=json')
+            .then((res) => res.json())
+            .then((data) => {
+                data = data?.filter((product: IProduct) => Filter(product, query.categoryFilter, query.tagFilter))
+                setProducts(data as IProduct[])
+                console.log(`BREAKPOINT FROM Catalog`, data)
+            })
+    }, [])
     return (
         <div className={styles.container}>
             <div className={styles.header}>

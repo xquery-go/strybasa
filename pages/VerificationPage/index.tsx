@@ -4,7 +4,7 @@ import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {RegForm2} from "@/components/RegForm/RegForm2";
 
-export const VerificationPage = () => {
+const VerificationPage = () => {
     return (
         <div>
             <div className={styles.wrapper}>
@@ -17,3 +17,5 @@ export const VerificationPage = () => {
         </div>
     )
 }
+
+export default VerificationPage;

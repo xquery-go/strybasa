@@ -6,11 +6,11 @@ import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
 import {ShopProduct} from "@/components/ShopCartProduct";
 import {IShopCartProduct} from "@/models/IShopCartProduct";
-import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/pages/ShopCart/shopCartStore";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
 
-export const ShopCart = ({ token }: { token: string }) => {
+const ShopCart = ({ token }: { token: string }) => {
     const router = useRouter()
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
     const {getShopCart} = useShopCartStore()
@@ -69,3 +69,5 @@ export const ShopCart = ({ token }: { token: string }) => {
         </div>
     )
 }
+
+export default ShopCart;

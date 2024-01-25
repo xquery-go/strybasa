@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect} from 'react';
-import {useProfileStore} from "@/pages/ProfilePage/ProfileStore";
+import useProfileStore from "@/pages/ProfilePage/ProfileStore";
 import styles from './OrdersPage.module.scss'
 import {alumniSans, roboto} from "@/config/fonts/fonts";
 import {IUser} from "@/models/IUser";
@@ -11,8 +11,7 @@ import {Order} from "@/components/Order";
 import {queryTypes, useQueryStates} from "next-usequerystate";
 
 
-
-export const ProfilePage = () => {
+ const ProfilePage = () => {
     const { token } = useUserStore()
     const { setCurTab, getOrders, orders, getStatuses, statuses } = useProfileStore()
     const [query, setQuery] = useQueryStates({
@@ -30,9 +29,8 @@ export const ProfilePage = () => {
     })
     return (
         <div className={styles.content}>
-            <head>
-                <title>Профиль | Стройбаза Тиски</title>
-            </head>
+            <title>Профиль | Стройбаза Тиски</title>
+
             <h1 className={`${styles.name} ${roboto.className}`}>Заказы</h1>
             <select
                 className={`${styles.select} ${alumniSans.className}`}
@@ -50,3 +48,5 @@ export const ProfilePage = () => {
         </div>
     )
 }
+
+export default ProfilePage;

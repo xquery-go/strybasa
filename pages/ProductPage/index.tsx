@@ -4,17 +4,28 @@ import styles from './ProductPage.module.scss'
 import {Header} from "@/components/Header";
 import {roboto} from "@/config/fonts/fonts";
 import {Footer} from "@/components/Footer";
-import {useProduct} from "@/hooks/useProducts";
 import Image from 'next/image'
 import {AlertTriangle, ChevronDown, ClipboardCheck, Minus, Plus, Share2, ShoppingCart} from "lucide-react";
-import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/pages/ShopCart/shopCartStore";
 import {useUserStore} from "@/app/userStore";
 import {IProduct} from "@/models/IProduct";
 import toast from "react-hot-toast";
+import {useRouter} from "next/navigation";
 
-export const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
+const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
     const [quantity, setQuantity] = useState<number>(0)
     const { getShopCartProductQuantity } = useShopCartStore()
+    const [item, setItem] = useState<null | IProduct>(null);
+    const router = useRouter()
+    useEffect(() => {
+        if(!id) router.push('/');
+        fetch(`http://127.0.0.1/api/products/${String(id)}/?format=json`)
+            .then((res) => res.json())
+            .then((data) => {
+                setItem(data as IProduct)
+                // console.log(`BREAKPOINT FROM Product`, data)
+            })
+    }, [])
     useEffect(() => {
         const fetchData = async () => {
             if(token && item && item.product_id) {
@@ -24,7 +35,6 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
         };
         fetchData()
     })
-    const { data: item } = useProduct(id);
     const { token } = useUserStore()
     const {changeQuantityShopCartProduct} = useShopCartStore();
     const targetBlockRef = useRef<HTMLDivElement>(null);
@@ -61,9 +71,7 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
     }
     return (
         <div className={styles.wrapper}>
-            <head>
-                <title>Товар | Стройбаза Тиски</title>
-            </head>
+            <title>Товар | Стройбаза Тиски</title>
             <Header />
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>{item ? item.name : <>Загрузка...</>}</h1>
@@ -140,3 +148,5 @@ export const ProductPage = ({ params: { id } }: {params: { id: number | string }
         </div>
     )
 }
+
+export default ProductPage;

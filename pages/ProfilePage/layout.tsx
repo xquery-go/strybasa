@@ -5,7 +5,7 @@ import {Header} from "@/components/Header";
 import Link from "next/link";
 import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
-import {useProfileStore} from "@/pages/ProfilePage/ProfileStore";
+import useProfileStore from "@/pages/ProfilePage/ProfileStore";
 import {LogOut} from "lucide-react";
 import {useUserStore} from "@/app/userStore";
 import {useRouter} from "next/navigation";

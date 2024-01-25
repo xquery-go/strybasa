@@ -19,6 +19,6 @@ export const formatNumber = (value: string) => {
         const prefix = phoneNumber.slice(3, 6);
         const suffix = phoneNumber.slice(6, 8);
         const suffix2 = phoneNumber.slice(8, 10);
-        return ```````````````````````(${areaCode}) ${prefix} ${suffix} ${suffix2}`
+        return `(${areaCode}) ${prefix} ${suffix} ${suffix2}`
     }
 }

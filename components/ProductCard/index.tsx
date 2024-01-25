@@ -4,7 +4,7 @@ import {IProduct} from "@/models/IProduct";
 import {AlertTriangle, ShoppingCart, Star} from "lucide-react";
 import Link from "next/link";
 import {roboto} from "@/config/fonts/fonts";
-import {useShopCartStore} from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/pages/ShopCart/shopCartStore";
 import toast from "react-hot-toast";
 
 export const ProductCard = ({ product, token }: { product: IProduct, token: string }) => {

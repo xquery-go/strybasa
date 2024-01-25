@@ -1,3 +1,4 @@
+'use client';
 import React, {useEffect} from 'react';
 import {Header} from "@/components/Header";
 import styles from './HomePage.module.scss'
@@ -5,13 +6,14 @@ import {ProductGrid} from "@/components/ProductGrid";
 import {Catalog} from "@/components/Catalog";
 import {SpecialProducts} from "@/components/SpecialProducts";
 import {Footer} from "@/components/Footer";
+import Head from "next/head";
 
-export const HomePage = () => {
+const HomePage = () => {
     return (
-        <div className={styles.wrapper}>
-            <head>
+        <div className={styles.wrapper} >
+            <Head>
                 <title>Главная | Стройбаза Тиски</title>
-            </head>
+            </Head>
             <Header />
             <section className={styles.section}><ProductGrid /></section>
             <section className={styles.section}><SpecialProducts /></section>
@@ -20,3 +22,5 @@ export const HomePage = () => {
         </div>
     );
 };
+
+export default HomePage;

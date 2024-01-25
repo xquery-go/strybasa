@@ -22,13 +22,11 @@ export const Footer = () => {
                         <p className={styles.column_name}>Покупателям</p>
                         <Link href={'/services'}><p className={styles.link}>Акции</p></Link>
                         <Link href={'/services'}><p className={styles.link}>Доставка и оплата</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Правила сайта</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Полезные статьи</p></Link>
                     </div>
                     <div className={`${styles.column} ${styles.column_unique}`}>
                         <div className={styles.row}>
                             <p className={styles.column_name}>О компании</p>
-                            <Link href={'/services'}><p className={styles.link}>О нас</p></Link>
+                            <Link href={'/about'}><p className={styles.link}>О нас</p></Link>
                             <Link href={'/services'}><p className={styles.link}>Политика в области обработки и защиты персональных данных</p></Link>
                         </div>
                         <div className={styles.row}>
@@ -42,7 +40,7 @@ export const Footer = () => {
                     <div className={styles.timetable}>
                         <p className={styles.column_name}>Часы работы</p>
                         <p className={`${styles.link} ${styles.time}`}>Пн-Пт с 09:00 до 18:00</p>
-                        <p className={`${styles.link} ${styles.time}`}>Сб-Вс с 09:00 до 15:00</p>
+                        <p className={`${styles.link} ${styles.time}`}>Сб с 09:00 до 15:00</p>
                     </div>
                     <div className={styles.contacts}>
                         <Link href={'https://vk.com/tiskikotlas'}>

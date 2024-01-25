@@ -1,6 +1,5 @@
 'use client';
-import {ShopCart} from "@/pages/ShopCart";
-import {useUserStore} from "@/app/userStore";
+import ShopCart from "@/pages/ShopCart";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 import toast from "react-hot-toast";

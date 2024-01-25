@@ -5,9 +5,10 @@ import Image from 'next/image'
 import Link from "next/link";
 import {User} from "lucide-react";
 import {useUserStore} from "@/app/userStore";
+import {IUser} from "@/models/IUser";
 
 export const HeaderInfo = () => {
-    const {curUser, token} = useUserStore()
+    const {token, curUser} = useUserStore();
     return (
         <div className={styles.wrapper}>
             <div className={styles.headerInfo}>
