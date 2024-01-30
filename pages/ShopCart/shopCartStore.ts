@@ -53,7 +53,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
     },
     addShopCartProduct: async (token: string, product: IProduct) => {
         try {
-            const data = axios({
+            const data = await axios({
                 method: 'post',
                 url: 'http://127.0.0.1/api/cart/',
                 data: {
@@ -70,7 +70,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
     },
     changeQuantityShopCartProduct: async (token: string, product: IProduct, quantity: number) => {
         try {
-            const data = axios({
+            const data = await axios({
                 method: 'post',
                 url: 'http://127.0.0.1/api/cart/',
                 data: {
@@ -108,5 +108,5 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
         }
     }
 }));
-mountStoreDevtool('ShopCartStore', useShopCartStore);
+// mountStoreDevtool('ShopCartStore', useShopCartStore);
 export default useShopCartStore;

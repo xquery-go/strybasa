@@ -34,16 +34,7 @@ export const ProductCard = ({ product, token }: { product: IProduct, token: stri
                     <div className={styles.meta}>
                         <p className={`${styles.meta_name} ${roboto.className}`}>{ product.name }</p>
                         <div className={styles.meta_block_2}>
-                            <div className={styles.meta_reviews}>
-                                <div className={styles.meta_stars}>
-                                    <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
-                                    <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
-                                    <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
-                                    <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
-                                    <Star width={18} height={18} color={'#EEB200'} fill={'#EEB200'} className={styles.star}/>
-                                </div>
-                                <p className={`${styles.meta_reviewsQuantity}`}>777 отзывов</p>
-                            </div>
+
                             <div className={styles.meta_bottomPart}>
                                 <p className={styles.meta_price}>{ product.price }₽</p>
                             </div>

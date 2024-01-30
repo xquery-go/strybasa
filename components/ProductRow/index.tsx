@@ -14,20 +14,25 @@ import {useUserStore} from "@/app/userStore";
 export const ProductRow = ({ products }: { products: IProduct[] }) => {
     const { token } = useUserStore()
     return (
-        <Swiper
-            navigation
-            slidesPerView={4}
-            spaceBetween={40}
-            modules={[Navigation]}
-            className={styles.container}
-        >
-            { products.map((item, ind) => {
-                return (
-                    <SwiperSlide key={ind}>
-                        <ProductCard product={item} token={token} />
-                    </SwiperSlide>
-                )
-            }) }
-        </Swiper>
+        <>
+            {products.length ?
+                <Swiper
+                    navigation
+                    slidesPerView={4}
+                    spaceBetween={40}
+                    modules={[Navigation]}
+                    className={styles.container}
+                >
+                    { products.map((item, ind) => {
+                        return (
+                            <SwiperSlide key={ind}>
+                                <ProductCard product={item} token={token} />
+                            </SwiperSlide>
+                        )
+                    }) }
+                </Swiper> :
+                <p>К сожалению, сейчас отсутствуют такие товары</p>
+            }
+        </>
     )
 }

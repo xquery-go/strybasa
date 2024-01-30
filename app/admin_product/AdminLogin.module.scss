@@ -1,0 +1,51 @@
+
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.form {
+  position: absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width: 20vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  padding: 50px 25px 70px 25px;
+  box-shadow: 0 0 60px 20px rgba(34, 60, 80, 0.13);
+  border-radius: 15px;
+}
+
+.space {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 40px;
+  color: #000000E0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.error {
+  display: none;
+  font-weight: 500;
+  font-size: .8rem;
+  color: #ff4d4f;
+}

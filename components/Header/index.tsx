@@ -14,7 +14,13 @@ export const Header = () => {
     const {token, curUser} = useUserStore()
     const {getShopCartAmount} = useShopCartStore()
     const [amount, setAmount] = useState<number | null>(null)
-    useEffect(() => {console.log(token)});
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getShopCartAmount(token);
+            setAmount(data);
+        };
+        fetchData();
+    });
     const handleClick = () => {
         if(!token)
             toast(

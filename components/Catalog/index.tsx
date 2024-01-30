@@ -31,21 +31,20 @@ export const Catalog = () => {
         fetch('http://127.0.0.1/api/products/?format=json')
             .then((res) => res.json())
             .then((data) => {
-                data = data?.filter((product: IProduct) => Filter(product, query.categoryFilter, query.tagFilter))
                 setProducts(data as IProduct[])
                 console.log(`BREAKPOINT FROM Catalog`, data)
             })
     }, [])
     return (
         <div className={styles.container}>
+            <h2 className={`${styles.header_name} ${roboto.className}`}>Наши Товары</h2>
             <div className={styles.header}>
                 <Categories />
-                <h2 className={`${styles.header_name} ${roboto.className}`}>Наши Товары</h2>
                 <div className={styles.funcPart}>
                     <Tags />
                 </div>
             </div>
-            { products && products.length ? Products(products) : <p>К сожалению нет товаров с заданными фильтрами</p>}
+            { products && products.length ? Products(products?.filter((product: IProduct) => Filter(product, query.categoryFilter, query.tagFilter))) : <p>К сожалению нет товаров с заданными фильтрами</p>}
         </div>
     )
 }

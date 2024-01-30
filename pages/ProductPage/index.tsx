@@ -71,8 +71,8 @@ const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
     }
     return (
         <div className={styles.wrapper}>
-            <title>Товар | Стройбаза Тиски</title>
             <Header />
+            <title>Товар | Стройбаза Тиски</title>
             <div className={styles.content}>
                 <h1 className={`${styles.name} ${roboto.className}`}>{item ? item.name : <>Загрузка...</>}</h1>
                 <div className={styles.poster}>

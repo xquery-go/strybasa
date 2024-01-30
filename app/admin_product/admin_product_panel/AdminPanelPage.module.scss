@@ -1,0 +1,47 @@
+.wrapper {
+  width: 100vw;
+  position: relative;
+}
+
+.content {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+}
+
+.logout {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all .5s ease-in-out;
+  padding: 5px 15px;
+  border-radius: 5px;
+  &_text {
+    color: #ff4d4f;
+    font-weight: 500;
+  }
+  &:hover {
+    background: #f4f4f4;
+  }
+}
+
+.title {
+  margin-bottom: 50px;
+  color: #000000E0;
+}
+
+.queries {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.block_title {
+  margin-bottom: 10px;
+  color: #000000E0;
+}

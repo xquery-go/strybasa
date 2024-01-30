@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './Service.module.scss'
 import {IService} from "@/models/IService";

@@ -1,4 +1,12 @@
 'use client';
 import ProductPage from "@/pages/ProductPage";
+import {Header} from "@/components/Header";
+import React from "react";
 
-export default ProductPage;
+const ProductPageWrapper = ({ params }: {params: { id: string }}) => {
+    return (
+        <ProductPage params={params}/>
+    )
+}
+
+export default ProductPageWrapper;
