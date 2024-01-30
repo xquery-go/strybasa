@@ -1,5 +1,5 @@
 import axios from "axios";
-import {initialFormikValues} from "@/components/Products/addProductComp";
+import {initialFormikValues} from "@/adminComponents/Products/addProductComp";
 
 export const getAllProducts = async (token: string) => {
     const data = await axios({

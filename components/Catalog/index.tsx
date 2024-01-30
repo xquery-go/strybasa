@@ -33,7 +33,7 @@ export const Catalog = () => {
             .then((data) => {
                 setProducts(data as IProduct[])
                 console.log(`BREAKPOINT FROM Catalog`, data)
-            })
+            }).catch(() => {})
     }, [])
     return (
         <div className={styles.container}>

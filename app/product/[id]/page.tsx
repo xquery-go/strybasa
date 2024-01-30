@@ -3,9 +3,9 @@ import ProductPage from "@/pages/ProductPage";
 import {Header} from "@/components/Header";
 import React from "react";
 
-const ProductPageWrapper = ({ params }: {params: { id: string }}) => {
+const ProductPageWrapper = ({ params }: {params: { id: string | undefined }}) => {
     return (
-        <ProductPage params={params}/>
+        <ProductPage id={params.id}/>
     )
 }
 

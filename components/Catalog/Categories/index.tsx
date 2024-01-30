@@ -12,7 +12,7 @@ export const Categories = () => {
             .then((data) => {
                 setCategories(data as ICategory[])
                 // console.log(`BREAKPOINT FROM CATEGORIES`, data)
-            })
+            }).catch(() => {})
     }, [])
     const [query, setQuery] = useQueryStates({
         categoryFilter: queryTypes.integer,

@@ -14,7 +14,7 @@ export default function AdminLogin() {
     const router = useRouter()
     useEffect(() => {
         if(token && curUser?.is_staff) router.push('/admin_product/admin_product_panel  ')
-    })
+    }, [token, curUser, router])
     const {setUser} = useUserStore()
     const formik = useFormik({
         initialValues: {

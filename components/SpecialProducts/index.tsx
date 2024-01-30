@@ -15,7 +15,7 @@ export const SpecialProducts = () => {
                 data = data?.filter((product: IProduct) => Filter(product, 5, null))
                 setSpecialProducts(data as IProduct[])
                 console.log(`BREAKPOINT FROM Special Products`, data)
-            })
+            }).catch(() => {})
     }, [])
     return (
         <div className={styles.container}>

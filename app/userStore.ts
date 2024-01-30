@@ -2,8 +2,6 @@ import {create} from "zustand";
 import {IUser} from "@/models/IUser";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import {mountStoreDevtool} from "simple-zustand-devtools";
-import useShopCartStore from "@/pages/ShopCart/shopCartStore";
 import toast from "react-hot-toast";
 
 interface UserStore {
@@ -71,4 +69,3 @@ export const useUserStore = create<UserStore>(
         }
     })
 )
-mountStoreDevtool('UserStore', useShopCartStore);

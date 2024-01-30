@@ -5,7 +5,7 @@ import Image from 'next/image'
 import {Minus, Plus, X} from "lucide-react";
 import Link from "next/link";
 import {IShopCartProduct} from "@/models/IShopCartProduct";
-import useShopCartStore from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/app/shopCartStore";
 import {useUserStore} from "@/app/userStore";
 
 export const ShopProduct = ({ cartProduct }: { cartProduct: IShopCartProduct }) => {

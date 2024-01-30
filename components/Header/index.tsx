@@ -8,7 +8,7 @@ import {HeaderLinks} from "@/data/HeaderLinks";
 import {roboto} from "@/config/fonts/fonts";
 import {useUserStore} from "@/app/userStore";
 import toast from "react-hot-toast";
-import useShopCartStore from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/app/shopCartStore";
 
 export const Header = () => {
     const {token, curUser} = useUserStore()

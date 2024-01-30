@@ -12,7 +12,7 @@ export const Tags = () => {
             .then((data) => {
                 setTags(data as ITag[])
                 // console.log(`BREAKPOINT FROM Tags`, data)
-            })
+            }).catch(() => {})
     }, [])
 
     const [query, setQuery] = useQueryStates({

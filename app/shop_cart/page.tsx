@@ -17,7 +17,7 @@ const ShopCartPage = () => {
                 icon: '!'
             })
         }
-    }, [token, user_id])
+    }, [token, user_id, router])
     return (
         <ShopCart token={token as string}/>
     )

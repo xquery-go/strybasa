@@ -1,14 +1,14 @@
 'use client';
 import React, {useEffect} from 'react';
 import styles from './SettingsPage.module.scss'
-import useProfileStore from "@/pages/ProfilePage/ProfileStore";
+import useProfileStore from "@/app/ProfileStore";
 import {roboto} from "@/config/fonts/fonts";
 
 const SettingsPage = () => {
     const { setCurTab } = useProfileStore()
     useEffect(() => {
         setCurTab("settings")
-    }, [])
+    }, [setCurTab])
     return (
         <div>
             <title>Настройки | Стройбаза Тиски</title>

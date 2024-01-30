@@ -3,6 +3,7 @@ import {IShopCartProduct} from "@/models/IShopCartProduct";
 import axios from "axios";
 import {mountStoreDevtool} from "simple-zustand-devtools";
 import {IProduct} from "@/models/IProduct";
+import method from "async-validator/dist-types/validator/method";
 
 interface ShopCartStore {
     getShopCart: (token: string) => Promise<IShopCartProduct[] | null>,
@@ -15,8 +16,9 @@ interface ShopCartStore {
 const useShopCartStore = create<ShopCartStore>((set) => ({
     getShopCart: async (token: string) => {
         try {
-            const response = await axios.get<any>(`http://127.0.0.1/api/cart/`, {
-                timeout: 2000,
+            const response = await axios({
+                method: 'get',
+                url: `http://127.0.0.1/api/cart/`,
                 headers: {
                     Authorization: `Token ${token}`,
                 },
@@ -30,8 +32,9 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
     getShopCartAmount: async (token: string) => {
         try {
             if(token) {
-                const response = await axios.get<any>("http://127.0.0.1/api/cart/", {
-                    timeout: 2000,
+                const response = await axios({
+                    method: 'get',
+                    url: "http://127.0.0.1/api/cart/",
                     headers: {
                         Authorization: `Token ${token}`,
                     },
@@ -64,9 +67,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
                     Authorization: `Token ${token}`
                 }
             })
-        } catch (error) {
-            console.error(`Ошибка при добавлении продукта - ${product.product_id}`, error);
-        }
+        } catch (error) {}
     },
     changeQuantityShopCartProduct: async (token: string, product: IProduct, quantity: number) => {
         try {
@@ -81,9 +82,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
                     Authorization: `Token ${token}`
                 }
             })
-        } catch (error) {
-            console.error(`Ошибка при изменении кол-ва товара - ${product.product_id}`, error);
-        }
+        } catch (error) {}
     },
     getShopCartProductQuantity: async (token: string, product_id: number | string) => {
         try {
@@ -99,14 +98,11 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
             const data = response.data;
             if(data && data.amount) return data.amount;
             else {
-                console.error(`Ошибка при получении товара из ккорзины - ${product_id}`);
                 return 0;
             }
         } catch (error) {
-            console.error(`Ошибка при получении товара из ккорзины - ${product_id}`, error);
             return 0;
         }
     }
 }));
-// mountStoreDevtool('ShopCartStore', useShopCartStore);
 export default useShopCartStore;

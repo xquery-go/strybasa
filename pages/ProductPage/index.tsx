@@ -6,13 +6,13 @@ import {roboto} from "@/config/fonts/fonts";
 import {Footer} from "@/components/Footer";
 import Image from 'next/image'
 import {AlertTriangle, ChevronDown, ClipboardCheck, Minus, Plus, Share2, ShoppingCart} from "lucide-react";
-import useShopCartStore from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/app/shopCartStore";
 import {useUserStore} from "@/app/userStore";
 import {IProduct} from "@/models/IProduct";
 import toast from "react-hot-toast";
 import {useRouter} from "next/navigation";
 
-const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
+const ProductPage = ({ id }: { id?: number | string | undefined } ) => {
     const [quantity, setQuantity] = useState<number>(0)
     const { getShopCartProductQuantity } = useShopCartStore()
     const [item, setItem] = useState<null | IProduct>(null);
@@ -24,8 +24,8 @@ const ProductPage = ({ params: { id } }: {params: { id: number | string }}) => {
             .then((data) => {
                 setItem(data as IProduct)
                 // console.log(`BREAKPOINT FROM Product`, data)
-            })
-    }, [])
+            }).catch(() => {})
+    }, [id, router])
     useEffect(() => {
         const fetchData = async () => {
             if(token && item && item.product_id) {

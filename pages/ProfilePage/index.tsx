@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect} from 'react';
-import useProfileStore from "@/pages/ProfilePage/ProfileStore";
+import useProfileStore from "@/app/ProfileStore";
 import styles from './OrdersPage.module.scss'
 import {alumniSans, roboto} from "@/config/fonts/fonts";
 import {IUser} from "@/models/IUser";
@@ -9,6 +9,7 @@ import {IOrder} from "@/models/IOrder";
 import {useUserStore} from "@/app/userStore";
 import {Order} from "@/components/Order";
 import {queryTypes, useQueryStates} from "next-usequerystate";
+import {useRouter} from "next/navigation";
 
 
  const ProfilePage = () => {
@@ -17,13 +18,19 @@ import {queryTypes, useQueryStates} from "next-usequerystate";
     const [query, setQuery] = useQueryStates({
         statusFilter: queryTypes.string
     });
+    const router = useRouter()
     useEffect(() => {
         setCurTab("orders")
-    }, [])
+    }, [setCurTab])
     useEffect(() => {
         const interval =setInterval(() => {
-            getStatuses(token)
-            getOrders(token, query.statusFilter)
+            if(!token) {
+                router.push('/login')
+            }
+            else {
+                getStatuses(token)
+                getOrders(token, query.statusFilter)
+            }
         }, 1000);
         return () => clearInterval(interval);
     })

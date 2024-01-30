@@ -28,7 +28,7 @@ export default function RootLayout({
             checkUser();
         }, 2000);
         return () => clearTimeout(timer);
-    }, []);
+    }, [checkUser]);
 
     return (
         <html lang="en">

@@ -6,22 +6,29 @@ import {Footer} from "@/components/Footer";
 import {roboto} from "@/config/fonts/fonts";
 import {ShopProduct} from "@/components/ShopCartProduct";
 import {IShopCartProduct} from "@/models/IShopCartProduct";
-import useShopCartStore from "@/pages/ShopCart/shopCartStore";
+import useShopCartStore from "@/app/shopCartStore";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
 
-const ShopCart = ({ token }: { token: string }) => {
+const ShopCart = ({ token }: { token?: string }) => {
     const router = useRouter()
     const [ProductsData, setProductsData] = useState<IShopCartProduct[] | null>(null)
     const {getShopCart} = useShopCartStore()
-
+    useEffect(() => {
+        if(!token)
+            router.push('/login');
+    }, [token, router])
     const fetchData = async () => {
-        const data = await getShopCart(token)
-        setProductsData(data);
+        if(!token)
+            router.push('/login');
+        else {
+            const data = await getShopCart(token)
+            setProductsData(data);
+        }
     };
     useEffect(() => {
         fetchData();
-    }, [getShopCart, token, ProductsData]);
+    }, [getShopCart, token, ProductsData, fetchData]);
 
     const handleClick = () => {
         if(ProductsData?.length) router.push('/order')
