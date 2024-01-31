@@ -11,15 +11,21 @@ import toast from "react-hot-toast";
 import useShopCartStore from "@/app/shopCartStore";
 
 export const Header = () => {
-    const {token, curUser} = useUserStore()
+    const {token} = useUserStore()
     const {getShopCartAmount} = useShopCartStore()
     const [amount, setAmount] = useState<number | null>(null)
-    useEffect(() => {
-        const fetchData = async () => {
+
+    const fetchData = async () => {
+        if(token) {
             const data = await getShopCartAmount(token);
             setAmount(data);
-        };
+        }
+    };
+    useEffect(() => {
         fetchData();
+        setInterval(() => {
+            fetchData();
+        }, 1000)
     });
     const handleClick = () => {
         if(!token)
@@ -31,7 +37,8 @@ export const Header = () => {
         else if(token != '') {
             const fetchData = async () => {
                 const data = await getShopCartAmount(token);
-                setAmount(data);
+                const processed = Number((Number(data)).toFixed(2));
+                setAmount(processed);
             };
             fetchData();
         }
