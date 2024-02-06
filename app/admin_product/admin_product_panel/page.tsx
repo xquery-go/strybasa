@@ -21,6 +21,11 @@ import {GetProductByIdComp} from "@/adminComponents/Products/getProductByIdComp"
 import {ChangeProductByIdComp} from "@/adminComponents/Products/changeProductByIdComp";
 import {DeleteProductByIdComp} from "@/adminComponents/Products/deleteProductByIdComp";
 import {useUserStore} from "@/app/userStore";
+import {GetAllOrdersComp} from "@/adminComponents/Orders/getAllOrdersComp";
+import {ChangeOrderByIdComp} from "@/adminComponents/Orders/changeOrderByIdComp";
+import {DeleteOrderByIdComp} from "@/adminComponents/Orders/deleteOrderByIdComp";
+import {GetOrderByIdComp} from "@/adminComponents/Orders/getOrderByIdComp";
+import {GetOrdersByPhoneNumberComp} from "@/adminComponents/Orders/gerOrdersByPhoneNumberComp";
 
 export default function AdminPanelPage1() {
     const {token, quitAccount, curUser, checkUser} = useUserStore()
@@ -98,6 +103,26 @@ export default function AdminPanelPage1() {
                             </Panel>
                             <Panel header='Удалить товар по id'>
                                 <DeleteProductByIdComp />
+                            </Panel>
+                        </Collapse>
+                    </div>
+                    <div className={styles.block}>
+                        <h2 className={styles.block_title}>Заказы</h2>
+                        <Collapse>
+                            <Panel header='Получить все заказы'>
+                                <GetAllOrdersComp />
+                            </Panel>
+                            <Panel header='Получить заказ по id'>
+                                <GetOrderByIdComp />
+                            </Panel>
+                            <Panel header='Получить заказы по номеру телефона'>
+                                <GetOrdersByPhoneNumberComp />
+                            </Panel>
+                            <Panel header='Изменить заказ по id'>
+                                <ChangeOrderByIdComp />
+                            </Panel>
+                            <Panel header='Удалить заказ по id'>
+                                <DeleteOrderByIdComp />
                             </Panel>
                         </Collapse>
                     </div>
