@@ -7,7 +7,6 @@ module.exports = {
         styledComponents: true
     },
     images: {
-        domains: ['http://127.0.0.1/api/', 'https://img.icons8.com/'],
+        domains: ['http://127.0.0.1/api/', 'https://img.icons8.com/', '127.0.0.1'],
     },
-
 };

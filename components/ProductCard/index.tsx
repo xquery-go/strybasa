@@ -8,6 +8,7 @@ import {roboto} from "@/config/fonts/fonts";
 import useShopCartStore from "@/app/shopCartStore";
 import toast from "react-hot-toast";
 import {IShopCartProduct} from "@/models/IShopCartProduct";
+import Image from 'next/image'
 
 export const ProductCard = ({ product, token }: { product: IProduct, token: string }) => {
     const [inCart, setInCart] = useState<boolean>(false)
@@ -47,7 +48,7 @@ export const ProductCard = ({ product, token }: { product: IProduct, token: stri
                 <div className={styles.container}>
                     <div
                         className={styles.img}
-                        style={{ background: `#F9F9F9 url('/img/ProductImage.jpg') center center/cover no-repeat` }}
+                        style={{ background: `#F9F9F9 url(${product.product_image ? `'${product.product_image}'` : '/img/ProductImage.jpg'}) center center/cover no-repeat` }}
                     />
                     <div className={styles.meta}>
                         <p className={`${styles.meta_name} ${roboto.className}`}>{ product.name }</p>

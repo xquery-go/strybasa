@@ -26,6 +26,7 @@ import {ChangeOrderByIdComp} from "@/adminComponents/Orders/changeOrderByIdComp"
 import {DeleteOrderByIdComp} from "@/adminComponents/Orders/deleteOrderByIdComp";
 import {GetOrderByIdComp} from "@/adminComponents/Orders/getOrderByIdComp";
 import {GetOrdersByPhoneNumberComp} from "@/adminComponents/Orders/gerOrdersByPhoneNumberComp";
+import {GetOrdersStatusesComp} from "@/adminComponents/Orders/getOrdersStatusesComp";
 
 export default function AdminPanelPage1() {
     const {token, quitAccount, curUser, checkUser} = useUserStore()
@@ -117,6 +118,9 @@ export default function AdminPanelPage1() {
                             </Panel>
                             <Panel header='Получить заказы по номеру телефона'>
                                 <GetOrdersByPhoneNumberComp />
+                            </Panel>
+                            <Panel header='Получить все статусы заказов'>
+                                <GetOrdersStatusesComp />
                             </Panel>
                             <Panel header='Изменить заказ по id'>
                                 <ChangeOrderByIdComp />

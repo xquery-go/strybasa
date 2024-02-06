@@ -80,3 +80,17 @@ export const getOrderByPhoneNumber = async (token: string, values: { phone_numbe
     })
     return data.data as Object
 }
+
+
+export const getOrdersStatuses = async (token: string) => {
+    const data = await axios({
+        method: 'get',
+        url: `http://127.0.0.1/api/orders/order_status/`,
+        headers: {
+            Authorization: `Token ${token}`,
+        },
+    }).catch((res) => {
+        return {data: res.response.data}
+    })
+    return data.data as Object
+}
