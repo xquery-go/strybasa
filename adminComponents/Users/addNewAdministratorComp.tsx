@@ -8,7 +8,7 @@ import {useUserStore} from "@/app/userStore";
 import {addNewAdministrator} from "@/adminComponents/Users/UsersQueries";
 import {MaskedInput} from "antd-mask-input";
 
-export const AddNewAdministrator = () => {
+export const AddNewAdministratorComp = () => {
     const {token} = useUserStore()
     const [res, setRes] = useState<Object | null | undefined>(null)
     const formik = useFormik({

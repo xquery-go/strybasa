@@ -4,7 +4,7 @@ import {Button} from "antd";
 import { JsonViewer } from '@textea/json-viewer'
 import {useUserStore} from "@/app/userStore";
 import {useFormik} from "formik";
-import {getAllTags} from "@/adminComponents/Tags/CategoryQueries";
+import {getAllTags} from "@/adminComponents/Tags/TagQueries";
 
 export const GetAllTagsComp = () => {
     const {token} = useUserStore()
