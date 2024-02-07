@@ -27,6 +27,7 @@ import {DeleteOrderByIdComp} from "@/adminComponents/Orders/deleteOrderByIdComp"
 import {GetOrderByIdComp} from "@/adminComponents/Orders/getOrderByIdComp";
 import {GetOrdersByPhoneNumberComp} from "@/adminComponents/Orders/gerOrdersByPhoneNumberComp";
 import {GetOrdersStatusesComp} from "@/adminComponents/Orders/getOrdersStatusesComp";
+import {AddNewAdministrator} from "@/adminComponents/Users/addNewAdministratorComp";
 
 export default function AdminPanelPage1() {
     const {token, quitAccount, curUser, checkUser} = useUserStore()
@@ -47,6 +48,14 @@ export default function AdminPanelPage1() {
             <div className={styles.content}>
                 <h1 className={styles.title}>Панель администратора</h1>
                 <div className={styles.queries}>
+                    <div className={styles.block}>
+                        <h2 className={styles.block_title}>Пользователи</h2>
+                        <Collapse>
+                            <Panel header='Сделать нового администратора'>
+                                <AddNewAdministrator />
+                            </Panel>
+                        </Collapse>
+                    </div>
                     <div className={styles.block}>
                         <h2 className={styles.block_title}>Категории</h2>
                         <Collapse>

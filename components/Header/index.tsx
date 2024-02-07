@@ -37,8 +37,7 @@ export const Header = () => {
         else if(token != '') {
             const fetchData = async () => {
                 const data = await getShopCartAmount(token);
-                const processed = Number((Number(data)).toFixed(2));
-                setAmount(processed);
+                setAmount(data);
             };
             fetchData();
         }
@@ -65,7 +64,7 @@ export const Header = () => {
                         onClick={() => { handleClick() }}
                         className={styles.shopCart}>
                         <ShoppingCart width={35} height={35} className={styles.shopCart_img} />
-                        <p className={styles.shopCart_value}>{amount ? amount : 0}₽</p>
+                        <p className={styles.shopCart_value}>{amount ? parseFloat(amount.toFixed(2)) : 0}₽</p>
                     </Link>
                 </div>
             </div>

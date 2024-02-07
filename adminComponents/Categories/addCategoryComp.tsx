@@ -25,7 +25,7 @@ export const AddCategoryComp = () => {
             <p className={styles.url}>{`/api/categories/ (post)`} </p>
             <div className={styles.params}>
                 <div className={styles.field}>
-                    <label htmlFor="name" className={styles.label}>Название</label>
+                    <label htmlFor="name" className={styles.label}>* Название</label>
                     <Input
                         className={styles.input}
                         placeholder={'Название'}
@@ -35,7 +35,7 @@ export const AddCategoryComp = () => {
                     />
                 </div>
                 <div className={styles.field}>
-                    <label htmlFor="slug" className={styles.label}>Тривиальное название (на английском)</label>
+                    <label htmlFor="slug" className={styles.label}>* Тривиальное название (на английском)</label>
                     <Input
                         className={styles.input}
                         placeholder={'Тривиальное название (на английском)'}

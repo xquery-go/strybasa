@@ -5,10 +5,12 @@ import {useFormik} from "formik";
 import {Button, Input} from "antd";
 import { JsonViewer } from '@textea/json-viewer'
 import {changeProductById} from "@/adminComponents/Products/ProductQueries";
+import Image from "next/image";
 
 export const ChangeProductByIdComp = () => {
     const {token} = useUserStore()
     const [res, setRes] = useState<Object | null | undefined>(null)
+    const [base64, setBase64] = useState<null | string>(null)
     const formik = useFormik({
         initialValues: {
             product_id: '',
@@ -25,6 +27,17 @@ export const ChangeProductByIdComp = () => {
             setRes(data as Object)
         }
     })
+    const handleInputFile = (e: any) => {
+        const file = e.target.files[0]
+        let reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => {
+            if (reader.result) {
+                setBase64(reader.result.toString())
+                formik.values.product_image = reader.result.toString()
+            }
+        }
+    }
     return (
         <form className={styles.wrapper} onSubmit={formik.handleSubmit}>
             <p className={styles.url}>{`/api/products/{id}/ (patch)`}</p>
@@ -79,15 +92,24 @@ export const ChangeProductByIdComp = () => {
                         onChange={formik.handleChange}
                     />
                 </div>
-                <div className={styles.field}>
-                    <label htmlFor="product_image" className={styles.label}>Ссылка на изображение товара</label>
-                    <Input
+                <div className={styles.field} id={styles.image_field}>
+                    <label htmlFor="product_image" className={styles.label}>Изображение товара</label>
+                    <input
                         className={styles.input}
-                        placeholder={'Ссылка на изображение товара'}
+                        placeholder={'Загрузите изображение'}
                         name={'product_image'}
-                        value={formik.values.product_image}
-                        onChange={formik.handleChange}
+                        type={'file'}
+                        onChange={(e) => handleInputFile(e)}
                     />
+                    { base64 ?
+                        <Image
+                            src={base64}
+                            alt={'Картинка не прогружается, проверьте файл'}
+                            width={100}
+                            height={100}
+                        /> :
+                        <></>
+                    }
                 </div>
                 <div className={styles.field}>
                     <label htmlFor="tags" className={styles.label}>id тэгов через пробел</label>

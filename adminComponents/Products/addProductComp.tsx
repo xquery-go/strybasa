@@ -93,7 +93,7 @@ export const AddProductComp = () => {
                     />
                 </div>
                 <div className={styles.field} id={styles.image_field}>
-                    <label htmlFor="product_image" className={styles.label}>* Ссылка на изображение товара</label>
+                    <label htmlFor="product_image" className={styles.label}>* Изображение товара</label>
                     <input
                         className={styles.input}
                         placeholder={'Загрузите изображение'}
@@ -112,7 +112,7 @@ export const AddProductComp = () => {
                     }
                 </div>
                 <div className={styles.field}>
-                    <label htmlFor="tags" className={styles.label}>* id тэгов через пробел</label>
+                    <label htmlFor="tags" className={styles.label}>id тэгов через пробел</label>
                     <Input
                         className={styles.input}
                         placeholder={'id тэгов через пробел'}
@@ -122,7 +122,7 @@ export const AddProductComp = () => {
                     />
                 </div>
                 <div className={styles.field}>
-                    <label htmlFor="categories" className={styles.label}>* id категорий через пробел</label>
+                    <label htmlFor="categories" className={styles.label}>id категорий через пробел</label>
                     <Input
                         className={styles.input}
                         placeholder={'id категорий через пробел'}
