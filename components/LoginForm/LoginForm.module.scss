@@ -91,3 +91,12 @@
   transform: translate(-50%, 0);
   color: #FF7272;
 }
+
+.password_recovery_link {
+  color: #797979 !important;
+  font-size: .9rem;
+  transition: color .2s ease-in-out;
+  &:hover {
+    color: #9c9c9c !important;
+  }
+}

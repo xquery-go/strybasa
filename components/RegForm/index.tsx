@@ -93,6 +93,9 @@ export const RegForm = () => {
                     <button className={styles.btn} type="submit">Зарегистрироваться</button>
                     <Link href={'/login'} className={styles.login_link}>Уже усть аккаунт? Войти</Link>
                 </div>
+                <p className={styles.dscr}>
+                    Нажимая кнопку, вы подтверждаете, что ознакомлены с <span className={styles.dscr_link}>правилами</span> и <span className={styles.dscr_link}>политикой конфиденциальности</span> компании, а также подтверждаете своё совершеннолетие
+                </p>
             </form>
         </div>
     )

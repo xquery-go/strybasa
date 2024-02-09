@@ -88,3 +88,19 @@
   color: #FF7272;
   font-size: 0.8rem;
 }
+
+.dscr {
+  color: #575656;
+  font-size: .9rem;
+  padding: 0 45px;
+  margin: -20px 0;
+  text-align: center;
+  &_link {
+    cursor: pointer;
+    color: #797979;
+    text-decoration: underline;
+    &:hover {
+      color: #BABABA;
+    }
+  }
+}

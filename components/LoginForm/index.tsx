@@ -67,6 +67,7 @@ export const LoginForm = () => {
                         onChange={formik.handleChange}
                         placeholder={"Введите пароль"}
                     />
+                    <Link href={'/password_recovery'} className={styles.password_recovery_link}>Восстановить пароль</Link>
                 </div>
                 <div className={styles.bottomPart}>
                     <button className={styles.btn} type="submit">Войти</button>
