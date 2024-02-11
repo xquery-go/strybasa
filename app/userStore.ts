@@ -9,7 +9,7 @@ interface UserStore {
     user_id: number,
     curUser: IUser | null,
     setUser: (token: string, user_id: number) => void,
-    checkUser: () => void,
+    checkUser: () => Promise<string>,
     quitAccount: () => void
 }
 
@@ -37,7 +37,6 @@ export const useUserStore = create<UserStore>(
                 user_id: user_id,
             }))
             if(user_id != -1 && token != '' && token && user_id) {
-                // console.log(`BREAKPOINT check user token: ${token}, user_id: ${user_id}`)
                 let data = await axios({
                     method: 'get',
                     url: 'http://127.0.0.1/api/users/profile/',
@@ -49,11 +48,13 @@ export const useUserStore = create<UserStore>(
                     ...state,
                     curUser: data.data as IUser
                 }))
+                return token;
             } else if(user_id == -1 || token == '') {
                 set((state) => ({
                     ...state,
                     curUser: null
                 }))
+                return '';
             }
         },
         quitAccount: () => {

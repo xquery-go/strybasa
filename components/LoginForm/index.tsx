@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './LoginForm.module.scss'
 import {useFormik} from "formik";
 import {roboto} from "@/config/fonts/fonts"
@@ -10,8 +10,9 @@ import {useUserStore} from "@/app/userStore";
 import toast from "react-hot-toast";
 
 export const LoginForm = () => {
-    const router = useRouter()
     const {setUser} = useUserStore()
+    const router = useRouter()
+
     const formik = useFormik({
         initialValues: {
             phone_number: '',

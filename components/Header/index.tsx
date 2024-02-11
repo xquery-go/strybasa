@@ -9,24 +9,22 @@ import {roboto} from "@/config/fonts/fonts";
 import {useUserStore} from "@/app/userStore";
 import toast from "react-hot-toast";
 import useShopCartStore from "@/app/shopCartStore";
+import {formatPrice} from "@/utils/formatPrice";
 
 export const Header = () => {
     const {token} = useUserStore()
-    const {getShopCartAmount} = useShopCartStore()
+    const {shopCartAmount} = useShopCartStore()
     const [amount, setAmount] = useState<number | null>(null)
 
-    const fetchData = async () => {
-        if(token) {
-            const data = await getShopCartAmount(token);
-            setAmount(data);
-        }
-    };
+    // const fetchData = async () => {
+    //     if(token) {
+    //         const data = await getShopCartAmount(token);
+    //         setAmount(data);
+    //     }
+    // };
     useEffect(() => {
-        fetchData();
-        setInterval(() => {
-            fetchData();
-        }, 1000)
-    });
+        setAmount(shopCartAmount);
+    }, [shopCartAmount]);
     const handleClick = () => {
         if(!token)
             toast(
@@ -36,10 +34,10 @@ export const Header = () => {
                 })
         else if(token != '') {
             const fetchData = async () => {
-                const data = await getShopCartAmount(token);
-                setAmount(data);
+                // const data = await getShopCartAmount(token);
+                setAmount(shopCartAmount);
             };
-            fetchData();
+            // fetchData();
         }
     }
     return (
@@ -64,7 +62,7 @@ export const Header = () => {
                         onClick={() => { handleClick() }}
                         className={styles.shopCart}>
                         <ShoppingCart width={35} height={35} className={styles.shopCart_img} />
-                        <p className={styles.shopCart_value}>{amount ? parseFloat(amount.toFixed(2)) : 0}₽</p>
+                        <p className={styles.shopCart_value}>{amount ? formatPrice(amount) : 0}₽</p>
                     </Link>
                 </div>
             </div>

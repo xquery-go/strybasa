@@ -7,6 +7,7 @@ import Link from "next/link";
 import {IShopCartProduct} from "@/models/IShopCartProduct";
 import useShopCartStore from "@/app/shopCartStore";
 import {useUserStore} from "@/app/userStore";
+import {formatPrice} from "@/utils/formatPrice";
 
 export const ShopProduct = ({ cartProduct }: { cartProduct: IShopCartProduct }) => {
     const item = cartProduct.product;
@@ -50,7 +51,7 @@ export const ShopProduct = ({ cartProduct }: { cartProduct: IShopCartProduct }) 
                             <Plus width={16} height={16} color={'#fff'} strokeWidth={'4'} className={styles.func_icon}/>
                         </button>
                     </div>
-                    <p className={styles.price}>{cartProduct.total_price}₽</p>
+                    <p className={styles.price}>{formatPrice(cartProduct.total_price)}₽</p>
                 </div>
             </div>
         </div>

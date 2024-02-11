@@ -7,8 +7,8 @@ interface ProfileStore {
     statuses: string[],
     curTab: string,
     setCurTab: (value: string) => void,
-    getOrders: (token: string, filter: string | null) => void,
-    getStatuses: (token: string) => void
+    getOrders: (token: string, filter: string | null) => Promise<IOrder[]>,
+    getStatuses: (token: string) => Promise<string[]>
 }
 
 const useProfileStore = create<ProfileStore>(
@@ -32,14 +32,13 @@ const useProfileStore = create<ProfileStore>(
                     },
                 })
                 let processedData = (data.data as IOrder[]);
-                if(filter && filter != 'Все')
-                     processedData = processedData.filter((item) => item.status == filter)
                 set((state) => ({
                     ...state,
                     orders: processedData,
                 }))
-                console.log(`BREAKPOINT getOrders`, data.data)
+                return (processedData ? processedData : [])
             }
+            return []
         },
         getStatuses: async (token: string) => {
             if(token) {
@@ -54,8 +53,9 @@ const useProfileStore = create<ProfileStore>(
                     ...state,
                     statuses: ['Все', ...data.data.order_status],
                 }))
-                console.log(`BREAKPOINT getStatuses`, ['Все', ...data.data.order_status])
+                return (data.data.order_status ? ['Все', ...data.data.order_status] : ['Все'])
             }
+            return ['Все']
         }
     })
 )

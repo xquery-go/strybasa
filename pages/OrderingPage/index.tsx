@@ -16,6 +16,7 @@ const OrderingPage = ({ token }: { token: string }) => {
             signer_lastname: '',
             order_comment: '',
             signer_address: '',
+            status: 'Ожидает звонка'
         },
         onSubmit: async (values) => {
             let el = document.getElementById('error');

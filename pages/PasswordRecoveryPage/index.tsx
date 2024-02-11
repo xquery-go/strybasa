@@ -4,7 +4,7 @@ import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {PasswordRecoveryForm} from "@/components/PasswordRecoveryForm";
 
-export const PasswordRecoveryPage = () => {
+const PasswordRecoveryPage = () => {
     return (
         <div className={styles.wrapper}>
             <title>Восстановление пароля | Стройбаза Тиски</title>
@@ -16,3 +16,5 @@ export const PasswordRecoveryPage = () => {
         </div>
     )
 }
+
+export default PasswordRecoveryPage;

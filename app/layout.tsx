@@ -7,6 +7,7 @@ import '@/config/reset.css';
 import './globals.css';
 import styles from './layout.module.scss';
 import React, { useEffect, useState } from 'react';
+import useShopCartStore from "@/app/shopCartStore";
 
 export default function RootLayout({
                                        children,
@@ -14,21 +15,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     const { checkUser } = useUserStore();
-
-
+    const { getShopCart } = useShopCartStore();
+    const CheckFunc = () => {
+        checkUser().then(
+            res => getShopCart(res)
+        );
+    }
     useEffect(() => {
-        if (process.env.NODE_ENV === 'production') {
-            // Код, который выполнится только в режиме продакшн
-            console.log('Вы находитесь в продакшн режиме.');
-        } else {
-            // Код, который выполнится в режиме разработки
-            console.log('Вы находитесь в режиме разработки.');
-        }
-        const timer = setTimeout(() => {
-            checkUser();
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, [checkUser]);
+        setInterval(() => {
+            CheckFunc()
+        }, 2000)
+    }, []);
 
     return (
         <html lang="en">

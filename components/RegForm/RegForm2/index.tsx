@@ -35,7 +35,7 @@ export const RegForm2 = () => {
         if(el1) {
             el1.style.display = 'block';
         }
-        await router.push('/login')
+        router.push('/login')
     }
 
     return (

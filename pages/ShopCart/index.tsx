@@ -9,6 +9,7 @@ import {IShopCartProduct} from "@/models/IShopCartProduct";
 import useShopCartStore from "@/app/shopCartStore";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
+import {formatPrice} from "@/utils/formatPrice";
 
 const ShopCart = ({ token }: { token?: string }) => {
     const router = useRouter()
@@ -19,12 +20,8 @@ const ShopCart = ({ token }: { token?: string }) => {
             router.push('/login');
     }, [token, router])
     const fetchData = async () => {
-        if(!token)
-            router.push('/login');
-        else {
-            const data = await getShopCart(token)
-            setProductsData(data);
-        }
+        const data = await getShopCart((token ? token : ''))
+        setProductsData(data);
     };
     useEffect(() => {
         fetchData();
@@ -64,7 +61,7 @@ const ShopCart = ({ token }: { token?: string }) => {
                                     }</p>
                                 <p className={styles.cost_cost}>
                                     { ProductsData ?
-                                        `${ProductsData.length ? ProductsData[0].user_total_price : '0'}₽` :
+                                        `${ProductsData.length ? formatPrice(ProductsData[0].user_total_price) : '0'}₽` :
                                         'Загрузка...'
                                     }</p>
                             </div>

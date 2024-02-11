@@ -7,8 +7,8 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './swiper.scss'
-import { FreeMode, Pagination } from 'swiper/modules';
 import Link from "next/link";
+import {formatPrice} from "@/utils/formatPrice";
 
 export const Order = ({ order }: { order: IOrder }) => {
     return (
@@ -18,7 +18,7 @@ export const Order = ({ order }: { order: IOrder }) => {
                     <p className={styles.date}>Заказ от {order.order_time.substr(0, order.order_time.indexOf(' '))}</p>
                     <div className={styles.status}>{order.status}</div>
                 </div>
-                <p className={styles.price}>{order.to_pay}₽</p>
+                <p className={styles.price}>{formatPrice(order.to_pay)}₽</p>
             </div>
             { order.items && order.items.length ?
                 <div className={styles.swiperWrapper}>

@@ -6,6 +6,8 @@ import {IProduct} from "@/models/IProduct";
 import method from "async-validator/dist-types/validator/method";
 
 interface ShopCartStore {
+    shopCartAmount: number,
+    shopCart: null | IShopCartProduct[],
     getShopCart: (token: string) => Promise<IShopCartProduct[] | null>,
     getShopCartAmount: (token: string) => Promise<number | null>,
     addShopCartProduct: (token: string, product: IProduct) => Promise<void>,
@@ -14,6 +16,8 @@ interface ShopCartStore {
 }
 
 const useShopCartStore = create<ShopCartStore>((set) => ({
+    shopCart: null,
+    shopCartAmount: 0,
     getShopCart: async (token: string) => {
         try {
             const response = await axios({
@@ -22,7 +26,17 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
                 headers: {
                     Authorization: `Token ${token}`,
                 },
-            });
+            }).catch();
+            set((state) => ({
+                ...state,
+                shopCart: response.data as IShopCartProduct[]
+            }))
+            try {
+                set((state) => ({
+                    ...state,
+                    shopCartAmount: response.data[0].user_total_price as number,
+                }))
+            } catch {}
             return response.data as IShopCartProduct[];
         } catch (error) {
             console.error("Ошибка при получении корзины", error);
@@ -38,10 +52,15 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
                     headers: {
                         Authorization: `Token ${token}`,
                     },
-                });
+                }).catch();
                 const data = response.data
-                if(data && data.length && data[0].user_total_price)
+                if(data && data.length && data[0].user_total_price) {
+                    set((state) => ({
+                        ...state,
+                        shopCartAmount: data[0].user_total_price as number,
+                    }))
                     return data[0].user_total_price as number;
+                }
                 else {
                     // console.error("Ошибка при получении стоимости корзины 1", data);
                     return 0;
@@ -66,7 +85,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
                 headers: {
                     Authorization: `Token ${token}`
                 }
-            })
+            }).catch()
         } catch (error) {}
     },
     changeQuantityShopCartProduct: async (token: string, product: IProduct, quantity: number) => {
@@ -81,7 +100,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
                 headers: {
                     Authorization: `Token ${token}`
                 }
-            })
+            }).catch()
         } catch (error) {}
     },
     getShopCartProductQuantity: async (token: string, product_id: number | string) => {
@@ -106,3 +125,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
     }
 }));
 export default useShopCartStore;
+
+if (process.env.NODE_ENV === 'development') {
+    mountStoreDevtool('Store', useShopCartStore);
+}
