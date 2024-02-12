@@ -32,6 +32,8 @@ const useProfileStore = create<ProfileStore>(
                     },
                 })
                 let processedData = (data.data as IOrder[]);
+                if(!filter || filter != 'Все')
+                    processedData.filter((item: IOrder) => item.status == filter)
                 set((state) => ({
                     ...state,
                     orders: processedData,

@@ -12,7 +12,7 @@ import {useRouter} from "next/navigation";
 import {formatName} from "@/utils/formatName";
 
 export default function ProfileLayout({ children }: { children: React.ReactNode }) {
-    const {curTab} = useProfileStore()
+    const {curTab, } = useProfileStore()
     const router = useRouter()
     const {quitAccount, curUser} = useUserStore()
     return (

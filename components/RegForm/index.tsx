@@ -94,7 +94,15 @@ export const RegForm = () => {
                     <Link href={'/login'} className={styles.login_link}>Уже усть аккаунт? Войти</Link>
                 </div>
                 <p className={styles.dscr}>
-                    Нажимая кнопку, вы подтверждаете, что ознакомлены с <span className={styles.dscr_link}>правилами</span> и <span className={styles.dscr_link}>политикой конфиденциальности</span> компании, а также подтверждаете своё совершеннолетие
+                    Нажимая кнопку, вы даёте{' '}
+                    <span className={styles.dscr_link} onClick={() => router.push('/agreement')}>
+                         согласие
+                    </span>{' '}
+                    на обработку персональных данных, в соответствии с{' '}
+                    <span className={styles.dscr_link} onClick={() => router.push('/policy')}>
+                        политикой
+                    </span>
+                    , и соглашаюсь с правилами сайта.
                 </p>
             </form>
         </div>

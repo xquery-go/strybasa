@@ -51,11 +51,11 @@ export const Header = () => {
                             <h1 className={`${styles.logo_2} ${roboto.className}`}>«Тиски»</h1>
                         </div>
                     </Link>
-                    <nav className={styles.nav}>
-                        { HeaderLinks.map((link, ind) => {
-                            return <Link href={link.link} key={ind} className={styles.nav_link}>{link.text}</Link>
-                        })}
-                    </nav>
+                    {/*<nav className={styles.nav}>*/}
+                    {/*    {HeaderLinks.length && HeaderLinks.map((link, ind) => {*/}
+                    {/*        return <Link href={link.link} key={ind} className={styles.nav_link}>{link.text}</Link>*/}
+                    {/*    })}*/}
+                    {/*</nav>*/}
 
                     <Link
                         href={token ? "/shop_cart" : "/login"}

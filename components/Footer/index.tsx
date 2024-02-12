@@ -19,21 +19,16 @@ export const Footer = () => {
                         <Link href={'/services#ExpressDelivery'}><p className={styles.link}>Экспресс-доставка</p></Link>
                     </div>
                     <div className={styles.column}>
-                        <p className={styles.column_name}>Покупателям</p>
-                        <Link href={'/services'}><p className={styles.link}>Акции</p></Link>
-                        <Link href={'/services'}><p className={styles.link}>Доставка и оплата</p></Link>
+                        <p className={styles.column_name}>О компании</p>
+                        <Link href={'/about'}><p className={styles.link}>О нас</p></Link>
+                        <Link href={'/agreement'}><p className={styles.link}>Согласие на обработку персональных данных</p></Link>
+                        <Link href={'/policy'}><p className={styles.link}>Политика в обработке персональных данных</p></Link>
+
                     </div>
-                    <div className={`${styles.column} ${styles.column_unique}`}>
-                        <div className={styles.row}>
-                            <p className={styles.column_name}>О компании</p>
-                            <Link href={'/about'}><p className={styles.link}>О нас</p></Link>
-                            <Link href={'/services'}><p className={styles.link}>Политика в области обработки и защиты персональных данных</p></Link>
-                        </div>
-                        <div className={styles.row}>
-                            <p className={styles.column_name}>Контакты</p>
-                            <Link href={'/services'}><p className={styles.link}>Центральный офис</p></Link>
-                            <Link href={'/services'}><p className={styles.link}>Реквизиты</p></Link>
-                        </div>
+                    <div className={styles.column}>
+                        <p className={styles.column_name}>Контакты</p>
+                        <Link href={'/services'}><p className={styles.link}>Центральный офис</p></Link>
+                        <Link href={'/services'}><p className={styles.link}>Реквизиты</p></Link>
                     </div>
                 </div>
                 <div className={styles.block}>

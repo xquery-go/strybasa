@@ -29,9 +29,9 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-        <Head>
+        <head>
             <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
-        </Head>
+        </head>
         <body className={`${alumniSans.className} ${styles.layout}`}>
             <Toaster />
             {children}

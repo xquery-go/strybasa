@@ -11,7 +11,6 @@ export const Tags = () => {
             .then((res) => res.json())
             .then((data) => {
                 setTags(data as ITag[])
-                // console.log(`BREAKPOINT FROM Tags`, data)
             }).catch(() => {})
     }, [])
 

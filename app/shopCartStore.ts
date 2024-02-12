@@ -122,7 +122,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
         } catch (error) {
             return 0;
         }
-    }
+    },
 }));
 export default useShopCartStore;
 

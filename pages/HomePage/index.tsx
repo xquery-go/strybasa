@@ -11,9 +11,7 @@ import Head from "next/head";
 const HomePage = () => {
     return (
         <div className={styles.wrapper} >
-            <Head>
-                <title>Главная | Стройбаза Тиски</title>
-            </Head>
+            <title>Главная | Стройбаза Тиски</title>
             <Header />
             <section className={styles.section}><ProductGrid /></section>
             <section className={styles.section}><SpecialProducts /></section>
