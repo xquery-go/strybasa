@@ -1,12 +1,33 @@
+.btns {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: fit-content;
+}
+
+.btn_text {
+	margin: 0 auto;
+	font-size: 1.2rem;
+	font-weight: normal;
+}
+
 .link {
-  margin-top: 20px;
-  padding: 5px 20px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #FF5050;
-  color: white !important;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+	text-align: center;
+	padding: 5px 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ff5050;
+	color: white !important;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.change_btn {
+	background-color: #eeb200;
+}
+
+.recovery_btn {
+	background-color: #409d44;
 }
