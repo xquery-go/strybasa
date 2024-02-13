@@ -2,7 +2,7 @@
 import useProfileStore from '@/app/ProfileStore'
 import { useUserStore } from '@/app/userStore'
 import { roboto } from '@/config/fonts/fonts'
-import { LogOut, PenLine, RotateCcw } from 'lucide-react'
+import { LogOut, PenLine } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import styles from './SettingsPage.module.scss'
@@ -39,15 +39,6 @@ const SettingsPage = () => {
 				>
 					<span className={styles.btn_text}>Изменить пароль</span>
 					<PenLine color={'#FFFFFF'} width={20} height={20} />
-				</button>
-				<button
-					className={`${styles.link} ${styles.recovery_btn}`}
-					onClick={() => {
-						router.push('/password_recovery')
-					}}
-				>
-					<span className={styles.btn_text}>Восстановить пароль</span>
-					<RotateCcw color={'#FFFFFF'} width={20} height={20} />
 				</button>
 			</div>
 		</div>

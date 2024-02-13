@@ -1,5 +1,4 @@
 'use client'
-import { useChangePasswordStore } from '@/app/changePasswordStore'
 import { roboto } from '@/config/fonts/fonts'
 import axios from 'axios'
 import { useFormik } from 'formik'
@@ -8,7 +7,6 @@ import styles from './PasswordChangeForm.module.scss'
 
 export const PasswordChangeForm = () => {
 	const router = useRouter()
-	const { setChangeValues } = useChangePasswordStore()
 	const formik = useFormik({
 		initialValues: {
 			phone_number: '',
@@ -42,7 +40,6 @@ export const PasswordChangeForm = () => {
 					}
 				}
 			} else {
-				setChangeValues(data)
 				await router.push(`/verification/changePassword`)
 			}
 		},

@@ -25,10 +25,6 @@ export const VerificationForm = ({
 				setUrl('http://127.0.0.1/api/users/confirm_active_user/')
 				setPushUrl('/login')
 				break
-			case 'restorePassword':
-				setUrl('http://127.0.0.1/api/users/confirm_active_user/')
-				setPushUrl('/login')
-				break
 		}
 	}, [typeVerification])
 	useEffect(() => {
