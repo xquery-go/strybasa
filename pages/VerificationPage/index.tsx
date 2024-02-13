@@ -1,21 +1,24 @@
-import React from 'react';
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
+import { VerificationForm } from '@/components/VerificationForm'
 import styles from './VerificationPage.module.scss'
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
-import {RegForm2} from "@/components/RegForm/RegForm2";
 
-const VerificationPage = () => {
-    return (
-        <div>
-            <div className={styles.wrapper}>
-                <Header />
-                <div className={styles.content}>
-                    <RegForm2 />
-                </div>
-                <Footer />
-            </div>
-        </div>
-    )
+const VerificationPage = ({
+	typeVerification,
+}: {
+	typeVerification: string
+}) => {
+	return (
+		<div>
+			<div className={styles.wrapper}>
+				<Header />
+				<div className={styles.content}>
+					<VerificationForm typeVerification={typeVerification} />
+				</div>
+				<Footer />
+			</div>
+		</div>
+	)
 }
 
-export default VerificationPage;
+export default VerificationPage
