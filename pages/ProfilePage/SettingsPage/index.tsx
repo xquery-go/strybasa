@@ -1,5 +1,6 @@
 'use client'
 import useProfileStore from '@/app/ProfileStore'
+import useShopCartStore from '@/app/shopCartStore'
 import { useUserStore } from '@/app/userStore'
 import { roboto } from '@/config/fonts/fonts'
 import { LogOut, PenLine } from 'lucide-react'
@@ -9,7 +10,8 @@ import styles from './SettingsPage.module.scss'
 
 const SettingsPage = () => {
 	const { setCurTab } = useProfileStore()
-	const { quitAccount } = useUserStore()
+	const { quitAccount, token } = useUserStore()
+	const { getShopCartAmount } = useShopCartStore()
 	const router = useRouter()
 	useEffect(() => {
 		setCurTab('settings')
@@ -25,6 +27,7 @@ const SettingsPage = () => {
 					className={styles.link}
 					onClick={() => {
 						quitAccount()
+						getShopCartAmount(token)
 						router.push('/')
 					}}
 				>

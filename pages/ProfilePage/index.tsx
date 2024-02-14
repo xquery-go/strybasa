@@ -51,7 +51,7 @@ const ProfilePage = () => {
 			</select>
 			<div className={styles.orders}>
 				{orders.map(order => {
-					console.log(order.status)
+					// console.log(order.status)
 					return (
 						<>
 							{order.status == query.statusFilter ||

@@ -15,7 +15,7 @@ export const VerificationForm = ({
 	const [pushUrl, setPushUrl] = useState<string>('')
 
 	useEffect(() => {
-		console.log(typeVerification)
+		// console.log(typeVerification)
 		switch (typeVerification) {
 			case 'changePassword':
 				setUrl('http://127.0.0.1/api/users/confirm_change_password/')
@@ -28,7 +28,7 @@ export const VerificationForm = ({
 		}
 	}, [typeVerification])
 	useEffect(() => {
-		console.log(`myurl: ${myurl}, pushUrl: ${pushUrl}`)
+		// console.log(`myurl: ${myurl}, pushUrl: ${pushUrl}`)
 	}, [myurl, pushUrl])
 	const router = useRouter()
 	const [code, setCode] = useState<string>('')
