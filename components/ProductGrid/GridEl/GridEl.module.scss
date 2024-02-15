@@ -1,23 +1,58 @@
 .container {
-  background: #0A0907 url("/img/GridBackground.jpg") center center/cover no-repeat;
-  width: 100%;
-  height: 100%;
+	background: #0a0907 url('/img/GridBackground.jpg') center center/cover
+		no-repeat;
+	width: calc(100% - 20px * 2);
+	height: calc(100% - 20px * 2);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	gap: 20px;
+	padding: 20px;
+	border-radius: 10px;
 
-  border-radius: 10px;
+	&_content {
+		color: #ffffff;
+		font-size: 2.25rem;
+	}
+}
 
-  &_content {
-    color: #FFFFFF;
-    font-size: 2.25rem;
-  }
+.image {
+	border-radius: 5px;
+}
+
+.btn {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	justify-content: center;
+	max-width: 60%;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	padding: 5px 10px;
+	background-color: #eeb200;
+	color: #ffffff;
+	width: fit-content;
+	border-radius: 2px;
+}
+
+.dscr {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.title {
+	text-align: start;
+	font-size: 1.2rem;
 }
 
 @media (max-width: 1200px) {
-  .container_content {
-    font-size: 1.3rem;
-  }
+	.container_content {
+		font-size: 1.3rem;
+	}
 }
