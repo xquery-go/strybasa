@@ -1,0 +1,19 @@
+.wrapper {
+	background: #0a0907 url('/img/MainBackground.jpg') center top/cover no-repeat;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.content {
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.error_text {
+	display: flex;
+	flex-direction: column;
+}
