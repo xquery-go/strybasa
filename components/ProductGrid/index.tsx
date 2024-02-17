@@ -9,13 +9,13 @@ export const ProductGrid = ({ products }: { products?: IProduct[] | null }) => {
 		? products.slice(0, Math.min(products.length, 5))
 		: ProductsData
 	const first_product =
-		ProductsData && ProductsData[6]
-			? ProductsData[6]
-			: ProductsData[ProductsData.length - 2]
+		data && data[6]
+			? data[6]
+			: data[data.length - 2]
 	const second_product =
-		ProductsData && ProductsData[7]
-			? ProductsData[7]
-			: ProductsData[ProductsData.length - 1]
+		data && data[7]
+			? data[7]
+			: data[data.length - 1]
 	return (
 		<div className={styles.grid}>
 			<div className={styles.grid_1}>
