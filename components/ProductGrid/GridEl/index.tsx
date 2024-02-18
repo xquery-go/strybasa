@@ -19,14 +19,14 @@ export const GridEl = ({ product }: { product: IProduct }) => {
 				<Image
 					className={styles.image}
 					src={'/img/ProductImage.jpg'}
-					alt={product.name}
+					alt={'Изображение товара'}
 					width={170}
 					height={170}
 				/>
 			)}
 			<div className={styles.dscr}>
-				<p className={`${styles.title} ${roboto.className}`}>{product.name}</p>
-				<Link href={`/product/${product.product_id}`} className={styles.btn}>
+				<p className={`${styles.title} ${roboto.className}`}>{product && product.name ? product.name : 'Название товара'}</p>
+				<Link href={product && product.product_id ? `/product/ ${product.product_id}` : ''} className={styles.btn}>
 					Shop Now
 				</Link>
 			</div>
