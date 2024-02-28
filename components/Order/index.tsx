@@ -35,12 +35,16 @@ export const Order = ({ order }: { order: IOrder }) => {
                                 <SwiperSlide className={styles.item} key={item.product.product_id}>
                                     <Link href={`/product/${item.product.product_id}`}>
                                         { item.product.product_image ?
-                                            <Image
+                                            <div
                                                 className={styles.item_image}
-                                                src={item.product.product_image}
-                                                height={160}
-                                                width={160}
-                                                alt={'item'}
+                                                style={{
+                                                    background: `#F9F9F9 url(${
+                                                        item && item.product && item.product.product_image
+                                                            ? `'${item.product.product_image}'`
+                                                            : '/img/ProductImage.jpg'
+                                                    }) center center/cover no-repeat`,
+                                                }}
+
                                             /> :
                                             <Image
                                                 className={styles.item_image}

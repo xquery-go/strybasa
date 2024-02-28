@@ -16,6 +16,7 @@ export const ProductGrid = ({ products }: { products?: IProduct[] | null }) => {
 		data && data[7]
 			? data[7]
 			: data[data.length - 1]
+
 	return (
 		<div className={styles.grid}>
 			<div className={styles.grid_1}>

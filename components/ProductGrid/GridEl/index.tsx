@@ -8,12 +8,16 @@ export const GridEl = ({ product }: { product: IProduct }) => {
 	return (
 		<div className={styles.container}>
 			{product && product.product_image ? (
-				<Image
+				<div
 					className={styles.image}
-					src={product.product_image}
-					alt={product.name}
-					width={170}
-					height={170}
+					style={{
+						background: `#F9F9F9 url(${
+							product.product_image
+								? `'${product.product_image}'`
+								: '/img/ProductImage.jpg'
+						}) center center/cover no-repeat`,
+					}}
+
 				/>
 			) : (
 				<Image
@@ -27,7 +31,7 @@ export const GridEl = ({ product }: { product: IProduct }) => {
 			<div className={styles.dscr}>
 				<p className={`${styles.title} ${roboto.className}`}>{product.name}</p>
 				<Link href={`/product/${product.product_id}`} className={styles.btn}>
-					Shop Now
+					Купить сейчас
 				</Link>
 			</div>
 		</div>

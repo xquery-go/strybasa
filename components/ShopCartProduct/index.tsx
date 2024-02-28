@@ -24,12 +24,15 @@ export const ShopProduct = ({ cartProduct }: { cartProduct: IShopCartProduct }) 
                 <X width={25} height={25} color={'#fff'} strokeWidth={'2'}/>
             </button>
             { item && item.product_image ?
-                <Image
+                <div
                     className={styles.image}
-                    src={item.product_image}
-                    alt={item.name}
-                    width={200}
-                    height={256}
+                    style={{
+                        background: `#F9F9F9 url(${
+                            item && item.product_image
+                                ? `'${item.product_image}'`
+                                : '/img/ProductImage.jpg'
+                        }) center center/cover no-repeat`,
+                    }}
                 /> :
                 <Image
                     className={styles.image}

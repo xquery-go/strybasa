@@ -10,6 +10,9 @@ const VerificationPage = ({
 }) => {
 	return (
 		<div>
+			<title>
+				Верификация | Стройбаза Тиски
+			</title>
 			<div className={styles.wrapper}>
 				<Header />
 				<div className={styles.content}>

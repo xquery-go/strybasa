@@ -84,16 +84,15 @@ const ProductPage = ({ id }: { id?: number | string | undefined }) => {
 				</h1>
 				<div className={styles.poster}>
 					<div className={styles.imgWrapper}>
-						<Image
+						<div
 							className={styles.image}
-							src={
-								item && item.product_image
-									? item.product_image
-									: '/img/ProductImage.jpg'
-							}
-							width={400}
-							height={400}
-							alt={'Product Image'}
+							style={{
+								background: `#F9F9F9 url(${
+									item && item.product_image
+										? `'${item.product_image}'`
+										: '/img/ProductImage.jpg'
+								}) center center/cover no-repeat`,
+							}}
 						/>
 					</div>
 					<div className={styles.meta}>

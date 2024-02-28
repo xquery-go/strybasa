@@ -21,16 +21,19 @@ export const SliderEl = ({ product }: { product: IProduct }) => {
 					href={`/product/${product.product_id}`}
 					className={styles.slider_el_btn}
 				>
-					Shop Now
+					Купить сейчас
 				</Link>
 			</div>
 			{product && product.product_image ? (
-				<Image
+				<div
 					className={styles.image}
-					src={product.product_image}
-					alt={product.name}
-					width={300}
-					height={300}
+					style={{
+						background: `#F9F9F9 url(${
+							product && product.product_image
+								? `'${product.product_image}'`
+								: '/img/ProductImage.jpg'
+						}) center center/cover no-repeat`,
+					}}
 				/>
 			) : (
 				<Image

@@ -96,18 +96,8 @@ const OrderingPage = ({ token }: { token: string }) => {
                     <div className={styles.info}>
                         <p className={`${styles.info_title} ${roboto.className}`}>Информация по оформлению</p>
                         <ul className={styles.info_list}>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in pretium magna.
-                                Ut quis orci a risus mollis tempor id quis mi. Aliquam porta sem congue ligula finibus,
-                                malesuada luctus sapien facilisis. Sed consequat velit vitae lectus volutpat elementum.
-                                In hac habitasse platea dictumst. Vestibulum rutrum nisl erat, eu consequat lorem
-                                rhoncus quis. </li>
-                            <li>Donec porttitor, diam sed vulputate tincidunt, augue nunc facilisis nibh, ac luctus nisl
-                                nibh ac dui. Praesent porta nisl vel sapien consequat sollicitudin. Fusce eros magna,
-                                semper ut odio accumsan, rhoncus commodo nisi. Integer a rhoncus nibh, ut molestie
-                                ipsum. </li>
-                            <li>Sed aliquam diam blandit, rutrum nisl at, eleifend diam. Curabitur
-                                vestibulum, augue in mollis dapibus, tellus sem volutpat diam, quis condimentum est
-                                lectus at ligula. Ut eget dapibus sem. Proin id lobortis dolor.</li>
+                            <li>Для обеспечения максимального комфорта и эффективности обслуживания, наш специалист свяжется с вами по указанному номеру телефона. Мы ценим ваш выбор наших товаров и готовы предоставить вам полную информацию относительно условий заказа и доставки. </li>
+                            <li>Ожидайте звонка нашего представителя, который проинформирует вас о статусе вашего заказа, уточнит детали покупки, а также ответит на все ваши вопросы. Мы нацелены на предоставление первоклассного сервиса, и ваше удовлетворение является для нас приоритетом. </li>
                         </ul>
                     </div>
                 </div>
