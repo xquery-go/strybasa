@@ -11,7 +11,7 @@ export const SpecialProducts = () => {
 		null
 	)
 	useEffect(() => {
-		fetch('http://0.0.0.0:8000/api/products/?format=json')
+		fetch('http://stroi-basa.ru/api/products/?format=json')
 			.then(res => res.json())
 			.then(data => {
 				data = data?.filter((product: IProduct) => Filter(product, 5, null))

@@ -26,7 +26,7 @@ export const RegForm = () => {
 			}
 			let data = await axios({
 				method: 'post',
-				url: 'http://0.0.0.0:8000/api/users/?format=json',
+				url: 'http://stroi-basa.ru/api/users/?format=json',
 				data: values,
 			}).catch(function (error) {
 				return error.response

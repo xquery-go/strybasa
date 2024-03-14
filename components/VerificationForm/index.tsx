@@ -18,11 +18,11 @@ export const VerificationForm = ({
 		// console.log(typeVerification)
 		switch (typeVerification) {
 			case 'changePassword':
-				setUrl('http://0.0.0.0:8000/api/users/confirm_change_password/')
+				setUrl('http://stroi-basa.ru/api/users/confirm_change_password/')
 				setPushUrl('/profile')
 				break
 			case 'registration':
-				setUrl('http://0.0.0.0:8000/api/users/confirm_active_user/')
+				setUrl('http://stroi-basa.ru/api/users/confirm_active_user/')
 				setPushUrl('/login')
 				break
 		}

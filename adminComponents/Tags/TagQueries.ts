@@ -3,7 +3,7 @@ import axios from "axios";
 export const getAllTags = async (token: string) => {
     const data = await axios({
         method: 'get',
-        url: `http://0.0.0.0:8000/api/tags/`,
+        url: `http://stroi-basa.ru/api/tags/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -16,7 +16,7 @@ export const getAllTags = async (token: string) => {
 export const addTag = async (token: string, values: { name: string, slug: string }) => {
     const data = await axios({
         method: 'post',
-        url: 'http://0.0.0.0:8000/api/tags/',
+        url: 'http://stroi-basa.ru/api/tags/',
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -30,7 +30,7 @@ export const addTag = async (token: string, values: { name: string, slug: string
 export const getTagById = async (token: string, values: { id: string | number }) => {
     const data = await axios({
         method: 'get',
-        url: `http://0.0.0.0:8000/api/tags/${values.id}/`,
+        url: `http://stroi-basa.ru/api/tags/${values.id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -46,7 +46,7 @@ export const changeTagById = async (token: string, values: { id: string | number
     );
     const data = await axios({
         method: 'patch',
-        url: `http://0.0.0.0:8000/api/tags/${values.id}/`,
+        url: `http://stroi-basa.ru/api/tags/${values.id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -60,7 +60,7 @@ export const changeTagById = async (token: string, values: { id: string | number
 export const deleteTagById = async (token: string, values: { id: string | number }) => {
     const data = await axios({
         method: 'delete',
-        url: `http://0.0.0.0:8000/api/tags/${values.id}/`,
+        url: `http://stroi-basa.ru/api/tags/${values.id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },

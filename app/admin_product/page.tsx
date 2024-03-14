@@ -27,7 +27,7 @@ export default function AdminLogin() {
             if(el) el.style.display = 'none';
             const data = await axios({
                 method: 'post',
-                url: 'http://0.0.0.0:8000/api/auth/token/login/',
+                url: 'http://stroi-basa.ru/api/auth/token/login/',
                 data: {
                     "phone_number": p_phone_number,
                     "password": values.password

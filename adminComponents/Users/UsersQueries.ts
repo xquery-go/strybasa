@@ -3,7 +3,7 @@ import axios from "axios";
 export const addNewAdministrator = async (token: string, values: { name: string, phone_number: string, password: string }) => {
     const data = await axios({
         method: 'post',
-        url: 'http://0.0.0.0:8000/api/users/admin_create/',
+        url: 'http://stroi-basa.ru/api/users/admin_create/',
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -26,7 +26,7 @@ export const changeUserById = async (token: string, values: { id: string | numbe
     }
     const data = await axios({
         method: 'patch',
-        url: `http://0.0.0.0:8000/api/users/${values.id}/by_admin_user_change/`,
+        url: `http://stroi-basa.ru/api/users/${values.id}/by_admin_user_change/`,
         headers: {
             Authorization: `Token ${token}`,
         },

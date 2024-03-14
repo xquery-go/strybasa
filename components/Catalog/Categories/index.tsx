@@ -7,7 +7,7 @@ import styles from './Categories.module.scss'
 export const Categories = () => {
 	const [categories, setCategories] = useState<null | ICategory[]>(null)
 	useEffect(() => {
-		fetch('http://0.0.0.0:8000/api/categories/?format=json')
+		fetch('http://stroi-basa.ru/api/categories/?format=json')
 			.then(res => res.json())
 			.then(data => {
 				setCategories(data as ICategory[])

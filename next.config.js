@@ -7,6 +7,6 @@ module.exports = {
         styledComponents: true
     },
     images: {
-        domains: ['http://0.0.0.0:8000/api/', 'https://img.icons8.com/', '127.0.0.1'],
+        domains: ['http://stroi-basa.ru/api/', 'https://img.icons8.com/', '127.0.0.1'],
     },
 };

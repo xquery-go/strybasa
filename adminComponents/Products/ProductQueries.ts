@@ -4,7 +4,7 @@ import {initialFormikValues} from "@/adminComponents/Products/addProductComp";
 export const getAllProducts = async (token: string) => {
     const data = await axios({
         method: 'get',
-        url: `http://0.0.0.0:8000/api/products/`,
+        url: `http://stroi-basa.ru/api/products/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -23,7 +23,7 @@ export const addProduct = async (
     const processedValues = { ...values, tags: tags, categories: categories };
     const data = await axios({
         method: 'post',
-        url: 'http://0.0.0.0:8000/api/products/',
+        url: 'http://stroi-basa.ru/api/products/',
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -37,7 +37,7 @@ export const addProduct = async (
 export const getProductById = async (token: string, values: { product_id: string | number }) => {
     const data = await axios({
         method: 'get',
-        url: `http://0.0.0.0:8000/api/products/${values.product_id}/`,
+        url: `http://stroi-basa.ru/api/products/${values.product_id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -65,7 +65,7 @@ export const changeProductById = async (
     );
     const data = await axios({
         method: 'patch',
-        url: `http://0.0.0.0:8000/api/products/${values.product_id}/`,
+        url: `http://stroi-basa.ru/api/products/${values.product_id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -79,7 +79,7 @@ export const changeProductById = async (
 export const deleteProductById = async (token: string, values: { product_id: string | number }) => {
     const data = await axios({
         method: 'delete',
-        url: `http://0.0.0.0:8000/api/products/${values.product_id}/`,
+        url: `http://stroi-basa.ru/api/products/${values.product_id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
