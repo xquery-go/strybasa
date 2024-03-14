@@ -3,7 +3,7 @@ import axios from "axios";
 export const getAllCategories = async (token: string) => {
     const data = await axios({
         method: 'get',
-        url: `http://127.0.0.1/api/categories/`,
+        url: `http://0.0.0.0:8000/api/categories/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -16,7 +16,7 @@ export const getAllCategories = async (token: string) => {
 export const addCategory = async (token: string, values: { name: string, slug: string }) => {
     const data = await axios({
         method: 'post',
-        url: 'http://127.0.0.1/api/categories/',
+        url: 'http://0.0.0.0:8000/api/categories/',
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -30,7 +30,7 @@ export const addCategory = async (token: string, values: { name: string, slug: s
 export const getCategoryById = async (token: string, values: { id: string | number }) => {
     const data = await axios({
         method: 'get',
-        url: `http://127.0.0.1/api/categories/${values.id}/`,
+        url: `http://0.0.0.0:8000/api/categories/${values.id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -46,7 +46,7 @@ export const changeCategoryById = async (token: string, values: { id: string | n
     );
     const data = await axios({
         method: 'patch',
-        url: `http://127.0.0.1/api/categories/${values.id}/`,
+        url: `http://0.0.0.0:8000/api/categories/${values.id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -60,7 +60,7 @@ export const changeCategoryById = async (token: string, values: { id: string | n
 export const deleteCategoryById = async (token: string, values: { id: string | number }) => {
     const data = await axios({
         method: 'delete',
-        url: `http://127.0.0.1/api/categories/${values.id}/`,
+        url: `http://0.0.0.0:8000/api/categories/${values.id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },

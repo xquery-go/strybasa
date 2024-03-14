@@ -23,7 +23,7 @@ export const LoginForm = () => {
 			if (el) el.style.display = 'none'
 			const data = await axios({
 				method: 'post',
-				url: 'http://127.0.0.1/api/auth/token/login/',
+				url: 'http://0.0.0.0:8000/api/auth/token/login/',
 				data: {
 					phone_number: values.phone_number,
 					password: values.password,

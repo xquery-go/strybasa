@@ -39,7 +39,7 @@ export const useUserStore = create<UserStore>(
             if(user_id != -1 && token != '' && token && user_id) {
                 let data = await axios({
                     method: 'get',
-                    url: 'http://127.0.0.1/api/users/profile/',
+                    url: 'http://0.0.0.0:8000/api/users/profile/',
                     headers: {
                         Authorization: `Token ${token}`,
                     }

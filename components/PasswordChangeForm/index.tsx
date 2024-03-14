@@ -21,7 +21,7 @@ export const PasswordChangeForm = () => {
 			}
 			let data = await axios({
 				method: 'post',
-				url: 'http://127.0.0.1/api/users/change_password/',
+				url: 'http://0.0.0.0:8000/api/users/change_password/',
 				data: values,
 			}).catch(function (error) {
 				return error.response

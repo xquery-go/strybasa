@@ -7,7 +7,7 @@ import { queryTypes, useQueryStates } from 'next-usequerystate';
 export const Tags = () => {
     const [tags, setTags] = useState<null | ITag[]>(null);
     useEffect(() => {
-        fetch('http://127.0.0.1/api/tags/?format=json')
+        fetch('http://0.0.0.0:8000/api/tags/?format=json')
             .then((res) => res.json())
             .then((data) => {
                 setTags(data as ITag[])

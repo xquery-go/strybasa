@@ -24,7 +24,7 @@ const OrderingPage = ({ token }: { token: string }) => {
             try {
                 const data = await axios({
                     method: 'post',
-                    url: 'http://127.0.0.1/api/orders/',
+                    url: 'http://0.0.0.0:8000/api/orders/',
                     data: values,
                     headers: {
                         Authorization: `Token ${token}`

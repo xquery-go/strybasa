@@ -11,7 +11,7 @@ import styles from './HomePage.module.scss'
 const HomePage = () => {
 	const [products, setProducts] = useState<null | IProduct[]>(null)
 	useEffect(() => {
-		fetch('http://127.0.0.1/api/products/?format=json')
+		fetch('http://0.0.0.0:8000/api/products/?format=json')
 			.then(res => res.json())
 			.then(data => {
 				setProducts(data as IProduct[])

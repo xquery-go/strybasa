@@ -26,7 +26,7 @@ const ProductPage = ({ id }: { id?: number | string | undefined }) => {
 	const router = useRouter()
 	useEffect(() => {
 		if (!id) router.push('/')
-		fetch(`http://127.0.0.1/api/products/${String(id)}/?format=json`)
+		fetch(`http://0.0.0.0:8000/api/products/${String(id)}/?format=json`)
 			.then(res => res.json())
 			.then(data => {
 				setItem(data as IProduct)

@@ -26,7 +26,7 @@ const useProfileStore = create<ProfileStore>(
             if(token) {
                 const data = await axios({
                     method: 'get',
-                    url: 'http://127.0.0.1/api/orders/',
+                    url: 'http://0.0.0.0:8000/api/orders/',
                     headers: {
                         Authorization: `Token ${token}`
                     },
@@ -46,7 +46,7 @@ const useProfileStore = create<ProfileStore>(
             if(token) {
                 const data = await axios({
                     method: 'get',
-                    url: 'http://127.0.0.1/api/orders/order_status/',
+                    url: 'http://0.0.0.0:8000/api/orders/order_status/',
                     headers: {
                         Authorization: `Token ${token}`
                     },

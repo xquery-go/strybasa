@@ -22,7 +22,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
         try {
             const response = await axios({
                 method: 'get',
-                url: `http://127.0.0.1/api/cart/`,
+                url: `http://0.0.0.0:8000/api/cart/`,
                 headers: {
                     Authorization: `Token ${token}`,
                 },
@@ -48,7 +48,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
             if(token) {
                 const response = await axios({
                     method: 'get',
-                    url: "http://127.0.0.1/api/cart/",
+                    url: "http://0.0.0.0:8000/api/cart/",
                     headers: {
                         Authorization: `Token ${token}`,
                     },
@@ -77,7 +77,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
         try {
             const data = await axios({
                 method: 'post',
-                url: 'http://127.0.0.1/api/cart/',
+                url: 'http://0.0.0.0:8000/api/cart/',
                 data: {
                     "product": product.product_id,
                     "amount": 1,
@@ -92,7 +92,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
         try {
             const data = await axios({
                 method: 'post',
-                url: 'http://127.0.0.1/api/cart/',
+                url: 'http://0.0.0.0:8000/api/cart/',
                 data: {
                     "product": product.product_id,
                     "amount": quantity,
@@ -107,7 +107,7 @@ const useShopCartStore = create<ShopCartStore>((set) => ({
         try {
             const response = await axios({
                 method: 'get',
-                url: `http://127.0.0.1/api/cart/${product_id}/`,
+                url: `http://0.0.0.0:8000/api/cart/${product_id}/`,
                 headers: {
                     Authorization: `Token ${token}`
                 },

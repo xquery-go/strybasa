@@ -3,7 +3,7 @@ import axios from "axios";
 export const getAllOrders = async (token: string) => {
     const data = await axios({
         method: 'get',
-        url: `http://127.0.0.1/api/orders/all_orders/`,
+        url: `http://0.0.0.0:8000/api/orders/all_orders/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -30,7 +30,7 @@ export const changeOrderById = async (
     delete processedValues.order_id;
     const data = await axios({
         method: 'patch',
-        url: `http://127.0.0.1/api/orders/${order_id}/`,
+        url: `http://0.0.0.0:8000/api/orders/${order_id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -44,7 +44,7 @@ export const changeOrderById = async (
 export const deleteOrderById = async (token: string, values: { order_id: string | number }) => {
     const data = await axios({
         method: 'delete',
-        url: `http://127.0.0.1/api/orders/${values.order_id}/`,
+        url: `http://0.0.0.0:8000/api/orders/${values.order_id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -57,7 +57,7 @@ export const deleteOrderById = async (token: string, values: { order_id: string 
 export const getOrderById = async (token: string, values: { order_id: string | number }) => {
     const data = await axios({
         method: 'get',
-        url: `http://127.0.0.1/api/orders/${values.order_id}/`,
+        url: `http://0.0.0.0:8000/api/orders/${values.order_id}/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -70,7 +70,7 @@ export const getOrderById = async (token: string, values: { order_id: string | n
 export const getOrderByPhoneNumber = async (token: string, values: { phone_number: string | number }) => {
     const data = await axios({
         method: 'post',
-        url: `http://127.0.0.1/api/orders/by_phone_orders/`,
+        url: `http://0.0.0.0:8000/api/orders/by_phone_orders/`,
         headers: {
             Authorization: `Token ${token}`,
         },
@@ -85,7 +85,7 @@ export const getOrderByPhoneNumber = async (token: string, values: { phone_numbe
 export const getOrdersStatuses = async (token: string) => {
     const data = await axios({
         method: 'get',
-        url: `http://127.0.0.1/api/orders/order_status/`,
+        url: `http://0.0.0.0:8000/api/orders/order_status/`,
         headers: {
             Authorization: `Token ${token}`,
         },
