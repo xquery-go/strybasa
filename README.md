@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# E-commerce Store
 
-First, run the development server:
+<img width="1285" alt="Снимок экрана 2024-07-17 в 14 54 24" src="https://github.com/user-attachments/assets/236ada64-caa3-4244-acb3-3f85b98057f9">
+<img width="1426" alt="Снимок экрана 2024-07-17 в 14 55 33" src="https://github.com/user-attachments/assets/0716c821-3ea9-4619-8ddd-83435a61662a">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project is a fully functional online store developed using Next.js, with a comprehensive admin panel for easy product and information management. The frontend is seamlessly integrated with a backend built on Django REST Framework (DRF) via REST API. Additionally, I assisted the company with deploying the site on a server.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Next.js Frontend**: A responsive and modern user interface for an enhanced shopping experience.
+- **Admin Panel**: A user-friendly admin panel for managing products, categories, orders, and other relevant information.
+- **DRF Backend**: A robust backend powered by Django REST Framework, ensuring reliable data handling and security.
+- **REST API Integration**: Smooth communication between the frontend and backend using REST API.
+- **Deployment Assistance**: Guidance and support for deploying the website on a server for production use.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js, React
+- **Backend**: Django, Django REST Framework (DRF)
+- **Database**: PostgreSQL (or specify the database used)
+- **Deployment**: (Specify the server or cloud services used, e.g., AWS, DigitalOcean, etc.)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setup and Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/yourusername/e-commerce-store.git
+    ```
 
-## Deploy on Vercel
+2. **Navigate to the project directory**:
+    ```sh
+    cd e-commerce-store
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Install frontend dependencies**:
+    ```sh
+    cd frontend
+    npm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **Install backend dependencies**:
+    ```sh
+    cd backend
+    pip install -r requirements.txt
+    ```
+
+5. **Configure environment variables**:
+    - Create a `.env` file in both the frontend and backend directories.
+    - Add the necessary environment variables as specified in `.env.example`.
+
+6. **Run the development server**:
+    - **Frontend**:
+        ```sh
+        cd frontend
+        npm run dev
+        ```
+    - **Backend**:
+        ```sh
+        cd backend
+        python manage.py runserver
+        ```
+
+## Contributions
+
+Feel free to fork this repository, submit issues and feature requests, and make pull requests. For major changes, please open an issue first to discuss what you would like to change.
