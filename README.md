@@ -22,46 +22,6 @@ This project is a fully functional online store developed using Next.js, with a 
 - **Database**: PostgreSQL (or specify the database used)
 - **Deployment**: (Specify the server or cloud services used, e.g., AWS, DigitalOcean, etc.)
 
-## Setup and Installation
-
-1. **Clone the repository**:
-    ```sh
-    git clone https://github.com/yourusername/e-commerce-store.git
-    ```
-
-2. **Navigate to the project directory**:
-    ```sh
-    cd e-commerce-store
-    ```
-
-3. **Install frontend dependencies**:
-    ```sh
-    cd frontend
-    npm install
-    ```
-
-4. **Install backend dependencies**:
-    ```sh
-    cd backend
-    pip install -r requirements.txt
-    ```
-
-5. **Configure environment variables**:
-    - Create a `.env` file in both the frontend and backend directories.
-    - Add the necessary environment variables as specified in `.env.example`.
-
-6. **Run the development server**:
-    - **Frontend**:
-        ```sh
-        cd frontend
-        npm run dev
-        ```
-    - **Backend**:
-        ```sh
-        cd backend
-        python manage.py runserver
-        ```
-
 ## Contributions
 
 Feel free to fork this repository, submit issues and feature requests, and make pull requests. For major changes, please open an issue first to discuss what you would like to change.
