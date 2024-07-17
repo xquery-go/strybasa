@@ -5,7 +5,7 @@
 <img width="1426" alt="Снимок экрана 2024-07-17 в 14 55 33" src="https://github.com/user-attachments/assets/0716c821-3ea9-4619-8ddd-83435a61662a">
 
 
-This project is a fully functional online store developed using Next.js, with a comprehensive admin panel for easy product and information management. The frontend is seamlessly integrated with a backend built on Django REST Framework (DRF) via REST API. Additionally, I assisted the company with deploying the site on a server.
+This project is a fully functional online store developed using Next.js, with a comprehensive admin panel for easy product and information management. The frontend is seamlessly integrated with a backend built on Django REST Framework (DRF) via REST API.
 
 ## Features
 
